@@ -7,18 +7,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.univille.fsoweb2024.repository.CorretorRepository;
+import br.univille.fsoweb2024.service.CorretorService;
 
 @Controller
 @RequestMapping("/corretores")
 public class CorretorController {
     
-    @Autowired //amarra pra mim ai
-    private CorretorRepository repository;
+    @Autowired
+    private CorretorService service;
 
     @GetMapping
     public ModelAndView index(){
         //chamar banco de dados e fazer um select * from tabelas
-        var listaCorretores = repository.findAll();
+        var listaCorretores = service.getAll();
         //montar a tela html com dados do banco
         return new ModelAndView("corretor/index","listaCorretores",listaCorretores);
 

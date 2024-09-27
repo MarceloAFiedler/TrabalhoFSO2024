@@ -11,12 +11,14 @@
                     <th>Nome</th>
                     <th>Sobrenome</th>
                     <th>Email</th>
+                    <th>Data de Nascimento</th>
                 </thead>
                 <tbody>
                     <tr th:each="umCorretor : ${listaCorretores}">
-                        <td th:text="&umCorretor.nome"></td>
-                        <td th:text="&umCorretor.sobrenome"></td>
-                        <td th:text="&umCorretor.email"></td>
+                        <td th:text="${&umCorretor.nome}"></td>
+                        <td th:text="${&umCorretor.sobrenome}"></td>
+                        <td th:text="${&umCorretor.email}"></td>
+                        <td th:text="${&umCorretor.dataNascimento}"></td>
                     </tr>
                 </tbody>
             </table>

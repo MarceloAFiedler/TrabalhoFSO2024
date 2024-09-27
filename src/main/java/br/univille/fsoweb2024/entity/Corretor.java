@@ -1,10 +1,16 @@
 package br.univille.fsoweb2024.entity;
 
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @Entity
 public class Corretor {
@@ -18,9 +24,18 @@ public class Corretor {
     public String segundoNome;
     @Column(length = 1000)
     public String email;
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date dataNascimento;
     
     //+List<Meta> metas
     //+List<Clientes> carteiraDeClientes
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
     public long getId() {
         return id;
     }
