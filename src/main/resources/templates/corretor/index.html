@@ -6,7 +6,10 @@
         <nav th:replace="layout :: menu">(menu)</nav>
         <main class="container">
             <h1>Corretores</h1>
-            <table class="table">
+
+            <a href="/corretores/novo" class="btn btn-primary">Novo</a>
+
+            <table class="table" id="tabelacorretores">
                 <thead>
                     <th>Nome</th>
                     <th>Sobrenome</th>
@@ -15,10 +18,20 @@
                 </thead>
                 <tbody>
                     <tr th:each="umCorretor : ${listaCorretores}">
-                        <td th:text="${&umCorretor.nome}"></td>
-                        <td th:text="${&umCorretor.sobrenome}"></td>
-                        <td th:text="${&umCorretor.email}"></td>
-                        <td th:text="${&umCorretor.dataNascimento}"></td>
+                        <td th:text="${umCorretor.primeiroNome}"></td>
+                        <td th:text="${umCorretor.segundoNome}"></td>
+                        <td th:text="${umCorretor.email}"></td>
+                        <td th:text="${umCorretor.dataNascimento}"></td>
+                        <td>
+                            <a th:href="@{'/corretores/alterar/' + ${umCorretor.id}}" class="btn btn-warning">
+                            Alterar
+                            </a>
+
+                            <button class="btn btn-danger js-delete" 
+                                    th:data-id="${umCorretor.id}">
+                            Excluir</button>
+
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -26,5 +39,24 @@
 
         
         <div th:include="layout :: footer">(footer)</div>
+        <script th:src="@{/scriptcorretor.js}"></script>
     </body>
 </html>
+
+<div class="modal" tabindex="-1" id="modalcorretor">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Excluir Corretor</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Confirma a exclusão do corretor?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+          <button type="button" class="btn btn-primary" id="btnsim">Sim</button>
+        </div>
+      </div>
+    </div>
+  </div>

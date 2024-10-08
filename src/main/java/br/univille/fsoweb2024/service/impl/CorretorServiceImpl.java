@@ -21,20 +21,26 @@ public class CorretorServiceImpl implements CorretorService{
 
     @Override
     public Corretor save(Corretor corretor) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'save'");
+        repository.save(corretor);
+        return corretor;
     }
 
     @Override
     public Corretor delete(long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+        var retorno = repository.findById(id);
+        if(retorno.isPresent()){
+            repository.deleteById(id);
+            return retorno.get();
+        }
+        return null;
     }
 
     @Override
     public Corretor getByID(long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getByID'");
+        var retorno = repository.findById(id);
+        if (retorno.isPresent())
+            return retorno.get();
+        return null;
     }
     
 }
