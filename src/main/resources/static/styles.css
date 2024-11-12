@@ -1,0 +1,199 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.menu-geral {
+    background-color: #DA4C00;
+    width: 100%;
+    height: 80px;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; 
+}
+
+.menu-geral-item {
+    margin: 20px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+}
+
+.menu-itens {
+    margin-right: 20px;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    list-style-type: none;
+    text-decoration: none;  
+    color: white;
+    font-size: 25px;
+    font-weight: 1000;
+}
+
+a:hover {
+    color: #fc8e53;
+}
+
+#menu-geral-logo-imagem {
+    font-size: 50px;
+    width: 50px;
+    height: 50px;
+    margin: 20px;
+}
+
+.caixa-de-conteudo-solo {
+    background-color: #D9D9D9;
+    border-radius: 8px;
+    margin: 110px 30px 30px 30px;
+    min-width: calc(100vw - 60px);
+    min-height: 85svh;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    padding: 25px;
+}
+
+.caixa-da-tabela { 
+    overflow-x: auto;
+    max-width: 100%; 
+}
+
+.tabela_listar {
+    table-layout: fixed;
+    width: 100%;
+    border: 5px solid #DA4C00;
+    border-radius: 8px;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.tabela_listar thead {
+    background-color: #DA4C00;
+    color: white;
+}
+
+td, th {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: none;
+    text-align: center;
+    font-size: 15px;
+}
+
+.hUm {
+    color: #DA4C00;
+    font-size: 25px;
+    font-weight: 1000;
+    margin-top: 7px;
+}
+
+.form-group {
+    width: 220px;
+}
+
+.texto-campo-input {
+    color: #767676;
+    font-weight: 800;
+    margin-bottom: 10px;
+    margin-left: 2px;
+    font-size: 15px;
+}
+
+.entrada-campo-input {
+    border: 5px solid #767676;
+    border-radius: 8px;
+}
+
+.mini_menu_paginas_listar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mini_menu_paginas_listar_mini_nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.retornar {
+    background-color: #DA4C00;
+    color: #D9D9D9;
+    height: 35px;
+    width: 35px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    border: 0px;
+    border-radius: 8px;
+    font-weight: 1500;
+}
+
+.btn {
+    height: 35px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+.form-group {
+    margin-top: 10px;
+}
+
+.btn-success, .btn-danger {
+    width: 100px;
+}
+
+.btn_espacinho {
+    margin-left: 10px;
+}
+
+.entrada_email {
+    width: 500px;
+}
+
+.entrada_comissao {
+    width: 150px;
+}
+
+.entrada_data_de_nascimento {
+    width: 200px;
+}
+
+.entrada_nome {
+    width: 450px;
+}
+
+
+@media (max-width: 1500px) {
+    
+    .tabela_listar {
+        table-layout: auto;
+        width: auto;
+    }
+    
+    td, th {
+        white-space: normal;
+        overflow: visible; 
+        text-overflow: clip;
+    }
+    
+    .caixa-da-tabela {
+        overflow-x: auto;
+    }
+}
+

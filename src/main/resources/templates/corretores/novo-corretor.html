@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head th:include="layout :: htmlhead"></head>
+    <body>
+        
+        <nav th:replace="layout :: menu">(menu)</nav>
+
+        <main class="caixa-de-conteudo-solo">
+
+
+                <h1 class="hUm">Cadastrar</h1>
+
+                <form th:action="@{/corretores}"
+                  method="POST"
+                  th:object="${umCorretor}">
+                 
+                  <input type="hidden" th:field="*{id}">
+                  <input type="hidden" th:field="*{data_de_criacao_do_registro}">
+                  <input type="hidden" th:field="*{data_de_ultima_alteracao}">
+
+                <div class="form-group">
+                    <label class="texto-campo-input" for="txt_nome">Nome</label>
+                    <input id="txt_nome"
+                            th:field="*{nome}"
+                            type="text" 
+                            class="form-control entrada-campo-input entrada_nome">
+                </div>
+
+                <div class="form-group">
+                    <label class="texto-campo-input" for="txt_sobrenome">Sobrenome</label>
+                    <input id="txt_sobrenome"
+                            th:field="*{sobrenome}"
+                            type="text"
+                            class="form-control entrada-campo-input entrada_nome">
+                </div>
+
+                <div class="form-group">
+                    <label class="texto-campo-input" for="txt_rg">RG</label>
+                    <input id="txt_rg"
+                            th:field="*{rg}"
+                            type="text"
+                            class="form-control entrada-campo-input">
+                </div>
+
+                <div class="form-group">
+                    <label class="texto-campo-input" for="txt_cpf">CPF</label>
+                    <input id="txt_cpf"
+                            th:field="*{cpf}"
+                            type="text"
+                            class="form-control entrada-campo-input">
+                </div>
+                <div class="form-group">
+                    <label class="texto-campo-input" for="txt_creci">CRECI</label>
+                    <input id="txt_creci"
+                            th:field="*{creci}"
+                            type="text"
+                            class="form-control entrada-campo-input">
+                </div>
+
+                <div class="form-group">
+                    <label class="texto-campo-input" for="txt_data_de_nascimento">Data de Nascimento</label>
+                    <input id="txt_data_de_nascimento"
+                           th:field="*{data_de_nascimento}"
+                           type="date"
+                           class="form-control entrada-campo-input entrada_data_de_nascimento">
+                </div>
+
+                <div class="form-group">
+                    <label class="texto-campo-input" for="txt_comissao">Comissão (%)</label>
+                    <input id="txt_comissao"
+                            th:field="*{comissao}"
+                            type="number"
+                            step="0.01"
+                            min="0"
+                            class="form-control entrada-campo-input entrada_comissao">
+                </div>
+
+                <div class="form-group">
+                    <label class="texto-campo-input" for="txt_email">Email</label>
+                    <input id="txt_email"
+                            th:field="*{email}"
+                            type="email"
+                            class="form-control entrada-campo-input entrada_email">
+                </div>
+                <br>
+                    <a href="/corretores" class="form-control btn btn-danger">Cancelar</a>
+                    <button type="submit" class="form-control btn btn-success btn_espacinho" >Salvar</button>    
+            </form>
+
+
+            
+        </main>
+
+        <div th:include="layout :: footer">(footer)</div>
+        <script th:src="@{/scriptcliente.js}"></script>
+    </body>
+</html>
