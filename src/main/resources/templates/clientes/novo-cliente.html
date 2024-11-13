@@ -33,22 +33,45 @@
                             type="text"
                             class="form-control entrada-campo-input entrada_nome">
                 </div>
+                
                 <div class="form-group">
                     <label class="texto-campo-input">Tipo de Cliente</label>
                     <div>
-                <div>
-                    <input type="radio" id="tipo_pessoa_fisica" th:field="*{tipo}" value="Pessoa Física" 
-                           class="form-check-input entrada-campo-input"
-                           th:checked="${umCliente.tipo == 'Pessoa Física'}">
-                    <label for="tipo_pessoa_fisica" class="form-check-label">Pessoa Física</label>
+                        <input type="radio" id="tipo_pessoa_fisica" th:field="*{tipo}" value="Pessoa Física" 
+                               class="form-check-input entrada-campo-input"
+                               th:checked="${umCliente.tipo == 'Pessoa Física'}">
+                        <label for="tipo_pessoa_fisica" class="form-check-label">Pessoa Física</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="tipo_pessoa_juridica" th:field="*{tipo}" value="Pessoa Jurídica" 
+                               class="form-check-input entrada-campo-input"
+                               th:checked="${umCliente.tipo == 'Pessoa Jurídica'}">
+                        <label for="tipo_pessoa_juridica" class="form-check-label">Pessoa Jurídica</label>
+                    </div>
                 </div>
-                <div>
-                    <input type="radio" id="tipo_pessoa_juridica" th:field="*{tipo}" value="Pessoa Jurídica" 
-                           class="form-check-input entrada-campo-input"
-                           th:checked="${umCliente.tipo == 'Pessoa Jurídica'}">
-                    <label for="tipo_pessoa_juridica" class="form-check-label">Pessoa Jurídica</label>
+
+                <div class="form-group">
+                    <label class="texto-campo-input">Função de Cliente</label>
+                    <div>
+                        <input type="radio" id="tipo_pessoa_fisica" th:field="*{funcao}" value="1" 
+                               class="form-check-input entrada-campo-input"
+                               th:checked="${umCliente.funcao == '1'}">
+                        <label for="tipo_pessoa_fisica" class="form-check-label">Proprietário</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="tipo_comprador" th:field="*{funcao}" value="2" 
+                               class="form-check-input entrada-campo-input"
+                               th:checked="${umCliente.funcao == '2'}">
+                        <label for="tipo_comprador" class="form-check-label">Comprador</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="tipo_alugador" th:field="*{funcao}" value="3" 
+                               class="form-check-input entrada-campo-input"
+                               th:checked="${umCliente.funcao == '3'}">
+                        <label for="tipo_alugador" class="form-check-label">Alugador</label>
+                    </div>
                 </div>
-            </div>
+                
 
                 <div class="form-group">
                     <label class="texto-campo-input" for="txt_rg">RG</label>

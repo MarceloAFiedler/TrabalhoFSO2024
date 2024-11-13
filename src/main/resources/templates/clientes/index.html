@@ -23,6 +23,7 @@
                         <th>Nome</th>
                         <th>Sobrenome</th>
                         <th>Tipo</th>
+                        <th>Função</th>
                         <th>RG</th>
                         <th>CPF</th>
                         <th>Email</th>
@@ -39,6 +40,14 @@
                             <td th:text="${cliente.nome}"></td>
                             <td th:text="${cliente.sobrenome}"></td>
                             <td th:text="${cliente.tipo}"></td>
+                            <td>
+                              <span th:switch="${cliente.funcao}">
+                                  <span th:case="1">Proprietário</span>
+                                  <span th:case="2">Comprador</span>
+                                  <span th:case="3">Alugador</span>
+                                  <span th:case="*">Desconhecido</span> <!-- Caso o valor não seja 1, 2 ou 3 -->
+                              </span>
+                          </td>
                             <td th:text="${cliente.rg}"></td>
                             <td th:text="${cliente.cpf}"></td>
                             <td th:text="${cliente.email}"></td>
