@@ -73,38 +73,41 @@ public class Startup {
             var cliente1 = new Cliente();
             cliente1.setNome("Monkey D.");
             cliente1.setSobrenome("Luffy");
-            cliente1.setTipo("Pirata");
+            cliente1.setTipo("Pessoa Física");
             cliente1.setRg("123456789");
             cliente1.setCpf("123.456.789-00");
             cliente1.setEmail("monkeydluffy@onepiece.com");
             cliente1.setTelefone("47 999999001");
             cliente1.setData_de_nascimento(sdf.parse("05/05/1999"));
             cliente1.setCorretor_responsavel(corretorService.getById(1));
+            cliente1.setFuncao("1");
             clienteService.save(cliente1);
     
             // Cliente 2 - Zoro
             var cliente2 = new Cliente();
             cliente2.setNome("Roronoa");
             cliente2.setSobrenome("Zoro");
-            cliente2.setTipo("Pirata");
+            cliente2.setTipo("Pessoa Física");
             cliente2.setRg("234567890");
             cliente2.setCpf("234.567.890-11");
             cliente2.setEmail("roronoazoro@onepiece.com");
             cliente2.setTelefone("47 999999002");
-            cliente2.setData_de_nascimento(sdf.parse("11\11\1996"));
+            cliente2.setData_de_nascimento(sdf.parse("11/11/1996"));
             cliente2.setCorretor_responsavel(corretorService.getById(2));
+            cliente2.setFuncao("1");
             clienteService.save(cliente2);
     
             // Cliente 3 - Nami
             var cliente3 = new Cliente();
             cliente3.setNome("Nami");
             cliente3.setSobrenome("Nami");
-            cliente3.setTipo("Pirata");
+            cliente3.setTipo("Pessoa Física");
             cliente3.setRg("345678901");
             cliente3.setCpf("345.678.901-22");
             cliente3.setEmail("nami@onepiece.com");
             cliente3.setTelefone("47 999999003");
             cliente3.setData_de_nascimento(sdf.parse("03/07/1996"));
+            cliente3.setFuncao("1");
             cliente3.setCorretor_responsavel(corretorService.getById(1));
             clienteService.save(cliente3);
     
@@ -112,12 +115,13 @@ public class Startup {
             var cliente4 = new Cliente();
             cliente4.setNome("Usopp");
             cliente4.setSobrenome("Usopp");
-            cliente4.setTipo("Pirata");
+            cliente4.setTipo("Pessoa Jurídica");
             cliente4.setRg("456789012");
             cliente4.setCpf("456.789.012-33");
             cliente4.setEmail("usopp@onepiece.com");
             cliente4.setTelefone("47 999999004");
             cliente4.setData_de_nascimento(sdf.parse("01/04/1997"));
+            cliente4.setFuncao("2");
             cliente4.setCorretor_responsavel(corretorService.getById(3));
             clienteService.save(cliente4);
     
@@ -125,12 +129,13 @@ public class Startup {
             var cliente5 = new Cliente();
             cliente5.setNome("Vinsmoke");
             cliente5.setSobrenome("Sanji");
-            cliente5.setTipo("Pirata");
+            cliente5.setTipo("Pessoa Jurídica");
             cliente5.setRg("567890123");
             cliente5.setCpf("567.890.123-44");
             cliente5.setEmail("vinsmokesanji@onepiece.com");
             cliente5.setTelefone("47 999999005");
             cliente5.setData_de_nascimento(sdf.parse("02/03/1995"));
+            cliente5.setFuncao("2");
             cliente5.setCorretor_responsavel(corretorService.getById(2));
             clienteService.save(cliente5);
     
@@ -138,12 +143,13 @@ public class Startup {
             var cliente6 = new Cliente();
             cliente6.setNome("Tony Tony");
             cliente6.setSobrenome("Chopper");
-            cliente6.setTipo("Pirata");
+            cliente6.setTipo("Pessoa Jurídica");
             cliente6.setRg("678901234");
             cliente6.setCpf("678.901.234-55");
             cliente6.setEmail("tonytonychopper@onepiece.com");
             cliente6.setTelefone("47 999999006");
             cliente6.setData_de_nascimento(sdf.parse("24/12/2000"));
+            cliente6.setFuncao("1");
             cliente6.setCorretor_responsavel(corretorService.getById(2));
             clienteService.save(cliente6);
     
@@ -151,25 +157,27 @@ public class Startup {
             var cliente7 = new Cliente();
             cliente7.setNome("Nico");
             cliente7.setSobrenome("Robin");
-            cliente7.setTipo("Pirata");
+            cliente7.setTipo("Pessoa Jurídica");
             cliente7.setRg("789012345");
             cliente7.setCpf("789.012.345-66");
             cliente7.setEmail("nicorobin@onepiece.com");
             cliente7.setTelefone("47 999999007");
             cliente7.setData_de_nascimento(sdf.parse("06/02/1997"));
             cliente7.setCorretor_responsavel(corretorService.getById(3));
+            cliente7.setFuncao("1");
             clienteService.save(cliente7);
     
             // Cliente 8 - Franky
             var cliente8 = new Cliente();
             cliente8.setNome("Cutty");
             cliente8.setSobrenome("Flamingo Franky");
-            cliente8.setTipo("Pirata");
+            cliente8.setTipo("Pessoa Física");
             cliente8.setRg("890123456");
             cliente8.setCpf("890.123.456-77");
             cliente8.setEmail("franky@onepiece.com");
             cliente8.setTelefone("47 999999008");
             cliente8.setData_de_nascimento(sdf.parse("09/03/1995"));
+            cliente8.setFuncao("2");
             cliente8.setCorretor_responsavel(corretorService.getById(1));
             clienteService.save(cliente8);
     
@@ -183,6 +191,7 @@ public class Startup {
             cliente9.setEmail("brook@onepiece.com");
             cliente9.setTelefone("47 999999009");
             cliente9.setData_de_nascimento(sdf.parse("03/04/1993"));
+            cliente9.setFuncao("3");
             cliente9.setCorretor_responsavel(corretorService.getById(2));
             clienteService.save(cliente9);
     
@@ -197,6 +206,7 @@ public class Startup {
             cliente10.setTelefone("47 999999010");
             cliente10.setData_de_nascimento(sdf.parse("05/05/1990"));
             cliente10.setCorretor_responsavel(corretorService.getById(3));
+            cliente10.setFuncao("1");
             clienteService.save(cliente10);
         } catch (ParseException e) {
             e.printStackTrace();

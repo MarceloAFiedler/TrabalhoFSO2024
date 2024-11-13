@@ -31,6 +31,8 @@ public class Cliente {
     @Column(length = 1000, nullable = false)
     private String tipo;
     @Column(length = 1000, nullable = false)
+    private String funcao;
+    @Column(length = 1000, nullable = false)
     private String rg;
     @Column(length = 1000, nullable = false)
     private String cpf;
@@ -76,6 +78,12 @@ public class Cliente {
     }
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+    public String getFuncao() {
+        return funcao;
+    }
+    public void setFuncao(String funcao) {
+        this.funcao = funcao;
     }
     public String getRg() {
         return rg;
