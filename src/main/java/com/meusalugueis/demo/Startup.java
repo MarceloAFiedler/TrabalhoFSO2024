@@ -73,7 +73,7 @@ public class Startup {
             var cliente1 = new Cliente();
             cliente1.setNome("Monkey D.");
             cliente1.setSobrenome("Luffy");
-            cliente1.setTipo("Pirata");
+            cliente1.setTipo("Pessoa Física");
             cliente1.setRg("123456789");
             cliente1.setCpf("123.456.789-00");
             cliente1.setEmail("monkeydluffy@onepiece.com");
@@ -86,12 +86,12 @@ public class Startup {
             var cliente2 = new Cliente();
             cliente2.setNome("Roronoa");
             cliente2.setSobrenome("Zoro");
-            cliente2.setTipo("Pirata");
+            cliente2.setTipo("Pessoa Física");
             cliente2.setRg("234567890");
             cliente2.setCpf("234.567.890-11");
             cliente2.setEmail("roronoazoro@onepiece.com");
             cliente2.setTelefone("47 999999002");
-            cliente2.setData_de_nascimento(sdf.parse("11\11\1996"));
+            cliente2.setData_de_nascimento(sdf.parse("11/11/1996"));
             cliente2.setCorretor_responsavel(corretorService.getById(2));
             clienteService.save(cliente2);
     
@@ -99,7 +99,7 @@ public class Startup {
             var cliente3 = new Cliente();
             cliente3.setNome("Nami");
             cliente3.setSobrenome("Nami");
-            cliente3.setTipo("Pirata");
+            cliente3.setTipo("Pessoa Física");
             cliente3.setRg("345678901");
             cliente3.setCpf("345.678.901-22");
             cliente3.setEmail("nami@onepiece.com");
@@ -112,7 +112,7 @@ public class Startup {
             var cliente4 = new Cliente();
             cliente4.setNome("Usopp");
             cliente4.setSobrenome("Usopp");
-            cliente4.setTipo("Pirata");
+            cliente4.setTipo("Pessoa Jurídica");
             cliente4.setRg("456789012");
             cliente4.setCpf("456.789.012-33");
             cliente4.setEmail("usopp@onepiece.com");
@@ -125,7 +125,7 @@ public class Startup {
             var cliente5 = new Cliente();
             cliente5.setNome("Vinsmoke");
             cliente5.setSobrenome("Sanji");
-            cliente5.setTipo("Pirata");
+            cliente5.setTipo("Pessoa Jurídica");
             cliente5.setRg("567890123");
             cliente5.setCpf("567.890.123-44");
             cliente5.setEmail("vinsmokesanji@onepiece.com");
@@ -138,7 +138,7 @@ public class Startup {
             var cliente6 = new Cliente();
             cliente6.setNome("Tony Tony");
             cliente6.setSobrenome("Chopper");
-            cliente6.setTipo("Pirata");
+            cliente6.setTipo("Pessoa Jurídica");
             cliente6.setRg("678901234");
             cliente6.setCpf("678.901.234-55");
             cliente6.setEmail("tonytonychopper@onepiece.com");
@@ -151,7 +151,7 @@ public class Startup {
             var cliente7 = new Cliente();
             cliente7.setNome("Nico");
             cliente7.setSobrenome("Robin");
-            cliente7.setTipo("Pirata");
+            cliente7.setTipo("Pessoa Jurídica");
             cliente7.setRg("789012345");
             cliente7.setCpf("789.012.345-66");
             cliente7.setEmail("nicorobin@onepiece.com");
@@ -164,7 +164,7 @@ public class Startup {
             var cliente8 = new Cliente();
             cliente8.setNome("Cutty");
             cliente8.setSobrenome("Flamingo Franky");
-            cliente8.setTipo("Pirata");
+            cliente8.setTipo("Pessoa Física");
             cliente8.setRg("890123456");
             cliente8.setCpf("890.123.456-77");
             cliente8.setEmail("franky@onepiece.com");
