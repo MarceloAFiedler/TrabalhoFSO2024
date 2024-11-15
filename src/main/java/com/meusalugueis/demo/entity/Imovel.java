@@ -20,18 +20,28 @@ public class Imovel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(length = 1000, nullable = false)
+    private String codigo;
+
     @Column(length = 1000, nullable = false)
     private String nome;
+
     @Column(length = 1000, nullable = false)
     private String cidade;
+
     @Column(length = 1000, nullable = false)
     private String estado;
+
     @Column(length = 1000, nullable = false)
     private String rua;
+
     @Column(length = 1000, nullable = false)
     private String numero;
+
     @Column(length = 1000, nullable = false)
     private String cep;
+
     @Column(length = 1000)
     private String ponto_de_referencia;
 
@@ -103,6 +113,7 @@ public class Imovel {
     @CreationTimestamp
     @Column(updatable = false)
     private LocalDateTime data_de_criacao_do_registro;
+    
     @UpdateTimestamp
     @Column()
     private LocalDateTime data_de_ultima_alteracao;
@@ -353,6 +364,14 @@ public class Imovel {
 
     public void setData_de_ultima_alteracao(LocalDateTime data_de_ultima_alteracao) {
         this.data_de_ultima_alteracao = data_de_ultima_alteracao;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
 }

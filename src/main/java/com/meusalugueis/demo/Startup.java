@@ -218,6 +218,7 @@ public class Startup {
             // cadastrando Imoveis
 
             Imovel imovel1 = new Imovel();
+            imovel1.setCodigo("#001");
             imovel1.setNome("Casa de Praia");
             imovel1.setCidade("Rio de Janeiro");
             imovel1.setEstado("RJ");
@@ -242,6 +243,7 @@ public class Startup {
             imovelService.save(imovel1);
     
             Imovel imovel2 = new Imovel();
+            imovel2.setCodigo("#002");
             imovel2.setNome("Apartamento no Centro");
             imovel2.setCidade("São Paulo");
             imovel2.setEstado("SP");
@@ -264,6 +266,32 @@ public class Startup {
             imovel2.setCliente_proprietario(cliente2);
     
             imovelService.save(imovel2);
+
+            Imovel imovel3 = new Imovel();
+            imovel3.setCodigo("#003");
+            imovel3.setNome("Apartamento no Centro");
+            imovel3.setCidade("Joinville");
+            imovel3.setEstado("SC");
+            imovel3.setRua("Rua dos 2 Irmãos");
+            imovel3.setNumero("900");
+            imovel3.setCep("98885-432");
+            imovel3.setPonto_de_referencia("Perto do centro");
+            imovel3.setAndares(1);
+            imovel3.setQuantidade_de_quartos(2);
+            imovel3.setQuantidade_de_suites(1);
+            imovel3.setQuantidade_de_cozinhas(1);
+            imovel3.setQuantidade_de_banheiros(2);
+            imovel3.setQuantidade_de_salas(1);
+            imovel3.setQuantidade_de_garagens(1);
+            imovel3.setValor(new BigDecimal("500000.00"));
+            imovel3.setStatus("2"); // Reservado
+            imovel3.setTipo("2"); // Apartamento
+            imovel3.setVenda_ou_aluguel("2"); // Aluguel
+            imovel3.setInformacoes_extras("Apartamento moderno, reformado.");
+            imovel3.setCliente_proprietario(cliente3);
+    
+            imovelService.save(imovel3);
+
         } catch (ParseException e) {
             e.printStackTrace();
         }

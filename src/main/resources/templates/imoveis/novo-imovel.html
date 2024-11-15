@@ -18,11 +18,19 @@
                 <input type="hidden" th:field="*{data_de_ultima_alteracao}">
 
                 <div class="form-group">
+                    <label class="texto-campo-input " for="txt_codigo">Código</label>
+                    <input id="txt_codigo" 
+                           th:field="*{codigo}" 
+                           type="text" 
+                           class="form-control entrada-campo-input entrada_nome">
+                </div>
+
+                <div class="form-group">
                     <label class="texto-campo-input" for="txt_nome">Nome</label>
                     <input id="txt_nome" 
                            th:field="*{nome}" 
                            type="text" 
-                           class="form-control entrada-campo-input">
+                           class="form-control  entrada_nome entrada-campo-input">
                 </div>
 
                 <div class="form-group">
@@ -70,7 +78,7 @@
                     <input id="txt_ponto_de_referencia" 
                            th:field="*{ponto_de_referencia}" 
                            type="text" 
-                           class="form-control entrada-campo-input">
+                           class="form-control entrada_email entrada-campo-input">
                 </div>
 
                 <div class="form-group">
@@ -78,7 +86,7 @@
                     <input id="txt_andares" 
                            th:field="*{andares}" 
                            type="number" 
-                           class="form-control entrada-campo-input">
+                           class="form-control entrada_comissao entrada-campo-input">
                 </div>
 
                 <div class="form-group">
@@ -86,7 +94,7 @@
                     <input id="txt_quartos" 
                            th:field="*{quantidade_de_quartos}" 
                            type="number" 
-                           class="form-control entrada-campo-input">
+                           class="form-control entrada_comissao entrada-campo-input">
                 </div>
 
                 <div class="form-group">
@@ -94,7 +102,7 @@
                     <input id="txt_suites" 
                            th:field="*{quantidade_de_suites}" 
                            type="number" 
-                           class="form-control entrada-campo-input">
+                           class="form-control entrada_comissao entrada-campo-input">
                 </div>
 
                 <div class="form-group">
@@ -102,7 +110,7 @@
                     <input id="txt_cozinhas" 
                            th:field="*{quantidade_de_cozinhas}" 
                            type="number" 
-                           class="form-control entrada-campo-input">
+                           class="form-control entrada_comissao entrada-campo-input">
                 </div>
 
                 <div class="form-group">
@@ -110,7 +118,7 @@
                     <input id="txt_banheiros" 
                            th:field="*{quantidade_de_banheiros}" 
                            type="number" 
-                           class="form-control entrada-campo-input">
+                           class="form-control entrada_comissao entrada-campo-input">
                 </div>
 
                 <div class="form-group">
@@ -118,7 +126,7 @@
                     <input id="txt_salas" 
                            th:field="*{quantidade_de_salas}" 
                            type="number" 
-                           class="form-control entrada-campo-input">
+                           class="form-control entrada_comissao entrada-campo-input">
                 </div>
 
                 <div class="form-group">
@@ -126,7 +134,7 @@
                     <input id="txt_garagens" 
                            th:field="*{quantidade_de_garagens}" 
                            type="number" 
-                           class="form-control entrada-campo-input">
+                           class="form-control entrada_comissao entrada-campo-input">
                 </div>
 
                 <div class="form-group">
@@ -177,7 +185,7 @@
                     <label class="texto-campo-input" for="txt_informacoes_extras">Informações Extras</label>
                     <textarea id="txt_informacoes_extras" 
                               th:field="*{informacoes_extras}" 
-                              class="form-control entrada-campo-input" 
+                              class="form-control entrada_email entrada-campo-input" 
                               rows="4"></textarea>
                 </div>
 

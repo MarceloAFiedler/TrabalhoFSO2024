@@ -9,7 +9,7 @@
 
         <div class="mini_menu_paginas_listar">
             <div class="mini_menu_paginas_listar_mini_nav">
-                <button class="btn retornar"><</button>
+                <a class="btn retornar" href="/"><</a>
                 <h1 class="hUm">Imóveis</h1>
             </div>
             
@@ -20,6 +20,7 @@
         <div class="caixa-da-tabela">
             <table id="tabelaimoveis" class="table table-striped tabela_listar">
                 <thead>
+                    <th>Código</th>
                     <th>Nome</th>
                     <th>Cidade</th>
                     <th>Estado</th>
@@ -36,6 +37,7 @@
                 </thead>
                 <tbody>
                     <tr th:each="imovel : ${listaDeImoveis}">
+                        <td th:text="${imovel.codigo}"></td>
                         <td th:text="${imovel.nome}"></td>
                         <td th:text="${imovel.cidade}"></td>
                         <td th:text="${imovel.estado}"></td>
@@ -44,7 +46,15 @@
                         <td th:text="${imovel.cep}"></td>
                         <td th:text="${imovel.cliente_proprietario != null ? imovel.cliente_proprietario.nome : 'Não Informado'}"></td>
                         <td th:text="${imovel.valor}"></td>
-                        <td th:text="${imovel.status}"></td>
+                        <td>
+                            <span th:switch="${imovel.status}">
+                                <span th:case="1">Disponível</span>
+                                <span th:case="2">Reservado</span>
+                                <span th:case="3">Alugado</span>
+                                <span th:case="3">Vendido</span>
+                                <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2 ou 3 -->
+                            </span>
+                        </td>
                         <td th:text="${imovel.data_de_criacao_do_registro}"></td>
                         <td th:text="${imovel.data_de_ultima_alteracao}"></td>
                         <td><a class="btn btn-warning" th:href="@{'/imoveis/editar-imovel/' + ${imovel.id}}">Editar</a></td>
