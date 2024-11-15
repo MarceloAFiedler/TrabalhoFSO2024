@@ -3,8 +3,6 @@ package com.meusalugueis.demo;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -616,7 +614,7 @@ public class Startup {
 
             Meta meta8 = new Meta();
             meta8.setNome("Meta de Vendas 8");
-            meta8.setData_limite(sdf.parse("30/06/2025"));
+            meta8.setData_limite(sdf.parse("15/11/2025"));
             meta8.setTipo_de_meta(1);
             meta8.setQuantidade_meta(new BigDecimal(1.0));
             meta8.setTipo_de_recompensa(1);
@@ -626,7 +624,7 @@ public class Startup {
 
             Meta meta9 = new Meta();
             meta9.setNome("Meta de Vendas 9");
-            meta9.setData_limite(sdf.parse("31/07/2025"));
+            meta9.setData_limite(sdf.parse("15/11/2024"));
             meta9.setTipo_de_meta(1);
             meta9.setQuantidade_meta(new BigDecimal(1.0));
             meta9.setTipo_de_recompensa(1);
@@ -636,7 +634,7 @@ public class Startup {
 
             Meta meta10 = new Meta();
             meta10.setNome("Meta de Vendas 10");
-            meta10.setData_limite(sdf.parse("31/08/2025"));
+            meta10.setData_limite(sdf.parse("15/11/2024"));
             meta10.setTipo_de_meta(1);
             meta10.setQuantidade_meta(new BigDecimal(1.0));
             meta10.setTipo_de_recompensa(1);

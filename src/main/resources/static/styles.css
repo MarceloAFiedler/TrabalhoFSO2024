@@ -69,7 +69,6 @@ a:hover {
     border-radius: 8px;
     margin: 110px 30px 30px 30px;
     min-width: calc(100vw - 60px);
-    min-height: 45svh;
     max-height: 45svh;
     box-sizing: border-box;
 
@@ -129,6 +128,10 @@ td, th {
     font-size: 25px;
     font-weight: 1000;
     margin-top: 7px;
+}
+
+.hUm-Session-Divider{
+    margin-left: 30px;
 }
 
 .form-group {

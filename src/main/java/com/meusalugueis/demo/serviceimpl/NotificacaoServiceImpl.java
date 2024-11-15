@@ -1,5 +1,7 @@
 package com.meusalugueis.demo.serviceimpl;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -26,32 +28,53 @@ public class NotificacaoServiceImpl implements NotificacaoService {
 
     @Autowired
     private MetaRepository metaRepository;
-
     @Override
     public void gerarNotificacoesDeMetas() {
         notificacaoRepository.deleteByOrigem(1);   
         Date DATA_DE_HOJE = new Date();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String APENAS_HOJE = sdf.format(DATA_DE_HOJE);
+        
+    
         // var listaDeMetas = metaRepository.findByData_limiteLessThanEqual(DATA_DE_HOJE);
         var listaDeMetas = metaRepository.findAll();
             for (Meta meta : listaDeMetas) {
-                // Obtém a data base (data_limite) da meta
+                // Obtém a data base
                 Date dataBase = meta.getData_limite();
-                
-                // Verifica se a data da meta é válida, se não for, não gera notificações
-                if (dataBase == null || dataBase.before(DATA_DE_HOJE)) {
-                    continue;  // Pula a meta se a data for inválida ou anterior à data de hoje
+
+                if(dataBase == null){
+                    continue;
                 }
-                
-                // Cria notificações com base na lógica que você descreveu
-                // Notificação para o dia da data_limite
-                if (dataBase.equals(DATA_DE_HOJE)) {
-                    Notificacao notificacaoHoje = new Notificacao();
-                    notificacaoHoje.setNome_da_notificacao(meta.getNome());
-                    notificacaoHoje.setTipo_de_notificacao(1); // Exemplo de tipo
-                    notificacaoHoje.setData_de_notificacao(dataBase); // A data da notificação é a mesma da data_limite
-                    notificacaoHoje.setOrigem(1);
-                    notificacaoRepository.save(notificacaoHoje);
-                }
+
+                String APENAS_DATA_LIMITE = sdf.format(dataBase);
+
+                try {
+                    Date dataHoje = sdf.parse(APENAS_HOJE);
+                    Date dataLimite = sdf.parse(APENAS_DATA_LIMITE);
+                    
+                    // Verifica se a data da meta é anterior a hoje (não igual)
+                    if (dataLimite.before(dataHoje)) {
+                        System.out.println("CAIU AQUI APENAS_HOJE ============> " + APENAS_HOJE);
+                        System.out.println("CAIU AQUI  APENAS_DATA_LIMITE ============> " + APENAS_DATA_LIMITE);
+                        System.out.println("CAIU AQUI  Meta Atual ============> " + meta.getNome());
+                        continue;
+                    }
+                    
+                    System.out.println("APENAS_HOJE ============> " + APENAS_HOJE);
+                    System.out.println("APENAS_DATA_LIMITE ============> " + APENAS_DATA_LIMITE);
+                    System.out.println("Meta Atual ============> " + meta.getNome());
+                    
+                    // Notificação para o dia da data_limite
+                    if (APENAS_DATA_LIMITE.equals(APENAS_HOJE)) {
+                        System.out.println("AQUI PORRAAAAAAAAAAAAAAAAAAAA");
+                        Notificacao notificacaoHoje = new Notificacao();
+                        notificacaoHoje.setNome_da_notificacao(meta.getNome());
+                        notificacaoHoje.setTipo_de_notificacao(1);
+                        notificacaoHoje.setData_de_notificacao(dataBase);
+                        notificacaoHoje.setOrigem(1);
+                        notificacaoRepository.save(notificacaoHoje);
+                    }
 
                 // Notificação para o dia anterior (1 dia antes)
                 Calendar calendar = Calendar.getInstance();
@@ -115,9 +138,12 @@ public class NotificacaoServiceImpl implements NotificacaoService {
                     notificacaoPrazoMaior.setOrigem(1);
                     notificacaoRepository.save(notificacaoPrazoMaior);
                 }
+                } catch (ParseException e) {
+                    // Trate a exceção apropriadamente
+                    e.printStackTrace();
+                }
             }
         }
-
 
 
     @Override
@@ -127,29 +153,51 @@ public class NotificacaoServiceImpl implements NotificacaoService {
 
     @Override
     public void gerarNotificacoesDeStatusDeProjeto() {
-        notificacaoRepository.deleteByOrigem(2);    
+        notificacaoRepository.deleteByOrigem(2);   
         Date DATA_DE_HOJE = new Date();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String APENAS_HOJE = sdf.format(DATA_DE_HOJE);
+        
+    
         // var listaDeMetas = metaRepository.findByData_limiteLessThanEqual(DATA_DE_HOJE);
         var listaDeProjetos = projetoRepository.findAll();
             for (Projeto projeto : listaDeProjetos) {
-                // Obtém a data base (data_limite) da meta
+                // Obtém a data base
                 Date dataBase = projeto.getData_de_checkpoint_status_do_projeto();
-                
-                // Verifica se a data da meta é válida, se não for, não gera notificações
-                if (dataBase == null || dataBase.before(DATA_DE_HOJE)) {
-                    continue;  // Pula a meta se a data for inválida ou anterior à data de hoje
+
+                if(dataBase == null){
+                    continue;
                 }
-                
-                // Cria notificações com base na lógica que você descreveu
-                // Notificação para o dia da data_limite
-                if (dataBase.equals(DATA_DE_HOJE)) {
-                    Notificacao notificacaoHoje = new Notificacao();
-                    notificacaoHoje.setNome_da_notificacao(projeto.getNome());
-                    notificacaoHoje.setTipo_de_notificacao(1); // Exemplo de tipo
-                    notificacaoHoje.setData_de_notificacao(dataBase); // A data da notificação é a mesma da data_limite
-                    notificacaoHoje.setOrigem(2);
-                    notificacaoRepository.save(notificacaoHoje);
-                }
+
+                String APENAS_DATA_LIMITE = sdf.format(dataBase);
+
+                try {
+                    Date dataHoje = sdf.parse(APENAS_HOJE);
+                    Date dataLimite = sdf.parse(APENAS_DATA_LIMITE);
+                    
+                    // Verifica se a data da meta é anterior a hoje (não igual)
+                    if (dataLimite.before(dataHoje)) {
+                        System.out.println("CAIU AQUI APENAS_HOJE ============> " + APENAS_HOJE);
+                        System.out.println("CAIU AQUI  APENAS_DATA_LIMITE ============> " + APENAS_DATA_LIMITE);
+                        System.out.println("CAIU AQUI  Meta Atual ============> " + projeto.getNome());
+                        continue;
+                    }
+                    
+                    System.out.println("APENAS_HOJE ============> " + APENAS_HOJE);
+                    System.out.println("APENAS_DATA_LIMITE ============> " + APENAS_DATA_LIMITE);
+                    System.out.println("Meta Atual ============> " + projeto.getNome());
+                    
+                    // Notificação para o dia da data_limite
+                    if (APENAS_DATA_LIMITE.equals(APENAS_HOJE)) {
+                        System.out.println("AQUI PORRAAAAAAAAAAAAAAAAAAAA");
+                        Notificacao notificacaoHoje = new Notificacao();
+                        notificacaoHoje.setNome_da_notificacao(projeto.getNome());
+                        notificacaoHoje.setTipo_de_notificacao(1);
+                        notificacaoHoje.setData_de_notificacao(dataBase);
+                        notificacaoHoje.setOrigem(1);
+                        notificacaoRepository.save(notificacaoHoje);
+                    }
 
                 // Notificação para o dia anterior (1 dia antes)
                 Calendar calendar = Calendar.getInstance();
@@ -161,7 +209,7 @@ public class NotificacaoServiceImpl implements NotificacaoService {
                     notificacaoUmDiaAntes.setNome_da_notificacao(projeto.getNome());
                     notificacaoUmDiaAntes.setTipo_de_notificacao(2);  // Exemplo de tipo
                     notificacaoUmDiaAntes.setData_de_notificacao(umDiaAntes);
-                    notificacaoUmDiaAntes.setOrigem(2);
+                    notificacaoUmDiaAntes.setOrigem(1);
                     notificacaoRepository.save(notificacaoUmDiaAntes);
                 }
 
@@ -174,7 +222,7 @@ public class NotificacaoServiceImpl implements NotificacaoService {
                     notificacaoTresDiasAntes.setNome_da_notificacao(projeto.getNome());
                     notificacaoTresDiasAntes.setTipo_de_notificacao(3);  // Exemplo de tipo
                     notificacaoTresDiasAntes.setData_de_notificacao(tresDiasAntes);
-                    notificacaoTresDiasAntes.setOrigem(2);
+                    notificacaoTresDiasAntes.setOrigem(1);
                     notificacaoRepository.save(notificacaoTresDiasAntes);
                 }
 
@@ -187,7 +235,7 @@ public class NotificacaoServiceImpl implements NotificacaoService {
                     notificacaoSeteDiasAntes.setNome_da_notificacao(projeto.getNome());
                     notificacaoSeteDiasAntes.setTipo_de_notificacao(4);  // Exemplo de tipo
                     notificacaoSeteDiasAntes.setData_de_notificacao(seteDiasAntes);
-                    notificacaoSeteDiasAntes.setOrigem(2);
+                    notificacaoSeteDiasAntes.setOrigem(1);
                     notificacaoRepository.save(notificacaoSeteDiasAntes);
                 }
 
@@ -200,7 +248,7 @@ public class NotificacaoServiceImpl implements NotificacaoService {
                     notificacaoQuatorzeDiasAntes.setNome_da_notificacao(projeto.getNome());
                     notificacaoQuatorzeDiasAntes.setTipo_de_notificacao(5);  // Exemplo de tipo
                     notificacaoQuatorzeDiasAntes.setData_de_notificacao(quatorzeDiasAntes);
-                    notificacaoQuatorzeDiasAntes.setOrigem(2);
+                    notificacaoQuatorzeDiasAntes.setOrigem(1);
                     notificacaoRepository.save(notificacaoQuatorzeDiasAntes);
                 }
 
@@ -210,8 +258,12 @@ public class NotificacaoServiceImpl implements NotificacaoService {
                     notificacaoPrazoMaior.setNome_da_notificacao(projeto.getNome());
                     notificacaoPrazoMaior.setTipo_de_notificacao(6);  // Exemplo de tipo para prazos maiores
                     notificacaoPrazoMaior.setData_de_notificacao(dataBase);
-                    notificacaoPrazoMaior.setOrigem(2);
+                    notificacaoPrazoMaior.setOrigem(1);
                     notificacaoRepository.save(notificacaoPrazoMaior);
+                }
+                } catch (ParseException e) {
+                    // Trate a exceção apropriadamente
+                    e.printStackTrace();
                 }
             }
         }
@@ -220,27 +272,49 @@ public class NotificacaoServiceImpl implements NotificacaoService {
     public void gerarNotificacoesDePagamentoDeProjeto() {
         notificacaoRepository.deleteByOrigem(3);   
         Date DATA_DE_HOJE = new Date();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String APENAS_HOJE = sdf.format(DATA_DE_HOJE);
+        
+    
         // var listaDeMetas = metaRepository.findByData_limiteLessThanEqual(DATA_DE_HOJE);
         var listaDeProjetos = projetoRepository.findAll();
             for (Projeto projeto : listaDeProjetos) {
-                // Obtém a data base (data_limite) da meta
+                // Obtém a data base
                 Date dataBase = projeto.getData_de_checkpoint_status_do_pagamento();
-                
-                // Verifica se a data da meta é válida, se não for, não gera notificações
-                if (dataBase == null || dataBase.before(DATA_DE_HOJE)) {
-                    continue;  // Pula a meta se a data for inválida ou anterior à data de hoje
+
+                if(dataBase == null){
+                    continue;
                 }
-                
-                // Cria notificações com base na lógica que você descreveu
-                // Notificação para o dia da data_limite
-                if (dataBase.equals(DATA_DE_HOJE)) {
-                    Notificacao notificacaoHoje = new Notificacao();
-                    notificacaoHoje.setNome_da_notificacao(projeto.getNome());
-                    notificacaoHoje.setTipo_de_notificacao(1); // Exemplo de tipo
-                    notificacaoHoje.setData_de_notificacao(dataBase); // A data da notificação é a mesma da data_limite
-                    notificacaoHoje.setOrigem(3);
-                    notificacaoRepository.save(notificacaoHoje);
-                }
+
+                String APENAS_DATA_LIMITE = sdf.format(dataBase);
+
+                try {
+                    Date dataHoje = sdf.parse(APENAS_HOJE);
+                    Date dataLimite = sdf.parse(APENAS_DATA_LIMITE);
+                    
+                    // Verifica se a data da meta é anterior a hoje (não igual)
+                    if (dataLimite.before(dataHoje)) {
+                        System.out.println("CAIU AQUI APENAS_HOJE ============> " + APENAS_HOJE);
+                        System.out.println("CAIU AQUI  APENAS_DATA_LIMITE ============> " + APENAS_DATA_LIMITE);
+                        System.out.println("CAIU AQUI  Meta Atual ============> " + projeto.getNome());
+                        continue;
+                    }
+                    
+                    System.out.println("APENAS_HOJE ============> " + APENAS_HOJE);
+                    System.out.println("APENAS_DATA_LIMITE ============> " + APENAS_DATA_LIMITE);
+                    System.out.println("Meta Atual ============> " + projeto.getNome());
+                    
+                    // Notificação para o dia da data_limite
+                    if (APENAS_DATA_LIMITE.equals(APENAS_HOJE)) {
+                        System.out.println("AQUI PORRAAAAAAAAAAAAAAAAAAAA");
+                        Notificacao notificacaoHoje = new Notificacao();
+                        notificacaoHoje.setNome_da_notificacao(projeto.getNome());
+                        notificacaoHoje.setTipo_de_notificacao(1);
+                        notificacaoHoje.setData_de_notificacao(dataBase);
+                        notificacaoHoje.setOrigem(1);
+                        notificacaoRepository.save(notificacaoHoje);
+                    }
 
                 // Notificação para o dia anterior (1 dia antes)
                 Calendar calendar = Calendar.getInstance();
@@ -252,7 +326,7 @@ public class NotificacaoServiceImpl implements NotificacaoService {
                     notificacaoUmDiaAntes.setNome_da_notificacao(projeto.getNome());
                     notificacaoUmDiaAntes.setTipo_de_notificacao(2);  // Exemplo de tipo
                     notificacaoUmDiaAntes.setData_de_notificacao(umDiaAntes);
-                    notificacaoUmDiaAntes.setOrigem(3);
+                    notificacaoUmDiaAntes.setOrigem(1);
                     notificacaoRepository.save(notificacaoUmDiaAntes);
                 }
 
@@ -265,7 +339,7 @@ public class NotificacaoServiceImpl implements NotificacaoService {
                     notificacaoTresDiasAntes.setNome_da_notificacao(projeto.getNome());
                     notificacaoTresDiasAntes.setTipo_de_notificacao(3);  // Exemplo de tipo
                     notificacaoTresDiasAntes.setData_de_notificacao(tresDiasAntes);
-                    notificacaoTresDiasAntes.setOrigem(3);
+                    notificacaoTresDiasAntes.setOrigem(1);
                     notificacaoRepository.save(notificacaoTresDiasAntes);
                 }
 
@@ -278,7 +352,7 @@ public class NotificacaoServiceImpl implements NotificacaoService {
                     notificacaoSeteDiasAntes.setNome_da_notificacao(projeto.getNome());
                     notificacaoSeteDiasAntes.setTipo_de_notificacao(4);  // Exemplo de tipo
                     notificacaoSeteDiasAntes.setData_de_notificacao(seteDiasAntes);
-                    notificacaoSeteDiasAntes.setOrigem(3);
+                    notificacaoSeteDiasAntes.setOrigem(1);
                     notificacaoRepository.save(notificacaoSeteDiasAntes);
                 }
 
@@ -291,7 +365,7 @@ public class NotificacaoServiceImpl implements NotificacaoService {
                     notificacaoQuatorzeDiasAntes.setNome_da_notificacao(projeto.getNome());
                     notificacaoQuatorzeDiasAntes.setTipo_de_notificacao(5);  // Exemplo de tipo
                     notificacaoQuatorzeDiasAntes.setData_de_notificacao(quatorzeDiasAntes);
-                    notificacaoQuatorzeDiasAntes.setOrigem(3);
+                    notificacaoQuatorzeDiasAntes.setOrigem(1);
                     notificacaoRepository.save(notificacaoQuatorzeDiasAntes);
                 }
 
@@ -301,8 +375,12 @@ public class NotificacaoServiceImpl implements NotificacaoService {
                     notificacaoPrazoMaior.setNome_da_notificacao(projeto.getNome());
                     notificacaoPrazoMaior.setTipo_de_notificacao(6);  // Exemplo de tipo para prazos maiores
                     notificacaoPrazoMaior.setData_de_notificacao(dataBase);
-                    notificacaoPrazoMaior.setOrigem(3);
+                    notificacaoPrazoMaior.setOrigem(1);
                     notificacaoRepository.save(notificacaoPrazoMaior);
+                }
+                } catch (ParseException e) {
+                    // Trate a exceção apropriadamente
+                    e.printStackTrace();
                 }
             }
         }
