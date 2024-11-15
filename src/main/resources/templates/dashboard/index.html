@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:include="layout :: htmlhead"></head>
+<body>
+    
+    <nav th:replace="layout :: menu">(menu)</nav>
+
+    <main>
+    <div class="caixa-de-conteudo-dupla-topo">
+        <div class="mini_menu_paginas_listar">
+            <div class="mini_menu_paginas_listar_mini_nav">
+                <a class="btn retornar" href="/"><</a>
+                <h1 class="hUm">Dashboard</h1>
+            </div>
+        </div>
+        <div class="mini_menu_paginas_listar">
+            <div class="mini_menu_paginas_listar_mini_nav">
+                <h1 class="hUm">Projetos</h1>
+            </div>
+            <a class="btn btn-success" href="/projetos/novo-projeto">Novo</a>
+        </div>
+        <br>
+        <div class="caixa-da-tabela">
+            <table id="tabeladashboard" class="table table-striped tabela_listar">
+                <thead>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Status</th>
+                    <th>Corretor do Projeto</th>
+                    <th>Data do Checkpoint do Status</th>
+                    <th>Data Criação Registro</th>
+                    <th>Data Última Alteração Registro</th>
+                    <th></th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <tr th:each="projeto : ${listaDeProjetos}">
+                        <td th:text="${projeto.codigo}"></td>
+                        <td th:text="${projeto.nome}"></td>
+                        <td>
+                            <span th:switch="${projeto.status_do_projeto}">
+                                <span th:case="1">Não Iniciado</span>
+                                <span th:case="2">Em andamento</span>
+                                <span th:case="3">Concluído</span>
+                                <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                            </span>
+                        </td>
+                        <td th:text="${projeto.corretor_do_projeto != null ? projeto.corretor_do_projeto.nome : 'Não Informado'}"></td>
+                        <td th:text="${projeto.data_de_checkpoint_status_do_projeto}"></td>
+                        <td th:text="${projeto.data_de_criacao_do_registro}"></td>
+                        <td th:text="${projeto.data_de_ultima_alteracao}"></td>
+                        <td><a class="btn btn-warning" th:href="@{'/projetos/editar-projeto/' + ${projeto.id}}">Editar</a></td>
+                        <td>
+                            <button
+                                class="btn btn-danger js-delete"
+                                th:data-id="${projeto.id}">Excluir</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+        <!-- Outra tabela -->
+    <div class="caixa-de-conteudo-dupla-fundo">    
+        <div class="mini_menu_paginas_listar">
+            <div class="mini_menu_paginas_listar_mini_nav">
+                <h1 class="hUm">Metas</h1>
+            </div>
+            <a class="btn btn-success" href="/metas/nova-meta">Novo</a>
+        </div>
+        <br>
+        <div class="caixa-da-tabela">
+            <table id="tabeladashboard" class="table table-striped tabela_listar">
+                <thead>
+                    <th>Nome</th>
+                    <th>Data Limite</th>
+                    <th>% Atingido</th>
+                    <th>Tipo de Meta</th>
+                    <th>Quantidade Meta</th>
+                    <th>Tipo de Recompensa</th>
+                    <th>Valor Recompensa</th>
+                    <th>Data Criação Registro</th>
+                    <th>Data Última Alteração Registro</th>
+                    <th></th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <tr th:each="meta : ${listaDeMetas}">
+                        <td th:text="${meta.nome}"></td>
+                        <td th:text="${meta.data_limite}"></td>
+                        <td>NÃO IMPLEMENTADO</td>
+                        <td>
+                            <span th:switch="${meta.tipo_de_meta}">
+                                <span th:case="1">Não Iniciado</span>
+                                <span th:case="2">Em andamento</span>
+                                <span th:case="3">Concluído</span>
+                                <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                            </span>
+                        </td>
+                        <td th:text="${meta.quantidade_meta}"></td>
+                        <td>
+                            <span th:switch="${meta.tipo_de_recompensa}">
+                                <span th:case="1">Não Iniciado</span>
+                                <span th:case="2">Em andamento</span>
+                                <span th:case="3">Concluído</span>
+                                <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                            </span>
+                        </td>
+                        <td th:text="${meta.recompensa}"></td>
+                        <td th:text="${meta.data_de_criacao_do_registro}"></td>
+                        <td th:text="${meta.data_de_ultima_alteracao}"></td>
+                        <td><a class="btn btn-warning" th:href="@{'/metas/editar-meta/' + ${meta.id}}">Editar</a></td>
+                        <td>
+                            <button
+                                class="btn btn-danger js-delete"
+                                th:data-id="${meta.id}">Excluir</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </main>
+
+    
+
+    <div th:include="layout :: footer">(footer)</div>
+    <script th:src="@{/scriptdashboard.js}"></script>
+
+    <div class="modal" tabindex="-1" id="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Excluir Item?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Confirma a exclusão?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+                    <button type="button" class="btn btn-primary" id="btnsim">Sim</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

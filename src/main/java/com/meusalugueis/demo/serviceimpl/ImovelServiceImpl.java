@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.meusalugueis.demo.entity.Cliente;
 import com.meusalugueis.demo.entity.Imovel;
+import com.meusalugueis.demo.entity.Projeto;
 import com.meusalugueis.demo.repository.ImovelRepository;
+import com.meusalugueis.demo.repository.ProjetoRepository;
 import com.meusalugueis.demo.service.ImovelService;
 
 @Service
@@ -15,6 +17,9 @@ public class ImovelServiceImpl implements ImovelService {
 
     @Autowired
     private ImovelRepository imovelRepository;
+
+    @Autowired
+    private ProjetoRepository projetoRepository;
 
     @Override
     public List<Imovel> getAll(){
@@ -40,6 +45,13 @@ public class ImovelServiceImpl implements ImovelService {
     @Override
     public Imovel getById(long id){
         var retorno = imovelRepository.findById(id);
+
+        var projetosDoImovel = projetoRepository.findByImovel_do_projeto(retorno.get());
+            for(Projeto projeto : projetosDoImovel) {
+                projeto.setImovel_do_projeto(null);
+                projetoRepository.save(projeto);
+        }
+
         if(retorno.isPresent())
             return retorno.get();
         return null;

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.meusalugueis.demo.entity.Cliente;
 import com.meusalugueis.demo.entity.Imovel;
 import com.meusalugueis.demo.service.ClienteService;
 import com.meusalugueis.demo.service.ImovelService;

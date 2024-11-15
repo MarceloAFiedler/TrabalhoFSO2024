@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 import com.meusalugueis.demo.entity.Cliente;
 import com.meusalugueis.demo.entity.Corretor;
 import com.meusalugueis.demo.entity.Imovel;
+import com.meusalugueis.demo.entity.Projeto;
 import com.meusalugueis.demo.repository.ClienteRepository;
 import com.meusalugueis.demo.repository.ImovelRepository;
+import com.meusalugueis.demo.repository.ProjetoRepository;
 import com.meusalugueis.demo.service.ClienteService;
 
 @Service
@@ -20,6 +22,8 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Autowired
     private ImovelRepository imovelRepository;
+
+    @Autowired ProjetoRepository projetoRepository;
 
     @Override
     public List<Cliente> getAll(){
@@ -41,6 +45,13 @@ public class ClienteServiceImpl implements ClienteService {
                      imovel.setCliente_proprietario(null);
                     imovelRepository.save(imovel);
                  }
+            
+            var projetosDoCliente = projetoRepository.findByCliente_do_projeto(retorno.get());
+                for(Projeto projeto : projetosDoCliente) {
+                    projeto.setCliente_do_projeto(null);
+                    projetoRepository.save(projeto);
+                }
+
             clienteRepository.deleteById(id);
             return retorno.get();
         }

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:include="layout :: htmlhead"></head>
+<body>
+
+    <nav th:replace="layout :: menu">(menu)</nav>
+
+    <main class="caixa-de-conteudo-solo">
+
+        <h1 class="hUm">Editar</h1>
+
+        <form th:action="@{/metas}"
+              method="POST"
+              th:object="${umaMeta}">
+
+              <input type="hidden" th:field="*{id}">
+              <input type="hidden" th:field="*{data_de_criacao_do_registro}">
+              <input type="hidden" th:field="*{data_de_ultima_alteracao}">
+
+
+            <div class="form-group">
+                <label class="texto-campo-input" for="txtnome">Nome</label>
+                <input id="txt_nome"
+                       th:field="*{nome}"
+                       type="text"
+                       class="form-control entrada-campo-input entrada_nome">
+            </div>
+
+            <div class="form-group">
+                <label class="texto-campo-input" for="txttipo_de_meta">Tipo de Meta</label>
+                <select class="form-select entrada_media entrada-campo-input" th:field="*{tipo_de_meta}">
+                    <option value="1">Valor total em projetos concluídos</option>
+                    <option value="2">Quantidade de projetos concluídos</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="texto-campo-input" for="txtquantidade_meta">Quantidade Meta</label>
+                <input id="txtquantidade_meta" 
+                       th:field="*{quantidade_meta}" 
+                       type="number" 
+                       step="0.01" 
+                       class="form-control entrada-campo-input">
+            </div>
+
+            <div class="form-group">
+                <label class="texto-campo-input" for="txt_informacoes_extras">Informações Extras</label>
+                <textarea id="txt_informacoes_extras" 
+                          th:field="*{informacoes_extras}" 
+                          class="form-control entrada_email entrada-campo-input" 
+                          rows="4"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label class="texto-campo-input" for="txtdata_limite">Data Limite</label>
+                <input id="txtdata_limite"
+                       th:field="*{data_limite}"
+                       type="date"
+                       class="form-control entrada-campo-input">
+            </div>
+            
+            <div class="form-group">
+                <label class="texto-campo-input" for="txttipo_de_recompensa">Tipo de Recompensa</label>
+                <select class="form-select entrada-campo-input" th:field="*{tipo_de_recompensa}">
+                    <option value="1">Valor em %</option>
+                    <option value="2">Valor em R$</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="texto-campo-input" for="txtrecompensa">Valor da Recompensa</label>
+                <input id="txtrecompensa" 
+                       th:field="*{recompensa}" 
+                       type="number" 
+                       step="0.01" 
+                       class="form-control entrada-campo-input">
+            </div>
+
+            <br>
+            <a href="/" class="form-control btn btn-danger">Cancelar</a>
+            <button type="submit" class="form-control btn btn-success btn_espacinho">Salvar</button>
+        </form>
+    </main>
+
+    <div th:include="layout :: footer">(footer)</div>
+    <script th:src="@{/scriptdashboard.js}"></script>
+</body>
+</html>

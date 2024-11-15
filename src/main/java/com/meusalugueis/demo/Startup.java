@@ -14,9 +14,13 @@ import org.springframework.stereotype.Component;
 import com.meusalugueis.demo.entity.Cliente;
 import com.meusalugueis.demo.entity.Corretor;
 import com.meusalugueis.demo.entity.Imovel;
+import com.meusalugueis.demo.entity.Meta;
+import com.meusalugueis.demo.entity.Projeto;
 import com.meusalugueis.demo.service.ClienteService;
 import com.meusalugueis.demo.service.CorretorService;
 import com.meusalugueis.demo.service.ImovelService;
+import com.meusalugueis.demo.service.MetaService;
+import com.meusalugueis.demo.service.ProjetoService;
 
 @Component
 public class Startup {
@@ -29,6 +33,12 @@ public class Startup {
     @Autowired
     private ImovelService imovelService;
 
+    @Autowired
+    private MetaService metaService;
+
+    @Autowired
+    private ProjetoService projetoService;
+
 
     @EventListener
     public void onApplicationEvent(ContextRefreshedEvent event){
@@ -37,6 +47,7 @@ public class Startup {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
         try{
+            // Corretor 1 - Barba Branca
             var corretor1 = new Corretor();
             corretor1.setId(2);
             corretor1.setNome("Edward Newgate");
@@ -292,6 +303,347 @@ public class Startup {
     
             imovelService.save(imovel3);
 
+            Imovel imovel4 = new Imovel();
+            imovel4.setCodigo("#004");
+            imovel4.setNome("Casa com piscina");
+            imovel4.setCidade("Florianópolis");
+            imovel4.setEstado("SC");
+            imovel4.setRua("Avenida das Palmeiras");
+            imovel4.setNumero("1500");
+            imovel4.setCep("88045-999");
+            imovel4.setPonto_de_referencia("Próxima à praia");
+            imovel4.setAndares(2);
+            imovel4.setQuantidade_de_quartos(3);
+            imovel4.setQuantidade_de_suites(2);
+            imovel4.setQuantidade_de_cozinhas(1);
+            imovel4.setQuantidade_de_banheiros(3);
+            imovel4.setQuantidade_de_salas(2);
+            imovel4.setQuantidade_de_garagens(2);
+            imovel4.setValor(new BigDecimal("1200000.00"));
+            imovel4.setStatus("1"); // Disponível
+            imovel4.setTipo("1"); // Casa
+            imovel4.setVenda_ou_aluguel("1"); // Venda
+            imovel4.setInformacoes_extras("Casa ampla com piscina e área gourmet.");
+            imovel4.setCliente_proprietario(cliente4);
+
+            imovelService.save(imovel4);
+
+            Imovel imovel5 = new Imovel();
+            imovel5.setCodigo("#005");
+            imovel5.setNome("Apartamento de luxo");
+            imovel5.setCidade("Curitiba");
+            imovel5.setEstado("PR");
+            imovel5.setRua("Rua XV de Novembro");
+            imovel5.setNumero("120");
+            imovel5.setCep("80230-050");
+            imovel5.setPonto_de_referencia("Centro, perto de restaurantes");
+            imovel5.setAndares(1);
+            imovel5.setQuantidade_de_quartos(4);
+            imovel5.setQuantidade_de_suites(3);
+            imovel5.setQuantidade_de_cozinhas(1);
+            imovel5.setQuantidade_de_banheiros(4);
+            imovel5.setQuantidade_de_salas(2);
+            imovel5.setQuantidade_de_garagens(3);
+            imovel5.setValor(new BigDecimal("3500000.00"));
+            imovel5.setStatus("1"); // Disponível
+            imovel5.setTipo("2"); // Apartamento
+            imovel5.setVenda_ou_aluguel("1"); // Venda
+            imovel5.setInformacoes_extras("Apartamento de luxo com vista panorâmica.");
+            imovel5.setCliente_proprietario(cliente5);
+
+            imovelService.save(imovel5);
+
+            Imovel imovel6 = new Imovel();
+            imovel6.setCodigo("#006");
+            imovel6.setNome("Chácara em área rural");
+            imovel6.setCidade("São José");
+            imovel6.setEstado("SC");
+            imovel6.setRua("Estrada dos Tropeiros");
+            imovel6.setNumero("232");
+            imovel6.setCep("88102-530");
+            imovel6.setPonto_de_referencia("Próxima ao Centro da cidade");
+            imovel6.setAndares(1);
+            imovel6.setQuantidade_de_quartos(3);
+            imovel6.setQuantidade_de_suites(1);
+            imovel6.setQuantidade_de_cozinhas(1);
+            imovel6.setQuantidade_de_banheiros(2);
+            imovel6.setQuantidade_de_salas(1);
+            imovel6.setQuantidade_de_garagens(2);
+            imovel6.setValor(new BigDecimal("800000.00"));
+            imovel6.setStatus("1"); // Disponível
+            imovel6.setTipo("1"); // Casa
+            imovel6.setVenda_ou_aluguel("1"); // Venda
+            imovel6.setInformacoes_extras("Chácara com grande área de terreno e piscina.");
+            imovel6.setCliente_proprietario(cliente6);
+
+            imovelService.save(imovel6);
+
+            // Criando os Projetos
+            Projeto projeto1 = new Projeto();
+            projeto1.setCodigo("#001");
+            projeto1.setNome("Casa nova para fulano");
+            projeto1.setData_de_inicio(sdf.parse("11/11/2024"));
+            projeto1.setData_de_termino(sdf.parse("18/11/2024"));
+            projeto1.setData_de_checkpoint_status_do_projeto(sdf.parse("13/11/2024"));
+            projeto1.setData_de_checkpoint_status_do_pagamento(sdf.parse("13/11/2024"));
+            projeto1.setNumero_do_contrato("2024.206-00");
+            projeto1.setStatus_do_projeto(1);
+            projeto1.setStatus_do_pagamento(1);
+            projeto1.setCorretor_do_projeto(corretorService.getById(1));  // Corretor com ID 1
+            projeto1.setCliente_do_projeto(clienteService.getById(1));    // Cliente com ID 1
+            projeto1.setImovel_do_projeto(imovelService.getById(4));      // Imóvel com ID 4
+            projeto1.setInformacoes_extras("Projeto seed 1");
+            projetoService.save(projeto1);
+            
+            Projeto projeto2 = new Projeto();
+            projeto2.setCodigo("#002");
+            projeto2.setNome("Apartamento do José");
+            projeto2.setData_de_inicio(sdf.parse("01/12/2024"));
+            projeto2.setData_de_termino(sdf.parse("15/12/2024"));
+            projeto2.setData_de_checkpoint_status_do_projeto(sdf.parse("05/12/2024"));
+            projeto2.setData_de_checkpoint_status_do_pagamento(sdf.parse("05/12/2024"));
+            projeto2.setNumero_do_contrato("2024.207-00");
+            projeto2.setStatus_do_projeto(1);
+            projeto2.setStatus_do_pagamento(1);
+            projeto2.setCorretor_do_projeto(corretorService.getById(2));  // Corretor com ID 2
+            projeto2.setCliente_do_projeto(clienteService.getById(2));    // Cliente com ID 2
+            projeto2.setImovel_do_projeto(imovelService.getById(5));      // Imóvel com ID 5
+            projeto2.setInformacoes_extras("Projeto seed 2");
+            projetoService.save(projeto2);
+            
+            Projeto projeto3 = new Projeto();
+            projeto3.setCodigo("#003");
+            projeto3.setNome("Chácara do Manuel");
+            projeto3.setData_de_inicio(sdf.parse("10/01/2025"));
+            projeto3.setData_de_termino(sdf.parse("20/01/2025"));
+            projeto3.setData_de_checkpoint_status_do_projeto(sdf.parse("15/01/2025"));
+            projeto3.setData_de_checkpoint_status_do_pagamento(sdf.parse("15/01/2025"));
+            projeto3.setNumero_do_contrato("2025.208-00");
+            projeto3.setStatus_do_projeto(1);
+            projeto3.setStatus_do_pagamento(1);
+            projeto3.setCorretor_do_projeto(corretorService.getById(3));  // Corretor com ID 3
+            projeto3.setCliente_do_projeto(clienteService.getById(3));    // Cliente com ID 3
+            projeto3.setImovel_do_projeto(imovelService.getById(6));      // Imóvel com ID 6
+            projeto3.setInformacoes_extras("Projeto seed 3");
+            projetoService.save(projeto3);
+            
+            Projeto projeto4 = new Projeto();
+            projeto4.setCodigo("#004");
+            projeto4.setNome("Loja Comercial");
+            projeto4.setData_de_inicio(sdf.parse("05/02/2025"));
+            projeto4.setData_de_termino(sdf.parse("15/02/2025"));
+            projeto4.setData_de_checkpoint_status_do_projeto(sdf.parse("10/02/2025"));
+            projeto4.setData_de_checkpoint_status_do_pagamento(sdf.parse("10/02/2025"));
+            projeto4.setNumero_do_contrato("2025.209-00");
+            projeto4.setStatus_do_projeto(1);
+            projeto4.setStatus_do_pagamento(1);
+            projeto4.setCorretor_do_projeto(corretorService.getById(3));  // Corretor com ID 4
+            projeto4.setCliente_do_projeto(clienteService.getById(4));    // Cliente com ID 4
+            projeto4.setImovel_do_projeto(imovelService.getById(1));      // Imóvel com ID 7
+            projeto4.setInformacoes_extras("Projeto seed 4");
+            projetoService.save(projeto4);
+            
+            Projeto projeto5 = new Projeto();
+            projeto5.setCodigo("#005");
+            projeto5.setNome("Casa de Praia");
+            projeto5.setData_de_inicio(sdf.parse("15/03/2025"));
+            projeto5.setData_de_termino(sdf.parse("30/03/2025"));
+            projeto5.setData_de_checkpoint_status_do_projeto(sdf.parse("20/03/2025"));
+            projeto5.setData_de_checkpoint_status_do_pagamento(sdf.parse("20/03/2025"));
+            projeto5.setNumero_do_contrato("2025.210-00");
+            projeto5.setStatus_do_projeto(1);
+            projeto5.setStatus_do_pagamento(1);
+            projeto5.setCorretor_do_projeto(corretorService.getById(3));  // Corretor com ID 5
+            projeto5.setCliente_do_projeto(clienteService.getById(5));    // Cliente com ID 5
+            projeto5.setImovel_do_projeto(imovelService.getById(1));      // Imóvel com ID 8
+            projeto5.setInformacoes_extras("Projeto seed 5");
+            projetoService.save(projeto5);
+            
+            Projeto projeto6 = new Projeto();
+            projeto6.setCodigo("#006");
+            projeto6.setNome("Apartamento de Luxo");
+            projeto6.setData_de_inicio(sdf.parse("01/04/2025"));
+            projeto6.setData_de_termino(sdf.parse("10/04/2025"));
+            projeto6.setData_de_checkpoint_status_do_projeto(sdf.parse("05/04/2025"));
+            projeto6.setData_de_checkpoint_status_do_pagamento(sdf.parse("05/04/2025"));
+            projeto6.setNumero_do_contrato("2025.211-00");
+            projeto6.setStatus_do_projeto(1);
+            projeto6.setStatus_do_pagamento(1);
+            projeto6.setCorretor_do_projeto(corretorService.getById(3));  // Corretor com ID 6
+            projeto6.setCliente_do_projeto(clienteService.getById(6));    // Cliente com ID 6
+            projeto6.setImovel_do_projeto(imovelService.getById(4));      // Imóvel com ID 9
+            projeto6.setInformacoes_extras("Projeto seed 6");
+            projetoService.save(projeto6);
+            
+            Projeto projeto7 = new Projeto();
+            projeto7.setCodigo("#007");
+            projeto7.setNome("Chácara de Recreio");
+            projeto7.setData_de_inicio(sdf.parse("10/05/2025"));
+            projeto7.setData_de_termino(sdf.parse("25/05/2025"));
+            projeto7.setData_de_checkpoint_status_do_projeto(sdf.parse("15/05/2025"));
+            projeto7.setData_de_checkpoint_status_do_pagamento(sdf.parse("15/05/2025"));
+            projeto7.setNumero_do_contrato("2025.212-00");
+            projeto7.setStatus_do_projeto(1);
+            projeto7.setStatus_do_pagamento(1);
+            projeto7.setCorretor_do_projeto(corretorService.getById(3));  // Corretor com ID 7
+            projeto7.setCliente_do_projeto(clienteService.getById(7));    // Cliente com ID 7
+            projeto7.setImovel_do_projeto(imovelService.getById(5));     // Imóvel com ID 10
+            projeto7.setInformacoes_extras("Projeto seed 7");
+            projetoService.save(projeto7);
+            
+            Projeto projeto8 = new Projeto();
+            projeto8.setCodigo("#008");
+            projeto8.setNome("Casa para Renovação");
+            projeto8.setData_de_inicio(sdf.parse("01/06/2025"));
+            projeto8.setData_de_termino(sdf.parse("15/06/2025"));
+            projeto8.setData_de_checkpoint_status_do_projeto(sdf.parse("05/06/2025"));
+            projeto8.setData_de_checkpoint_status_do_pagamento(sdf.parse("05/06/2025"));
+            projeto8.setNumero_do_contrato("2025.213-00");
+            projeto8.setStatus_do_projeto(1);
+            projeto8.setStatus_do_pagamento(1);
+            projeto8.setCorretor_do_projeto(corretorService.getById(3));  // Corretor com ID 8
+            projeto8.setCliente_do_projeto(clienteService.getById(8));    // Cliente com ID 8
+            projeto8.setImovel_do_projeto(imovelService.getById(3));     // Imóvel com ID 11
+            projeto8.setInformacoes_extras("Projeto seed 8");
+            projetoService.save(projeto8);
+            
+            Projeto projeto9 = new Projeto();
+            projeto9.setCodigo("#009");
+            projeto9.setNome("Sítio para Venda");
+            projeto9.setData_de_inicio(sdf.parse("20/07/2025"));
+            projeto9.setData_de_termino(sdf.parse("30/07/2025"));
+            projeto9.setData_de_checkpoint_status_do_projeto(sdf.parse("25/07/2025"));
+            projeto9.setData_de_checkpoint_status_do_pagamento(sdf.parse("25/07/2025"));
+            projeto9.setNumero_do_contrato("2025.214-00");
+            projeto9.setStatus_do_projeto(1);
+            projeto9.setStatus_do_pagamento(1);
+            projeto9.setCorretor_do_projeto(corretorService.getById(2));  // Corretor com ID 9
+            projeto9.setCliente_do_projeto(clienteService.getById(9));    // Cliente com ID 9
+            projeto9.setImovel_do_projeto(imovelService.getById(3));     // Imóvel com ID 12
+            projeto9.setInformacoes_extras("Projeto seed 9");
+            projetoService.save(projeto9);
+
+            Projeto projeto10 = new Projeto();
+            projeto10.setCodigo("#001");
+            projeto10.setNome("Casa nova para fulano");
+            projeto10.setData_de_inicio(sdf.parse("11/11/2024"));
+            projeto10.setData_de_termino(sdf.parse("18/11/2024"));
+            projeto10.setData_de_checkpoint_status_do_projeto(sdf.parse("13/11/2024"));
+            projeto10.setData_de_checkpoint_status_do_pagamento(sdf.parse("13/11/2024"));
+            projeto10.setNumero_do_contrato("2024.206-00");
+            projeto10.setStatus_do_projeto(1);
+            projeto10.setStatus_do_pagamento(1);
+            projeto10.setCorretor_do_projeto(corretorService.getById(1));
+            projeto10.setCliente_do_projeto(clienteService.getById(1));
+            projeto10.setImovel_do_projeto(imovelService.getById(4));
+            projeto10.setInformacoes_extras("Projeto seed 1");
+            projetoService.save(projeto10);
+            
+            
+            // Criando as Metas
+
+            Meta meta1 = new Meta();
+
+            meta1.setNome("Meta de Vendas");
+            meta1.setData_limite(sdf.parse("30/11/2024"));
+            meta1.setTipo_de_meta(1);
+            meta1.setQuantidade_meta(new BigDecimal(1.0));
+            meta1.setTipo_de_recompensa(1);
+            meta1.setRecompensa(new BigDecimal(1000.00));
+            meta1.setInformacoes_extras("Meta seed 1");
+            
+            metaService.save(meta1);
+
+            Meta meta2 = new Meta();
+            meta2.setNome("Meta de Vendas");
+            meta2.setData_limite(sdf.parse("30/12/2024"));
+            meta2.setTipo_de_meta(1);
+            meta2.setQuantidade_meta(new BigDecimal(1.0));
+            meta2.setTipo_de_recompensa(1);
+            meta2.setRecompensa(new BigDecimal(1000.00));
+            meta2.setInformacoes_extras("Meta seed 2");
+            metaService.save(meta2);
+
+            Meta meta3 = new Meta();
+            meta3.setNome("Meta de Vendas");
+            meta3.setData_limite(sdf.parse("31/01/2025"));
+            meta3.setTipo_de_meta(1);
+            meta3.setQuantidade_meta(new BigDecimal(1.0));
+            meta3.setTipo_de_recompensa(1);
+            meta3.setRecompensa(new BigDecimal(1000.00));
+            meta3.setInformacoes_extras("Meta seed 3");
+            metaService.save(meta3);
+
+            Meta meta4 = new Meta();
+            meta4.setNome("Meta de Vendas");
+            meta4.setData_limite(sdf.parse("28/02/2025"));
+            meta4.setTipo_de_meta(1);
+            meta4.setQuantidade_meta(new BigDecimal(1.0));
+            meta4.setTipo_de_recompensa(1);
+            meta4.setRecompensa(new BigDecimal(1000.00));
+            meta4.setInformacoes_extras("Meta seed 4");
+            metaService.save(meta4);
+
+            Meta meta5 = new Meta();
+            meta5.setNome("Meta de Vendas");
+            meta5.setData_limite(sdf.parse("31/03/2025"));
+            meta5.setTipo_de_meta(1);
+            meta5.setQuantidade_meta(new BigDecimal(1.0));
+            meta5.setTipo_de_recompensa(1);
+            meta5.setRecompensa(new BigDecimal(1000.00));
+            meta5.setInformacoes_extras("Meta seed 5");
+            metaService.save(meta5);
+
+            Meta meta6 = new Meta();
+            meta6.setNome("Meta de Vendas");
+            meta6.setData_limite(sdf.parse("30/04/2025"));
+            meta6.setTipo_de_meta(1);
+            meta6.setQuantidade_meta(new BigDecimal(1.0));
+            meta6.setTipo_de_recompensa(1);
+            meta6.setRecompensa(new BigDecimal(1000.00));
+            meta6.setInformacoes_extras("Meta seed 6");
+            metaService.save(meta6);
+
+            Meta meta7 = new Meta();
+            meta7.setNome("Meta de Vendas");
+            meta7.setData_limite(sdf.parse("31/05/2025"));
+            meta7.setTipo_de_meta(1);
+            meta7.setQuantidade_meta(new BigDecimal(1.0));
+            meta7.setTipo_de_recompensa(1);
+            meta7.setRecompensa(new BigDecimal(1000.00));
+            meta7.setInformacoes_extras("Meta seed 7");
+            metaService.save(meta7);
+
+            Meta meta8 = new Meta();
+            meta8.setNome("Meta de Vendas");
+            meta8.setData_limite(sdf.parse("30/06/2025"));
+            meta8.setTipo_de_meta(1);
+            meta8.setQuantidade_meta(new BigDecimal(1.0));
+            meta8.setTipo_de_recompensa(1);
+            meta8.setRecompensa(new BigDecimal(1000.00));
+            meta8.setInformacoes_extras("Meta seed 8");
+            metaService.save(meta8);
+
+            Meta meta9 = new Meta();
+            meta9.setNome("Meta de Vendas");
+            meta9.setData_limite(sdf.parse("31/07/2025"));
+            meta9.setTipo_de_meta(1);
+            meta9.setQuantidade_meta(new BigDecimal(1.0));
+            meta9.setTipo_de_recompensa(1);
+            meta9.setRecompensa(new BigDecimal(1000.00));
+            meta9.setInformacoes_extras("Meta seed 9");
+            metaService.save(meta9);
+
+            Meta meta10 = new Meta();
+            meta10.setNome("Meta de Vendas");
+            meta10.setData_limite(sdf.parse("31/08/2025"));
+            meta10.setTipo_de_meta(1);
+            meta10.setQuantidade_meta(new BigDecimal(1.0));
+            meta10.setTipo_de_recompensa(1);
+            meta10.setRecompensa(new BigDecimal(1000.00));
+            meta10.setInformacoes_extras("Meta seed 10");
+            metaService.save(meta10);
+            
         } catch (ParseException e) {
             e.printStackTrace();
         }
