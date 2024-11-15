@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:include="layout :: htmlhead"></head>
+<body>
+
+    <nav th:replace="layout :: menu">(menu)</nav>
+
+    <main class="caixa-de-conteudo-solo">
+
+        <h1 class="hUm">Cadastrar</h1>
+
+        <form th:action="@{/projetos}"
+              method="POST"
+              th:object="${umProjeto}">
+
+              <input type="hidden" th:field="*{id}">
+              <input type="hidden" th:field="*{data_de_criacao_do_registro}">
+              <input type="hidden" th:field="*{data_de_ultima_alteracao}">
+
+            <div class="form-group">
+                <label class="texto-campo-input" for="txtcodigo">Código</label>
+                <input id="txtcodigo"
+                       th:field="*{codigo}"
+                       type="text"
+                       class="form-control entrada-campo-input entrada_nome">
+            </div>
+
+            <div class="form-group">
+                <label class="texto-campo-input" for="txtnome">Nome</label>
+                <input id="txt_nome"
+                       th:field="*{nome}"
+                       type="text"
+                       class="form-control entrada-campo-input entrada_nome">
+            </div>
+
+            <div class="form-group">
+                <label class="texto-campo-input" for="txt_data_inicio">Data de Início</label>
+                <input id="txtdata_inicio"
+                       th:field="*{data_de_inicio}"
+                       type="date"
+                       class="form-control entrada-campo-input">
+            </div>
+
+            <div class="form-group">
+                <label class="texto-campo-input" for="txtdata_de_termino">Data de Término</label>
+                <input id="txtdata_de_termino"
+                       th:field="*{data_de_termino}"
+                       type="date"
+                       class="form-control entrada-campo-input">
+            </div>
+            
+            <div class="form-group">
+                <label class="texto-campo-input" for="txtstatus_do_projeto">Status do Projeto</label>
+                <select class="form-select entrada-campo-input" th:field="*{status_do_projeto}">
+                    <option value="1">Não Iniciado</option>
+                    <option value="2">Em andamento</option>
+                    <option value="3">Concluído</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="texto-campo-input" for="txtdata_de_checkpoint_status_do_projeto">Data Checkpoint Status</label>
+                <input id="txtdata_de_checkpoint_status_do_projeto"
+                       th:field="*{data_de_checkpoint_status_do_projeto}"
+                       type="date"
+                       class="form-control entrada-campo-input">
+            </div>
+
+            
+            <div class="form-group">
+                <label class="texto-campo-input" for="txtstatus_do_pagamento">Status do Pagamento</label>
+                <select class="form-select entrada-campo-input" th:field="*{status_do_pagamento}">
+                    <option value="1">Nenhum pagamento</option>
+                    <option value="2">Sinal pago</option>
+                    <option value="3">Pagamento completo</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="texto-campo-input" for="txtdata_de_checkpoint_status_do_pagamento">Data Checkpoint Pagamento</label>
+                <input id="txtdata_de_checkpoint_status_do_pagamento"
+                       th:field="*{data_de_checkpoint_status_do_pagamento}"
+                       type="date"
+                       class="form-control entrada-campo-input">
+            </div>
+            
+            <div class="form-group">
+                <label class="texto-campo-input" for="txtnumero_do_contrato">Número do Contrato</label>
+                <input id="txtnumero_do_contrato"
+                       th:field="*{numero_do_contrato}"
+                       type="text"
+                       class="form-control entrada-campo-input entrada_nome">
+            </div>
+
+            <div class="form-group">
+                <label class="texto-campo-input" for="txt_informacoes_extras">Informações Extras</label>
+                <textarea id="txt_informacoes_extras" 
+                          th:field="*{informacoes_extras}" 
+                          class="form-control entrada_email entrada-campo-input" 
+                          rows="4"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label class="texto-campo-input" for="txtcliente_do_projeto">Cliente do Projeto</label>
+                <select class="form-select entrada-campo-input" th:field="*{cliente_do_projeto}">
+                    <option th:each="cliente : ${listaDeClientes}"
+                            th:text="${cliente.nome}"
+                            th:value="${cliente.id}">
+
+                    </option>
+                    <option value="null" selected>Nenhum</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="texto-campo-input" for="txtimovel_do_projeto">Imóvel do Projeto</label>
+                <select class="form-select entrada-campo-input" th:field="*{imovel_do_projeto}">
+                    <option th:each="imovel : ${listaDeImoveis}"
+                            th:text="${imovel.nome}"
+                            th:value="${imovel.id}">
+
+                    </option>
+                    <option value="null" selected>Nenhum</option>
+                </select>
+            </div>
+
+
+            <div class="form-group">
+                <label class="texto-campo-input" for="txtcorretor_do_projeto">Corretor Responsável</label>
+                <select class="form-select entrada-campo-input" th:field="*{corretor_do_projeto}">
+                    <option th:each="corretor : ${listaDeCorretores}"
+                            th:text="${corretor.nome}"
+                            th:value="${corretor.id}">
+
+                    </option>
+                    <option value="null" selected>Nenhum</option>
+                    
+                </select>
+            </div>
+
+
+            <br>
+            <a href="/projetos" class="form-control btn btn-danger">Cancelar</a>
+            <button type="submit" class="form-control btn btn-success btn_espacinho">Salvar</button>
+        </form>
+    </main>
+
+    <div th:include="layout :: footer">(footer)</div>
+    <script th:src="@{/scriptdashboard.js}"></script>
+</body>
+</html>

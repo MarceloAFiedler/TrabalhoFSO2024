@@ -112,12 +112,11 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="txtcidade">Corretor Responsável</label>
+                    <label class="texto-campo-input" for="txtcidade">Corretor Responsável</label>
                     <select class="form-select entrada-campo-input" th:field="*{corretor_responsavel}">
                         <option th:each="corretor : ${listaDeCorretores}"
                                 th:text="${corretor.nome}"
                                 th:value="${corretor.id}">
-
                         </option>
                         
                     </select>

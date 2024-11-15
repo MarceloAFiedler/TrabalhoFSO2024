@@ -43,12 +43,15 @@ public class Cliente {
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date data_de_nascimento;
+
     @CreationTimestamp
     @Column(updatable = false)
     private LocalDateTime data_de_criacao_do_registro;
+
     @UpdateTimestamp
     @Column()
     private LocalDateTime data_de_ultima_alteracao;
+    
     @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.MERGE})
     @JoinColumn()
     private Corretor corretor_responsavel;

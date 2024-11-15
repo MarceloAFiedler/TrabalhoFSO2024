@@ -64,6 +64,37 @@ a:hover {
     padding: 25px;
 }
 
+.caixa-de-conteudo-dupla-topo {
+    background-color: #D9D9D9;
+    border-radius: 8px;
+    margin: 110px 30px 30px 30px;
+    min-width: calc(100vw - 60px);
+    max-height: 45svh;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    padding: 25px;
+}
+
+.caixa-de-conteudo-dupla-fundo {
+    background-color: #D9D9D9;
+    border-radius: 8px;
+    margin: 20px 30px 30px 30px;
+    min-width: calc(100vw - 60px);
+    min-height: 45svh;
+    max-height: 45svh;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    padding: 25px;
+}
+
 .caixa-da-tabela { 
     overflow-x: auto;
     max-width: 100%; 
@@ -97,6 +128,10 @@ td, th {
     font-size: 25px;
     font-weight: 1000;
     margin-top: 7px;
+}
+
+.hUm-Session-Divider{
+    margin-left: 30px;
 }
 
 .form-group {
@@ -176,6 +211,10 @@ td, th {
 
 .entrada_nome {
     width: 450px;
+}
+
+.entrada_media{
+    width: 350px;
 }
 
 

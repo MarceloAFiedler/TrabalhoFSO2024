@@ -1,7 +1,7 @@
 
 // Modal pra excluir Clientes
 (function(){
-    $('#tabelaclientes').on('click','.js-delete',function(){
+    $('#tabelaimoveis').on('click','.js-delete',function(){
         let botaoClicado = $(this)
         $('#btnsim').attr('data-id', botaoClicado.attr('data-id'))
         $('#modal').modal('show')
@@ -12,10 +12,10 @@
         let id = botaoClicado.attr('data-id')
         console.log(id);
         $.ajax({
-            url: `/clientes/delete/${id}`,
+            url: `/imoveis/delete/${id}`,
             method: 'GET',
             success: function(){
-                window.location.href = '/clientes'
+                window.location.href = '/imoveis'
             }
         })
 

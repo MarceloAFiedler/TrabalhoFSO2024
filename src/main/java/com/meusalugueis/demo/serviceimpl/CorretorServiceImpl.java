@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.meusalugueis.demo.entity.Cliente;
 import com.meusalugueis.demo.entity.Corretor;
+import com.meusalugueis.demo.entity.Projeto;
 import com.meusalugueis.demo.repository.ClienteRepository;
 import com.meusalugueis.demo.repository.CorretorRepository;
+import com.meusalugueis.demo.repository.ProjetoRepository;
 import com.meusalugueis.demo.service.CorretorService;
 
 @Service
@@ -19,6 +21,9 @@ public class CorretorServiceImpl implements CorretorService {
 
     @Autowired
     private ClienteRepository clienteRepository;
+
+    @Autowired
+    private ProjetoRepository projetoRepository;
 
     @Override
     public List<Corretor> getAll(){
@@ -32,7 +37,7 @@ public class CorretorServiceImpl implements CorretorService {
     }
 
     @Override
-public Corretor delete(long id) {
+    public Corretor delete(long id) {
     var retorno = corretorRepository.findById(id);
     if(retorno.isPresent()){
         // Find all clients with this corretor and set their corretor_responsavel to null
@@ -40,6 +45,12 @@ public Corretor delete(long id) {
         for(Cliente cliente : clientesDoCorretor) {
             cliente.setCorretor_responsavel(null);
             clienteRepository.save(cliente);
+        }
+
+        var projetosDoCorretor = projetoRepository.findByCorretor_do_projeto(retorno.get());
+            for(Projeto projeto : projetosDoCorretor) {
+                projeto.setCorretor_do_projeto(null);
+                projetoRepository.save(projeto);
         }
         
         // Now we can safely delete the corretor

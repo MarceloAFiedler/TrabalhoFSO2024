@@ -9,20 +9,16 @@ import org.springframework.web.servlet.ModelAndView;
 import com.meusalugueis.demo.service.NotificacaoService;
 
 @Controller
-@RequestMapping("/")
-public class PaginaInicialController {
+@RequestMapping("/notificacoes")
+public class NotificacoesController {
     @Autowired
     private NotificacaoService notificacaoService;
     
     @GetMapping
-    //@ResponseBody
     public ModelAndView index(){
         //logica
-        notificacaoService.gerarNotificacoesDeMetas();
-        notificacaoService.gerarNotificacoesDeStatusDeProjeto();
-        notificacaoService.gerarNotificacoesDePagamentoDeProjeto();
-        var mensagem = notificacaoService.listarNotificacoes();
+        var listaDeNotificacoes = notificacaoService.listarNotificacoes();
         
-        return new ModelAndView("pagina-inicial/index", "apelido", mensagem);
+        return new ModelAndView("notificacoes/index", "listaDeNotificacoes", listaDeNotificacoes);
     }
 }
