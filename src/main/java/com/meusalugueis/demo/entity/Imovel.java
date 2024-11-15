@@ -310,7 +310,7 @@ public class Imovel {
     public Cliente getCliente_proprietario() {
         return cliente_proprietario;
     }
-
+    // ver depois
     public void setCliente_proprietario(Cliente cliente_proprietario) {
         this.cliente_proprietario = cliente_proprietario;
     }
