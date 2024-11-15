@@ -32,7 +32,7 @@ public class CorretorServiceImpl implements CorretorService {
     }
 
     @Override
-public Corretor delete(long id) {
+    public Corretor delete(long id) {
     var retorno = corretorRepository.findById(id);
     if(retorno.isPresent()){
         // Find all clients with this corretor and set their corretor_responsavel to null

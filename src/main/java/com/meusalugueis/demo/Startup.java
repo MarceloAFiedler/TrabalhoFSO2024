@@ -1,5 +1,6 @@
 package com.meusalugueis.demo;
 
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -12,8 +13,10 @@ import org.springframework.stereotype.Component;
 
 import com.meusalugueis.demo.entity.Cliente;
 import com.meusalugueis.demo.entity.Corretor;
+import com.meusalugueis.demo.entity.Imovel;
 import com.meusalugueis.demo.service.ClienteService;
 import com.meusalugueis.demo.service.CorretorService;
+import com.meusalugueis.demo.service.ImovelService;
 
 @Component
 public class Startup {
@@ -22,6 +25,9 @@ public class Startup {
 
     @Autowired
     private ClienteService clienteService;
+
+    @Autowired
+    private ImovelService imovelService;
 
 
     @EventListener
@@ -208,10 +214,63 @@ public class Startup {
             cliente10.setCorretor_responsavel(corretorService.getById(3));
             cliente10.setFuncao("1");
             clienteService.save(cliente10);
+
+            // cadastrando Imoveis
+
+            Imovel imovel1 = new Imovel();
+            imovel1.setNome("Casa de Praia");
+            imovel1.setCidade("Rio de Janeiro");
+            imovel1.setEstado("RJ");
+            imovel1.setRua("Avenida Atlântica");
+            imovel1.setNumero("123");
+            imovel1.setCep("12345-678");
+            imovel1.setPonto_de_referencia("Perto da praia");
+            imovel1.setAndares(2);
+            imovel1.setQuantidade_de_quartos(4);
+            imovel1.setQuantidade_de_suites(2);
+            imovel1.setQuantidade_de_cozinhas(1);
+            imovel1.setQuantidade_de_banheiros(3);
+            imovel1.setQuantidade_de_salas(2);
+            imovel1.setQuantidade_de_garagens(1);
+            imovel1.setValor(new BigDecimal("1200000.00"));
+            imovel1.setStatus("1"); // Disponível
+            imovel1.setTipo("1"); // Casa
+            imovel1.setVenda_ou_aluguel("1"); // Venda
+            imovel1.setInformacoes_extras("Imóvel de luxo com vista para o mar.");
+            imovel1.setCliente_proprietario(cliente1);
+    
+            imovelService.save(imovel1);
+    
+            Imovel imovel2 = new Imovel();
+            imovel2.setNome("Apartamento no Centro");
+            imovel2.setCidade("São Paulo");
+            imovel2.setEstado("SP");
+            imovel2.setRua("Rua dos Três Irmãos");
+            imovel2.setNumero("456");
+            imovel2.setCep("98765-432");
+            imovel2.setPonto_de_referencia("Perto do metrô");
+            imovel2.setAndares(1);
+            imovel2.setQuantidade_de_quartos(2);
+            imovel2.setQuantidade_de_suites(1);
+            imovel2.setQuantidade_de_cozinhas(1);
+            imovel2.setQuantidade_de_banheiros(2);
+            imovel2.setQuantidade_de_salas(1);
+            imovel2.setQuantidade_de_garagens(1);
+            imovel2.setValor(new BigDecimal("500000.00"));
+            imovel2.setStatus("2"); // Reservado
+            imovel2.setTipo("2"); // Apartamento
+            imovel2.setVenda_ou_aluguel("2"); // Aluguel
+            imovel2.setInformacoes_extras("Apartamento moderno, reformado.");
+            imovel2.setCliente_proprietario(cliente2);
+    
+            imovelService.save(imovel2);
         } catch (ParseException e) {
             e.printStackTrace();
         }
         
+
+               
+
 
     }   
 }
