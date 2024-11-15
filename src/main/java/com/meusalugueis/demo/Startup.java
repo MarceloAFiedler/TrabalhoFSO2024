@@ -544,7 +544,7 @@ public class Startup {
 
             Meta meta1 = new Meta();
 
-            meta1.setNome("Meta de Vendas");
+            meta1.setNome("Meta de Vendas 1");
             meta1.setData_limite(sdf.parse("30/11/2024"));
             meta1.setTipo_de_meta(1);
             meta1.setQuantidade_meta(new BigDecimal(1.0));
@@ -555,7 +555,7 @@ public class Startup {
             metaService.save(meta1);
 
             Meta meta2 = new Meta();
-            meta2.setNome("Meta de Vendas");
+            meta2.setNome("Meta de Vendas 2");
             meta2.setData_limite(sdf.parse("30/12/2024"));
             meta2.setTipo_de_meta(1);
             meta2.setQuantidade_meta(new BigDecimal(1.0));
@@ -565,7 +565,7 @@ public class Startup {
             metaService.save(meta2);
 
             Meta meta3 = new Meta();
-            meta3.setNome("Meta de Vendas");
+            meta3.setNome("Meta de Vendas 3");
             meta3.setData_limite(sdf.parse("31/01/2025"));
             meta3.setTipo_de_meta(1);
             meta3.setQuantidade_meta(new BigDecimal(1.0));
@@ -575,7 +575,7 @@ public class Startup {
             metaService.save(meta3);
 
             Meta meta4 = new Meta();
-            meta4.setNome("Meta de Vendas");
+            meta4.setNome("Meta de Vendas 4");
             meta4.setData_limite(sdf.parse("28/02/2025"));
             meta4.setTipo_de_meta(1);
             meta4.setQuantidade_meta(new BigDecimal(1.0));
@@ -585,7 +585,7 @@ public class Startup {
             metaService.save(meta4);
 
             Meta meta5 = new Meta();
-            meta5.setNome("Meta de Vendas");
+            meta5.setNome("Meta de Vendas 5");
             meta5.setData_limite(sdf.parse("31/03/2025"));
             meta5.setTipo_de_meta(1);
             meta5.setQuantidade_meta(new BigDecimal(1.0));
@@ -595,7 +595,7 @@ public class Startup {
             metaService.save(meta5);
 
             Meta meta6 = new Meta();
-            meta6.setNome("Meta de Vendas");
+            meta6.setNome("Meta de Vendas 6");
             meta6.setData_limite(sdf.parse("30/04/2025"));
             meta6.setTipo_de_meta(1);
             meta6.setQuantidade_meta(new BigDecimal(1.0));
@@ -605,7 +605,7 @@ public class Startup {
             metaService.save(meta6);
 
             Meta meta7 = new Meta();
-            meta7.setNome("Meta de Vendas");
+            meta7.setNome("Meta de Vendas 7");
             meta7.setData_limite(sdf.parse("31/05/2025"));
             meta7.setTipo_de_meta(1);
             meta7.setQuantidade_meta(new BigDecimal(1.0));
@@ -615,7 +615,7 @@ public class Startup {
             metaService.save(meta7);
 
             Meta meta8 = new Meta();
-            meta8.setNome("Meta de Vendas");
+            meta8.setNome("Meta de Vendas 8");
             meta8.setData_limite(sdf.parse("30/06/2025"));
             meta8.setTipo_de_meta(1);
             meta8.setQuantidade_meta(new BigDecimal(1.0));
@@ -625,7 +625,7 @@ public class Startup {
             metaService.save(meta8);
 
             Meta meta9 = new Meta();
-            meta9.setNome("Meta de Vendas");
+            meta9.setNome("Meta de Vendas 9");
             meta9.setData_limite(sdf.parse("31/07/2025"));
             meta9.setTipo_de_meta(1);
             meta9.setQuantidade_meta(new BigDecimal(1.0));
@@ -635,7 +635,7 @@ public class Startup {
             metaService.save(meta9);
 
             Meta meta10 = new Meta();
-            meta10.setNome("Meta de Vendas");
+            meta10.setNome("Meta de Vendas 10");
             meta10.setData_limite(sdf.parse("31/08/2025"));
             meta10.setTipo_de_meta(1);
             meta10.setQuantidade_meta(new BigDecimal(1.0));
