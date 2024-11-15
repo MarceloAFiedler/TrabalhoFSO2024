@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.meusalugueis.demo.entity.Meta;
 import com.meusalugueis.demo.service.MetaService;
+import com.meusalugueis.demo.service.NotificacaoService;
 
 @Controller
 @RequestMapping("/metas")
@@ -17,6 +18,8 @@ public class MetaController {
 
     @Autowired
     private MetaService metaService;
+
+    @Autowired NotificacaoService notificacaoService;
 
     @GetMapping("/nova-meta")
     public ModelAndView novo(){
