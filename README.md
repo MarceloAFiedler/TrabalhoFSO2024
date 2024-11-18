@@ -17,3 +17,5 @@ Comentários nos commits mais importantes do projeto.
 15-11-2024: Adicionado páginas de CRUD de `Dashboard`, `Projetos` e `Metas`. Adicionado funcionalidade de gerar notificações na versão beta na página `Notificações` (apenas notificações de hoje + sessão admin)
 
 18-11-2024: Adicionado páginas de CRUD de `Negociações`.
+
+18-11-2024: Adicionado funcionalidade de gerar notificações na versão beta na página `Notificações` (apenas notificações de hoje + sessão admin) com origem de `Negociações`.
