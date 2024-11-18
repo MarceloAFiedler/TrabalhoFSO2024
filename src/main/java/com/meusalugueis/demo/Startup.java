@@ -13,11 +13,13 @@ import com.meusalugueis.demo.entity.Cliente;
 import com.meusalugueis.demo.entity.Corretor;
 import com.meusalugueis.demo.entity.Imovel;
 import com.meusalugueis.demo.entity.Meta;
+import com.meusalugueis.demo.entity.Negociacao;
 import com.meusalugueis.demo.entity.Projeto;
 import com.meusalugueis.demo.service.ClienteService;
 import com.meusalugueis.demo.service.CorretorService;
 import com.meusalugueis.demo.service.ImovelService;
 import com.meusalugueis.demo.service.MetaService;
+import com.meusalugueis.demo.service.NegociacaoService;
 import com.meusalugueis.demo.service.ProjetoService;
 
 @Component
@@ -36,6 +38,9 @@ public class Startup {
 
     @Autowired
     private ProjetoService projetoService;
+
+    @Autowired
+    private NegociacaoService negociacaoService;
 
 
     @EventListener
@@ -641,6 +646,34 @@ public class Startup {
             meta10.setRecompensa(new BigDecimal(1000.00));
             meta10.setInformacoes_extras("Meta seed 10");
             metaService.save(meta10);
+
+            Negociacao negociacao1 = new Negociacao();
+            negociacao1.setNome("#N001 - Negociação Teste");
+            negociacao1.setOrigem_da_negociacao(1);
+            negociacao1.setFase_de_negociacao(1);
+            negociacao1.setTipo_de_negociacao(1);
+            negociacao1.setData_de_inicio(sdf.parse("01/12/2024"));
+            negociacao1.setData_de_termino(sdf.parse("31/12/2024"));
+            negociacao1.setData_de_checkpoint_da_fase(sdf.parse("15/12/2024"));
+            negociacao1.setCliente_da_negociacao(cliente1);
+            negociacao1.setCorretor_da_negociacao(corretor1);
+            negociacao1.setImovel_da_negociacao(imovel1);
+            negociacao1.setProjeto_da_negociacao(projeto1);
+            negociacaoService.save(negociacao1);
+
+            Negociacao negociacao2 = new Negociacao();
+            negociacao2.setNome("#N002 - Negociação Teste");
+            negociacao2.setOrigem_da_negociacao(1);
+            negociacao2.setFase_de_negociacao(1);
+            negociacao2.setTipo_de_negociacao(1);
+            negociacao2.setData_de_inicio(sdf.parse("01/12/2024"));
+            negociacao2.setData_de_termino(sdf.parse("31/12/2024"));
+            negociacao2.setData_de_checkpoint_da_fase(sdf.parse("15/12/2024"));
+            negociacao2.setCliente_da_negociacao(cliente2);
+            negociacao2.setCorretor_da_negociacao(corretor2);
+            negociacao2.setImovel_da_negociacao(imovel2);
+            negociacao2.setProjeto_da_negociacao(projeto2);
+            negociacaoService.save(negociacao2);
             
         } catch (ParseException e) {
             e.printStackTrace();

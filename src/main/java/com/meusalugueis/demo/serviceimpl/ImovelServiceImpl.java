@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.meusalugueis.demo.entity.Cliente;
 import com.meusalugueis.demo.entity.Imovel;
+import com.meusalugueis.demo.entity.Negociacao;
 import com.meusalugueis.demo.entity.Projeto;
 import com.meusalugueis.demo.repository.ImovelRepository;
+import com.meusalugueis.demo.repository.NegociacaoRepository;
 import com.meusalugueis.demo.repository.ProjetoRepository;
 import com.meusalugueis.demo.service.ImovelService;
 
@@ -20,6 +22,9 @@ public class ImovelServiceImpl implements ImovelService {
 
     @Autowired
     private ProjetoRepository projetoRepository;
+
+    @Autowired
+    private NegociacaoRepository negociacaoRepository;
 
     @Override
     public List<Imovel> getAll(){
@@ -51,6 +56,12 @@ public class ImovelServiceImpl implements ImovelService {
                 projeto.setImovel_do_projeto(null);
                 projetoRepository.save(projeto);
         }
+
+        var negociacoesDoImovel = negociacaoRepository.findByImovel_da_negociacao(retorno.get());
+            for(Negociacao negociacao : negociacoesDoImovel) {
+                negociacao.setImovel_da_negociacao(null);
+                negociacaoRepository.save(negociacao);
+            }
 
         if(retorno.isPresent())
             return retorno.get();
