@@ -15,3 +15,5 @@ Comentários nos commits mais importantes do projeto.
 15-11-2024: Ajustes nas páginas de CRUD de `Imóveis` para tratar dados exibidos no `index.html`
 
 15-11-2024: Adicionado páginas de CRUD de `Dashboard`, `Projetos` e `Metas`. Adicionado funcionalidade de gerar notificações na versão beta na página `Notificações` (apenas notificações de hoje + sessão admin)
+
+18-11-2024: Adicionado páginas de CRUD de `Negociações`.

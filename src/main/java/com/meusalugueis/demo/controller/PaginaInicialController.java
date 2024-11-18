@@ -21,6 +21,7 @@ public class PaginaInicialController {
         notificacaoService.gerarNotificacoesDeMetas();
         notificacaoService.gerarNotificacoesDeStatusDeProjeto();
         notificacaoService.gerarNotificacoesDePagamentoDeProjeto();
+        notificacaoService.gerarNotificacoesDeNegociacoes();
         var mensagem = notificacaoService.listarNotificacoes();
         
         return new ModelAndView("pagina-inicial/index", "apelido", mensagem);

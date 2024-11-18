@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 import com.meusalugueis.demo.entity.Cliente;
 import com.meusalugueis.demo.entity.Corretor;
 import com.meusalugueis.demo.entity.Imovel;
+import com.meusalugueis.demo.entity.Negociacao;
 import com.meusalugueis.demo.entity.Projeto;
+import com.meusalugueis.demo.repository.NegociacaoRepository;
 import com.meusalugueis.demo.repository.ProjetoRepository;
 import com.meusalugueis.demo.service.ProjetoService;
 
@@ -17,6 +19,9 @@ public class ProjetoServiceImpl implements ProjetoService {
 
     @Autowired
     private ProjetoRepository projetoRepository;
+
+    @Autowired
+    private NegociacaoRepository negociacaoRepository;
 
     @Override
     public List<Projeto> getAll() {
@@ -33,6 +38,14 @@ public class ProjetoServiceImpl implements ProjetoService {
     public Projeto delete(long id) {
         var retorno = projetoRepository.findById(id);
         if(retorno.isPresent()){
+
+            var negociacoesDoProjeto = negociacaoRepository.findByProjeto_da_negociacao(retorno.get());
+            for(Negociacao negociacao : negociacoesDoProjeto) {
+                negociacao.setProjeto_da_negociacao(null);
+                negociacaoRepository.save(negociacao);
+            }
+
+
             projetoRepository.deleteById(id);
             return retorno.get();
         }
