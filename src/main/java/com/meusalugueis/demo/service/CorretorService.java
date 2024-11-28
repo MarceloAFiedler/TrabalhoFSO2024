@@ -15,4 +15,5 @@ public interface CorretorService {
     Corretor delete(long id);
 
     Corretor getById(long id);
+    
 }

@@ -1,9 +1,7 @@
 package com.meusalugueis.demo.serviceimpl;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
-import java.time.Instant;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -70,30 +68,26 @@ public class AgendaServiceImpl implements AgendaService{
 
             deleteAll();
 
-            // --------------- Gerando Datas de Segunda a Domingo
-            // Obtemos a data de hoje
             LocalDate hoje = LocalDate.now();
-            // Descobrimos qual dia da semana é hoje
+
             DayOfWeek diaDaSemana = hoje.getDayOfWeek();
 
-            // Calculamos o início da semana (segunda-feira)
             LocalDate inicioDaSemana = hoje.minusDays(diaDaSemana.getValue() - DayOfWeek.MONDAY.getValue());
-            // Criamos a lista de datas
+
             List<LocalDate> diasDaSemana = new ArrayList<>();
 
-            // Preenchemos a semana de segunda a domingo
             for (int i = 0; i < 7; i++) {
                 diasDaSemana.add(inicioDaSemana.plusDays(i));
             }
 
-            // Exibe as datas (apenas para teste)
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
             diasDaSemana.forEach(data -> System.out.println(data.format(formatter)));
 
             diasDaSemana.forEach(data -> System.out.println(data.getClass().getName()));
 
-            // --------------- Comparando datas de Metas e gerando suas Agendas
             var listaDeMetas = metaRepository.findAll();
             for(Meta meta : listaDeMetas){
                 var dataBase = meta.getData_limite();
@@ -158,12 +152,9 @@ public class AgendaServiceImpl implements AgendaService{
                     agenda.setTipo(1);
                     agenda.setDescricao(meta.getNome());
                     agendaRepository.save(agenda);
-                } else{
-                    System.out.println("DEU NENHUMA DATA SAPORRA");
                 }
             }
             
-            // --------------- Comparando datas de Negociaçõess e gerando suas Agendas
             var listaDeNegociacoes = negociacaoRepository.findAll();
             for(Negociacao negociacao : listaDeNegociacoes){
                 var dataBase = negociacao.getData_de_checkpoint_da_fase();
@@ -220,11 +211,9 @@ public class AgendaServiceImpl implements AgendaService{
                     agenda.setTipo(2);
                     agenda.setDescricao(negociacao.getNome());
                     agendaRepository.save(agenda);
-                } else{
-                    System.out.println("DEU NENHUMA DATA SAPORRA");
                 }
             }
-            // --------------- Comparando datas para Projeto do Status Projeto e gerando suas Agendas
+
             var listaDeProjetos_StatusDoProjeto = projetoRepository.findAll();
             for(Projeto projeto : listaDeProjetos_StatusDoProjeto){
                 var dataBase = projeto.getData_de_checkpoint_status_do_projeto();
@@ -281,11 +270,9 @@ public class AgendaServiceImpl implements AgendaService{
                     agenda.setTipo(3);
                     agenda.setDescricao(projeto.getNome());
                     agendaRepository.save(agenda);
-                } else{
-                    System.out.println("DEU NENHUMA DATA SAPORRA");
                 }
             }
-            // --------------- Comparando datas para Projeto do Status Pagamento e gerando suas Agendas
+
             var listaDeProjetos_StatusDoPagamento = projetoRepository.findAll();
             for(Projeto projeto : listaDeProjetos_StatusDoPagamento){
                 var dataBase = projeto.getData_de_checkpoint_status_do_pagamento();
@@ -342,8 +329,6 @@ public class AgendaServiceImpl implements AgendaService{
                     agenda.setTipo(4);
                     agenda.setDescricao(projeto.getNome());
                     agendaRepository.save(agenda);
-                } else{
-                    System.out.println("DEU NENHUMA DATA SAPORRA");
                 }
             }
     return agendaRepository.findAll();

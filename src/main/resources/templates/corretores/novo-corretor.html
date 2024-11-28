@@ -12,7 +12,8 @@
 
                 <form th:action="@{/corretores}"
                   method="POST"
-                  th:object="${umCorretor}">
+                  th:object="${umCorretor}"
+                  enctype="multipart/form-data">
                  
                   <input type="hidden" th:field="*{id}">
                   <input type="hidden" th:field="*{data_de_criacao_do_registro}">
@@ -24,6 +25,11 @@
                             th:field="*{nome}"
                             type="text" 
                             class="form-control entrada-campo-input entrada_nome">
+                </div>
+
+                <div class="form-group">
+                    <label class="texto-campo-input" for="foto">Foto do Corretor</label>
+                    <input id="foto" type="file" name="foto" class="form-control entrada-campo-input" accept="image/*">
                 </div>
 
                 <div class="form-group">

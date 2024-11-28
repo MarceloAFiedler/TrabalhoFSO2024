@@ -38,9 +38,7 @@ public class NegociacaoController {
 
     @GetMapping
     public ModelAndView index(){
-        //chamar o banco de dados e fazer um select * from tabela
         var listaDeNegociacoes = negociacaoService.getAll();
-        //montar a tela com os dados banco
         return new ModelAndView("negociacoes/index",
                                 "listaDeNegociacoes",
                                 listaDeNegociacoes);

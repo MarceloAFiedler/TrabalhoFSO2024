@@ -9,17 +9,17 @@ import com.meusalugueis.demo.entity.Notificacao;
 @Service
 public interface NotificacaoService {
 
-    void gerarNotificacoesDeMetas();  // Cria as notificações baseadas na data limite da meta
+    void gerarNotificacoesDeMetas();
 
-    void gerarNotificacoesDeStatusDeProjeto();  // Cria as notificações baseadas no status do projeto
+    void gerarNotificacoesDeStatusDeProjeto();
 
     void gerarNotificacoesDePagamentoDeProjeto();
        
-    void gerarNotificacoesDeNegociacoes();   // Cria as notificações baseadas em fase da negociação
+    void gerarNotificacoesDeNegociacoes();
 
     void deleteByOrigem(int origem);
 
-    List<Notificacao> listarNotificacoes();  // Exibe todas as notificações (pode ser usada na interface)
+    List<Notificacao> listarNotificacoes();
 
 }
 

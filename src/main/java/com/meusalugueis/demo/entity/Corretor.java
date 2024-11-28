@@ -1,17 +1,21 @@
 package com.meusalugueis.demo.entity;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.Date;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.multipart.MultipartFile;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
@@ -20,29 +24,43 @@ public class Corretor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @Column(length = 1000, nullable = false)
     private String nome;
+
     @Column(length = 1000, nullable = false)
     private String sobrenome;
+
     @Column(length = 1000, nullable = false)
     private String rg;
+
     @Column(length = 1000, nullable = false)
     private String cpf;
+
     @Column(length = 1000, nullable = false)
     private String creci;
+
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date data_de_nascimento;
+
     @Column(length = 1000, nullable = false)
-    private double comissao; // inteiro para representar porcentagem
+    private double comissao;
+
     @Column(length = 1000, nullable = false)
     private String email;
+
     @CreationTimestamp
     @Column(updatable = false)
     private LocalDateTime data_de_criacao_do_registro;
+
     @UpdateTimestamp
     @Column()
     private LocalDateTime data_de_ultima_alteracao;
+
+    @Lob
+    @Column(name = "foto_do_corretor")
+    private byte[] fotoDoCorretor;
 
     public long getId() {
         return id;
@@ -127,5 +145,26 @@ public class Corretor {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public byte[] getFotoDoCorretor() {
+        return fotoDoCorretor;
+    }
+    
+    public void setFotoDoCorretor(byte[] fotoDoCorretor) {
+        this.fotoDoCorretor = fotoDoCorretor;
+    }
+    
+    public void salvarFoto(MultipartFile foto) throws IOException {
+
+        String pasta = System.getProperty("user.dir") + "/src/main/resources/static/corretores/";
+        File diretorio = new File(pasta);
+        if (!diretorio.exists()) {
+            diretorio.mkdirs();
+        }
+
+        String caminho = pasta + "foto_de_corretor_" + this.id + ".jpg";
+        File arquivo = new File(caminho);
+        foto.transferTo(arquivo);
     }
 }

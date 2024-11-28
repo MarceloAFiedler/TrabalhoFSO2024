@@ -1,5 +1,6 @@
 package com.meusalugueis.demo.controller;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.meusalugueis.demo.entity.Corretor;
@@ -22,30 +25,40 @@ public class CorretorController {
     @GetMapping
     public ModelAndView index(){
         var listaDeCorretores = corretorService.getAll();
+        
         return new ModelAndView("corretores/index", "listaDeCorretores", listaDeCorretores);
     }
 
     @GetMapping("/novo-corretor")
     public ModelAndView novo() {
         var umCorretor = new Corretor();
-
         HashMap<String, Object> dados = new HashMap<>();
-        
         dados.put("umCorretor", umCorretor);
 
         return new ModelAndView("corretores/novo-corretor", dados);
     }
 
     @PostMapping
-    public ModelAndView save(Corretor corretor) {
+    public ModelAndView save(@RequestParam("foto") MultipartFile foto, Corretor corretor)throws IOException {
         corretorService.save(corretor);
+        corretor.salvarFoto(foto);
         return new ModelAndView("redirect:/corretores");
     }
 
     @GetMapping("/editar-corretor/{id}")
-    public ModelAndView alterar(@PathVariable("id") long id) {
+    public ModelAndView editarCorretorForm(@PathVariable("id") long id) {
         var umCorretor = corretorService.getById(id);
         ModelAndView modelAndView = new ModelAndView("corretores/editar-corretor", "umCorretor", umCorretor);
+        return modelAndView;
+    }
+
+    @PostMapping("/editar-corretor/{id}")
+    public ModelAndView editarCorretor(@RequestParam("foto") MultipartFile foto, @PathVariable("id") long id) throws IOException {
+        var umCorretor = corretorService.getById(id);
+        umCorretor.salvarFoto(foto);
+        corretorService.save(umCorretor);
+
+        ModelAndView modelAndView = new ModelAndView("redirect:/corretores");
         return modelAndView;
     }
 

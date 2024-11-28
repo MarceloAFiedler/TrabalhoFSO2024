@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.meusalugueis.demo.repository.AgendaRepository;
 import com.meusalugueis.demo.service.AgendaService;
 import com.meusalugueis.demo.service.NotificacaoService;
 
@@ -20,17 +19,13 @@ public class PaginaInicialController {
     private AgendaService agendaService;
     
     @GetMapping
-    //@ResponseBody
     public ModelAndView index(){
-        //logica
         notificacaoService.gerarNotificacoesDeMetas();
         notificacaoService.gerarNotificacoesDeStatusDeProjeto();
         notificacaoService.gerarNotificacoesDePagamentoDeProjeto();
         notificacaoService.gerarNotificacoesDeNegociacoes();
-        var mensagem = notificacaoService.listarNotificacoes();
-        
         agendaService.gerarAgenda();
         
-        return new ModelAndView("pagina-inicial/index", "apelido", mensagem);
+        return new ModelAndView("pagina-inicial/index");
     }
 }

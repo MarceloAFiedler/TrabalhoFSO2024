@@ -26,9 +26,7 @@ public class ImovelController {
 
     @GetMapping
     public ModelAndView index(){
-        //chamar o banco de dados e fazer um select * from tabela
         var listaDeImoveis = imovelService.getAll();
-        //montar a tela com os dados banco
         return new ModelAndView("imoveis/index",
                                 "listaDeImoveis",
                                 listaDeImoveis);

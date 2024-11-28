@@ -16,7 +16,6 @@ public class AgendaController {
     
     @GetMapping
     public ModelAndView index(){
-        //logica
         agendaService.gerarAgenda();
         var listaDeAgendas = agendaService.getAll();
         

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.meusalugueis.demo.entity.Cliente;
-import com.meusalugueis.demo.entity.Corretor;
 import com.meusalugueis.demo.service.ClienteService;
 import com.meusalugueis.demo.service.CorretorService;
 
@@ -27,9 +26,7 @@ public class ClienteController {
 
     @GetMapping
     public ModelAndView index(){
-        //chamar o banco de dados e fazer um select * from tabela
         var listaDeClientes = clienteService.getAll();
-        //montar a tela com os dados banco
         return new ModelAndView("clientes/index",
                                 "listaDeClientes",
                                 listaDeClientes);

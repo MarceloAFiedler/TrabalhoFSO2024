@@ -23,4 +23,5 @@ public interface ProjetoRepository extends JpaRepository<Projeto, Long>{
 
     @Query("SELECT p FROM Projeto p WHERE p.imovel_do_projeto = :imovel")
     List<Projeto> findByImovel_do_projeto(@Param("imovel") Imovel imovel);
+    
 }

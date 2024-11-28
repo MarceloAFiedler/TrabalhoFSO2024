@@ -15,4 +15,5 @@ public interface ImovelRepository extends JpaRepository<Imovel, Long> {
 
     @Query("SELECT i FROM Imovel i WHERE i.cliente_proprietario = :cliente")
     List<Imovel> findByCliente_proprietario(@Param("cliente") Cliente cliente);
+    
 }

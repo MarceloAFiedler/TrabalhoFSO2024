@@ -17,9 +17,10 @@
         </div>
 
         <br>
-                <div class="caixa-da-tabela"></div>
+                <div class="caixa-da-tabela">
                 <table id="tabelacorretores" class="table table-striped tabela_listar">
                     <thead>
+                        <th>Foto</th>
                         <th>Nome</th>
                         <th>Sobrenome</th>
                         <th>CRECI-SC</th>
@@ -33,6 +34,11 @@
                     </thead>
                     <tbody>
                         <tr th:each="corretor : ${listaDeCorretores}">
+                            <td>
+                              <img class="foto_do_corretor" 
+                              th:src="@{'/corretores/foto_de_corretor_' + ${corretor.id} + '.jpg?timestamp=' + ${#dates.createNow().time}}" 
+                              alt="Foto do Corretor"/>
+                            </td>
                             <td th:text="${corretor.nome}"></td>
                             <td th:text="${corretor.sobrenome}"></td>
                             <td th:text="${corretor.creci}"></td>

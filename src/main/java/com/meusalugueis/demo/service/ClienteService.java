@@ -19,4 +19,5 @@ public interface ClienteService {
     Cliente getById(long id);
 
     List<Cliente> findByCorretor_responsavel(Corretor corretor);
+    
 }

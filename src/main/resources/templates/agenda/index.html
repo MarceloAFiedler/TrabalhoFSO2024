@@ -36,10 +36,10 @@
                                     <span th:case="2">Negociação</span>
                                     <span th:case="3">Status Projeto</span>
                                     <span th:case="4">Status Pagamento</span>
-                                    <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                                    <span th:case="*">Indefinido</span>
                                 </span>
                             </td>
-                            <td th:text="${agenda.data_do_compromisso}"></td>
+                            <td th:text="${#dates.format(agenda.data_do_compromisso, 'EEE, dd')} + ' de ' + ${#dates.format(agenda.data_do_compromisso, 'MMMM')}"></td>
                             <td>
                                 <span th:switch="${agenda.dia_da_semana}">
                                     <span th:case="1">Seg</span>
@@ -49,7 +49,7 @@
                                     <span th:case="5">Sex</span>
                                     <span th:case="6">Sáb</span>
                                     <span th:case="7">Dom</span>
-                                    <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                                    <span th:case="*">Indefinido</span>
                                 </span>
                             </td>
                         </tr>                        
@@ -57,7 +57,6 @@
                 </table>
             </div>
     </div>
-    <!-- Outra tabela -->
     <div class="caixa-de-conteudo-dupla-fundo">    
         <div class="mini_menu_paginas_listar">
             <div class="mini_menu_paginas_listar_mini_nav">
@@ -82,10 +81,10 @@
                                 <span th:case="2">Negociação</span>
                                 <span th:case="3">Status Projeto</span>
                                 <span th:case="4">Status Pagamento</span>
-                                <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                                <span th:case="*">Indefinido</span>
                             </span>
                         </td>
-                        <td th:text="${agenda.data_do_compromisso}"></td>
+                        <td th:text="${#dates.format(agenda.data_do_compromisso, 'EEE, dd')} + ' de ' + ${#dates.format(agenda.data_do_compromisso, 'MMMM')}"></td>
                         <td>
                             <span th:switch="${agenda.dia_da_semana}">
                                 <span th:case="1">Seg</span>
@@ -95,7 +94,7 @@
                                 <span th:case="5">Sex</span>
                                 <span th:case="6">Sáb</span>
                                 <span th:case="7">Dom</span>
-                                <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                                <span th:case="*">Indefinido</span>
                             </span>
                         </td>
                     </tr>                        
@@ -103,7 +102,6 @@
             </table>
         </div>
     </div>
-    <!-- Outra tabela -->
     <div class="caixa-de-conteudo-dupla-fundo">    
         <div class="mini_menu_paginas_listar">
             <div class="mini_menu_paginas_listar_mini_nav">
@@ -128,10 +126,10 @@
                                 <span th:case="2">Negociação</span>
                                 <span th:case="3">Status Projeto</span>
                                 <span th:case="4">Status Pagamento</span>
-                                <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                                <span th:case="*">Indefinido</span>
                             </span>
                         </td>
-                        <td th:text="${agenda.data_do_compromisso}"></td>
+                        <td th:text="${#dates.format(agenda.data_do_compromisso, 'EEE, dd')} + ' de ' + ${#dates.format(agenda.data_do_compromisso, 'MMMM')}"></td>
                         <td>
                             <span th:switch="${agenda.dia_da_semana}">
                                 <span th:case="1">Seg</span>
@@ -141,7 +139,7 @@
                                 <span th:case="5">Sex</span>
                                 <span th:case="6">Sáb</span>
                                 <span th:case="7">Dom</span>
-                                <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                                <span th:case="*">Indefinido</span>
                             </span>
                         </td>
                     </tr>                        
@@ -149,7 +147,6 @@
             </table>
         </div>
     </div>
-    <!-- Outra tabela -->
     <div class="caixa-de-conteudo-dupla-fundo">    
         <div class="mini_menu_paginas_listar">
             <div class="mini_menu_paginas_listar_mini_nav">
@@ -174,10 +171,10 @@
                                 <span th:case="2">Negociação</span>
                                 <span th:case="3">Status Projeto</span>
                                 <span th:case="4">Status Pagamento</span>
-                                <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                                <span th:case="*">Indefinido</span>
                             </span>
                         </td>
-                        <td th:text="${agenda.data_do_compromisso}"></td>
+                        <td th:text="${#dates.format(agenda.data_do_compromisso, 'EEE, dd')} + ' de ' + ${#dates.format(agenda.data_do_compromisso, 'MMMM')}"></td>
                         <td>
                             <span th:switch="${agenda.dia_da_semana}">
                                 <span th:case="1">Seg</span>
@@ -187,7 +184,7 @@
                                 <span th:case="5">Sex</span>
                                 <span th:case="6">Sáb</span>
                                 <span th:case="7">Dom</span>
-                                <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                                <span th:case="*">Indefinido</span>
                             </span>
                         </td>
                     </tr>                        
@@ -195,7 +192,6 @@
             </table>
         </div>
     </div>
-    <!-- Outra tabela -->
     <div class="caixa-de-conteudo-dupla-fundo">    
         <div class="mini_menu_paginas_listar">
             <div class="mini_menu_paginas_listar_mini_nav">
@@ -220,10 +216,10 @@
                                 <span th:case="2">Negociação</span>
                                 <span th:case="3">Status Projeto</span>
                                 <span th:case="4">Status Pagamento</span>
-                                <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                                <span th:case="*">Indefinido</span>
                             </span>
                         </td>
-                        <td th:text="${agenda.data_do_compromisso}"></td>
+                        <td th:text="${#dates.format(agenda.data_do_compromisso, 'EEE, dd')} + ' de ' + ${#dates.format(agenda.data_do_compromisso, 'MMMM')}"></td>
                         <td>
                             <span th:switch="${agenda.dia_da_semana}">
                                 <span th:case="1">Seg</span>
@@ -233,7 +229,7 @@
                                 <span th:case="5">Sex</span>
                                 <span th:case="6">Sáb</span>
                                 <span th:case="7">Dom</span>
-                                <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                                <span th:case="*">Indefinido</span>
                             </span>
                         </td>
                     </tr>                        
@@ -241,7 +237,6 @@
             </table>
         </div>
     </div>
-    <!-- Outra tabela -->
     <div class="caixa-de-conteudo-dupla-fundo">    
         <div class="mini_menu_paginas_listar">
             <div class="mini_menu_paginas_listar_mini_nav">
@@ -266,10 +261,10 @@
                                 <span th:case="2">Negociação</span>
                                 <span th:case="3">Status Projeto</span>
                                 <span th:case="4">Status Pagamento</span>
-                                <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                                <span th:case="*">Indefinido</span>
                             </span>
                         </td>
-                        <td th:text="${agenda.data_do_compromisso}"></td>
+                        <td th:text="${#dates.format(agenda.data_do_compromisso, 'EEE, dd')} + ' de ' + ${#dates.format(agenda.data_do_compromisso, 'MMMM')}"></td>
                         <td>
                             <span th:switch="${agenda.dia_da_semana}">
                                 <span th:case="1">Seg</span>
@@ -279,7 +274,7 @@
                                 <span th:case="5">Sex</span>
                                 <span th:case="6">Sáb</span>
                                 <span th:case="7">Dom</span>
-                                <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                                <span th:case="*">Indefinido</span>
                             </span>
                         </td>
                     </tr>                        
@@ -287,7 +282,6 @@
             </table>
         </div>
     </div>
-    <!-- Outra tabela -->
     <div class="caixa-de-conteudo-dupla-fundo">    
         <div class="mini_menu_paginas_listar">
             <div class="mini_menu_paginas_listar_mini_nav">
@@ -312,10 +306,11 @@
                                 <span th:case="2">Negociação</span>
                                 <span th:case="3">Status Projeto</span>
                                 <span th:case="4">Status Pagamento</span>
-                                <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                                <span th:case="*">Indefinido</span>
                             </span>
                         </td>
-                        <td th:text="${agenda.data_do_compromisso}"></td>
+                        <td th:text="${#dates.format(agenda.data_do_compromisso, 'EEE, dd')} + ' de ' + ${#dates.format(agenda.data_do_compromisso, 'MMMM')}"></td>
+
                         <td>
                             <span th:switch="${agenda.dia_da_semana}">
                                 <span th:case="1">Seg</span>
@@ -325,7 +320,7 @@
                                 <span th:case="5">Sex</span>
                                 <span th:case="6">Sáb</span>
                                 <span th:case="7">Dom</span>
-                                <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                                <span th:case="*">Indefinido</span>
                             </span>
                         </td>
                     </tr>                        

@@ -1,5 +1,3 @@
-
-// Modal pra excluir Clientes
 (function(){
     $('#tabelanegociacoes').on('click','.js-delete',function(){
         let botaoClicado = $(this)
