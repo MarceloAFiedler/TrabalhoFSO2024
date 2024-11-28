@@ -50,7 +50,7 @@ public class CorretorServiceImpl implements CorretorService {
     public Corretor delete(long id) {
     var retorno = corretorRepository.findById(id);
     if(retorno.isPresent()){
-        // Find all clients with this corretor and set their corretor_responsavel to null
+        
         var clientesDoCorretor = clienteRepository.findByCorretor_responsavel(retorno.get());
         for(Cliente cliente : clientesDoCorretor) {
             cliente.setCorretor_responsavel(null);
@@ -75,7 +75,7 @@ public class CorretorServiceImpl implements CorretorService {
                 metaRepository.save(meta);
             }
         
-        // Now we can safely delete the corretor
+        
         corretorRepository.deleteById(id);
         return retorno.get();
     }

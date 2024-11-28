@@ -42,11 +42,10 @@
                                 <span th:case="1">Não Iniciado</span>
                                 <span th:case="2">Em andamento</span>
                                 <span th:case="3">Concluído</span>
-                                <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                                <span th:case="*">Indefinido</span>
                             </span>
                         </td>
                         <td th:text="${projeto.corretor_do_projeto != null ? projeto.corretor_do_projeto.nome : 'Não Informado'}"></td>
-                        <!-- <td th:text="${projeto.data_de_checkpoint_status_do_projeto}"></td> -->
                         <td th:text="${#dates.format(projeto.data_de_checkpoint_status_do_projeto, 'EEE, dd')} + ' de ' + ${#dates.format(projeto.data_de_checkpoint_status_do_projeto, 'MMMM')}"></td>
 
                         <td th:text="${projeto.data_de_criacao_do_registro}"></td>
@@ -63,7 +62,6 @@
         </div>
     </div>
 
-        <!-- Outra tabela -->
     <div class="caixa-de-conteudo-dupla-fundo">    
         <div class="mini_menu_paginas_listar">
             <div class="mini_menu_paginas_listar_mini_nav">
@@ -91,7 +89,6 @@
                 <tbody>
                     <tr th:each="meta : ${listaDeMetas}">
                         <td th:text="${meta.nome}"></td>
-                        <!-- <td th:text="${meta.data_limite}"></td> -->
                         <td th:text="${#dates.format(meta.data_limite, 'EEE, dd')} + ' de ' + ${#dates.format(meta.data_limite, 'MMMM')}"></td>
 
                         <td th:text="${meta.corretor != null ? meta.corretor.nome : 'Não Informado'}"></td>
@@ -100,7 +97,7 @@
                                 <span th:case="1">Não Iniciado</span>
                                 <span th:case="2">Em andamento</span>
                                 <span th:case="3">Concluído</span>
-                                <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                                <span th:case="*">Indefinido</span>
                             </span>
                         </td>
                         <td th:text="${meta.quantidade_meta}"></td>
@@ -109,7 +106,7 @@
                                 <span th:case="1">Não Iniciado</span>
                                 <span th:case="2">Em andamento</span>
                                 <span th:case="3">Concluído</span>
-                                <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                                <span th:case="*">Indefinido</span>
                             </span>
                         </td>
                         <td th:text="${meta.recompensa}"></td>

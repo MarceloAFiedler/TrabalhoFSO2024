@@ -19,5 +19,6 @@ public interface ImovelService{
     Imovel getById(long id);
 
     List<Imovel> findByCliente_proprietario(Cliente cliente);
+    
 }
 

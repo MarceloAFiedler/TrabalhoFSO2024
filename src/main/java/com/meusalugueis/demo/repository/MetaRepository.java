@@ -19,4 +19,5 @@ public interface MetaRepository extends JpaRepository<Meta, Long> {
 
     @Query("SELECT m FROM Meta m WHERE m.corretor = :corretor")
     List<Meta> findByCorretor(@Param("corretor") Corretor corretor);
+    
 }

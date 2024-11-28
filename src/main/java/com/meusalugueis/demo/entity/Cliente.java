@@ -23,22 +23,31 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @Column(length = 1000, nullable = false)
     private String nome;
+
     @Column(length = 1000, nullable = false)
     private String sobrenome;
+
     @Column(length = 1000, nullable = false)
     private String tipo;
+
     @Column(length = 1000, nullable = false)
     private String funcao;
+
     @Column(length = 1000, nullable = false)
     private String rg;
+
     @Column(length = 1000, nullable = false)
     private String cpf;
+
     @Column(length = 1000, nullable = false)
     private String email;
+
     @Column(length = 1000, nullable = false)
     private String telefone;
+
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date data_de_nascimento;
@@ -54,8 +63,6 @@ public class Cliente {
     @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.MERGE})
     @JoinColumn()
     private Corretor corretor_responsavel;
-
-    // Getters and Setters
 
     public long getId() {
         return id;

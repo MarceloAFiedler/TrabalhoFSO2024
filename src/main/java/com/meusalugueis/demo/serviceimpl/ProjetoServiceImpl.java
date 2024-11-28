@@ -36,10 +36,13 @@ public class ProjetoServiceImpl implements ProjetoService {
 
     @Override
     public Projeto delete(long id) {
+
         var retorno = projetoRepository.findById(id);
+
         if(retorno.isPresent()){
 
             var negociacoesDoProjeto = negociacaoRepository.findByProjeto_da_negociacao(retorno.get());
+
             for(Negociacao negociacao : negociacoesDoProjeto) {
                 negociacao.setProjeto_da_negociacao(null);
                 negociacaoRepository.save(negociacao);
@@ -54,7 +57,9 @@ public class ProjetoServiceImpl implements ProjetoService {
 
     @Override
     public Projeto getById(long id) {
+
         var retorno = projetoRepository.findById(id); 
+        
         if(retorno.isPresent())
             return retorno.get();
         return null;

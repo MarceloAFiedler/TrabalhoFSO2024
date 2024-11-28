@@ -17,5 +17,6 @@ public interface NotificacaoRepository extends JpaRepository<Notificacao, Long> 
     @Modifying
     @Query("DELETE FROM Notificacao n WHERE n.origem = :origem")
     void deleteByOrigem(@Param("origem") int origem);
+    
 }
 

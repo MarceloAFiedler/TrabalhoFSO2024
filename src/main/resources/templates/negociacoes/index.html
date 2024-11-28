@@ -46,14 +46,14 @@
                                 <span th:case="1">Indicação</span>
                                 <span th:case="2">Inbound</span>
                                 <span th:case="3">Outbound</span>
-                                <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                                <span th:case="*">Indefinido</span>
                             </span>
                         </td>
                         <td>
                             <span th:switch="${negociacao.tipo_de_negociacao}">
                                 <span th:case="1">Compra</span>
                                 <span th:case="2">Venda</span>
-                                <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                                <span th:case="*">Indefinido</span>
                             </span>
                         </td>
                         <td>
@@ -62,10 +62,9 @@
                                 <span th:case="2">Não efetivada</span>
                                 <span th:case="3">Retornar contato</span>
                                 <span th:case="4">Efetivada</span>
-                                <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                                <span th:case="*">Indefinido</span>
                             </span>
                         </td>
-                        <!-- <td th:text="${negociacao.data_de_checkpoint_da_fase}"></td> -->
                         <td th:text="${#dates.format(negociacao.data_de_checkpoint_da_fase, 'EEE, dd')} + ' de ' + ${#dates.format(negociacao.data_de_checkpoint_da_fase, 'MMMM')}"></td>
 
                         

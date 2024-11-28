@@ -26,9 +26,7 @@ public class ClienteController {
 
     @GetMapping
     public ModelAndView index(){
-        //chamar o banco de dados e fazer um select * from tabela
         var listaDeClientes = clienteService.getAll();
-        //montar a tela com os dados banco
         return new ModelAndView("clientes/index",
                                 "listaDeClientes",
                                 listaDeClientes);

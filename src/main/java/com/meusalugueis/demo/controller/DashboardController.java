@@ -21,16 +21,14 @@ public class DashboardController {
 
     @GetMapping
     public ModelAndView dashboard() {
-        // Obter dados dos Projetos e Metas
+
         var listaDeProjetos = projetoService.getAll();
         var listaDeMetas = metaService.getAll();
 
-        // Adicionar dados ao modelo
         ModelAndView modelAndView = new ModelAndView("dashboard/index");
         modelAndView.addObject("listaDeProjetos", listaDeProjetos);
         modelAndView.addObject("listaDeMetas", listaDeMetas);
 
-        // Retornar a view de Dashboard
         return modelAndView;
     }
 }

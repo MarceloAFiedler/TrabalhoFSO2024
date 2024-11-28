@@ -19,9 +19,7 @@ public class PaginaInicialController {
     private AgendaService agendaService;
     
     @GetMapping
-    //@ResponseBody
     public ModelAndView index(){
-        //logica
         notificacaoService.gerarNotificacoesDeMetas();
         notificacaoService.gerarNotificacoesDeStatusDeProjeto();
         notificacaoService.gerarNotificacoesDePagamentoDeProjeto();

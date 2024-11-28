@@ -45,12 +45,10 @@ public class Startup {
 
     @EventListener
     public void onApplicationEvent(ContextRefreshedEvent event){
-       // Corretor 1 - Barba Branca
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
         try{
-            // Corretor 1 - Barba Branca
             var corretor1 = new Corretor();
             corretor1.setId(2);
             corretor1.setNome("Edward Newgate");
@@ -62,8 +60,7 @@ public class Startup {
             corretor1.setData_de_nascimento(sdf.parse("11/02/2002"));
             corretor1.setEmail("barbabranca@onepiece.com");
             corretorService.save(corretor1);
-    
-            // Corretor 2 - Garp
+
             var corretor2 = new Corretor();
             corretor2.setId(3);
             corretor2.setNome("Monkey D.");
@@ -76,7 +73,6 @@ public class Startup {
             corretor2.setEmail("garp@onepiece.com");
             corretorService.save(corretor2);
     
-            // Corretor 3 - Gol D. Roger
             var corretor3 = new Corretor();
             corretor3.setId(4);
             corretor3.setNome("Gol D.");
@@ -89,7 +85,6 @@ public class Startup {
             corretor3.setEmail("goldo.roger@onepiece.com");
             corretorService.save(corretor3);
     
-            // Cliente 1 - Luffy
             var cliente1 = new Cliente();
             cliente1.setNome("Monkey D.");
             cliente1.setSobrenome("Luffy");
@@ -103,7 +98,6 @@ public class Startup {
             cliente1.setFuncao("1");
             clienteService.save(cliente1);
     
-            // Cliente 2 - Zoro
             var cliente2 = new Cliente();
             cliente2.setNome("Roronoa");
             cliente2.setSobrenome("Zoro");
@@ -117,7 +111,6 @@ public class Startup {
             cliente2.setFuncao("1");
             clienteService.save(cliente2);
     
-            // Cliente 3 - Nami
             var cliente3 = new Cliente();
             cliente3.setNome("Nami");
             cliente3.setSobrenome("Nami");
@@ -131,7 +124,6 @@ public class Startup {
             cliente3.setCorretor_responsavel(corretorService.getById(1));
             clienteService.save(cliente3);
     
-            // Cliente 4 - Usopp
             var cliente4 = new Cliente();
             cliente4.setNome("Usopp");
             cliente4.setSobrenome("Usopp");
@@ -145,7 +137,6 @@ public class Startup {
             cliente4.setCorretor_responsavel(corretorService.getById(3));
             clienteService.save(cliente4);
     
-            // Cliente 5 - Sanji
             var cliente5 = new Cliente();
             cliente5.setNome("Vinsmoke");
             cliente5.setSobrenome("Sanji");
@@ -159,7 +150,6 @@ public class Startup {
             cliente5.setCorretor_responsavel(corretorService.getById(2));
             clienteService.save(cliente5);
     
-            // Cliente 6 - Chopper
             var cliente6 = new Cliente();
             cliente6.setNome("Tony Tony");
             cliente6.setSobrenome("Chopper");
@@ -173,7 +163,6 @@ public class Startup {
             cliente6.setCorretor_responsavel(corretorService.getById(2));
             clienteService.save(cliente6);
     
-            // Cliente 7 - Nico Robin
             var cliente7 = new Cliente();
             cliente7.setNome("Nico");
             cliente7.setSobrenome("Robin");
@@ -187,7 +176,6 @@ public class Startup {
             cliente7.setFuncao("1");
             clienteService.save(cliente7);
     
-            // Cliente 8 - Franky
             var cliente8 = new Cliente();
             cliente8.setNome("Cutty");
             cliente8.setSobrenome("Flamingo Franky");
@@ -201,7 +189,6 @@ public class Startup {
             cliente8.setCorretor_responsavel(corretorService.getById(1));
             clienteService.save(cliente8);
     
-            // Cliente 9 - Brook
             var cliente9 = new Cliente();
             cliente9.setNome("Brook");
             cliente9.setSobrenome("Brook");
@@ -215,7 +202,6 @@ public class Startup {
             cliente9.setCorretor_responsavel(corretorService.getById(2));
             clienteService.save(cliente9);
     
-            // Cliente 10 - Jinbe
             var cliente10 = new Cliente();
             cliente10.setNome("Jinbe");
             cliente10.setSobrenome("Jinbe");
@@ -228,8 +214,6 @@ public class Startup {
             cliente10.setCorretor_responsavel(corretorService.getById(3));
             cliente10.setFuncao("1");
             clienteService.save(cliente10);
-
-            // cadastrando Imoveis
 
             Imovel imovel1 = new Imovel();
             imovel1.setCodigo("#001");
@@ -248,12 +232,11 @@ public class Startup {
             imovel1.setQuantidade_de_salas(2);
             imovel1.setQuantidade_de_garagens(1);
             imovel1.setValor(new BigDecimal("1200000.00"));
-            imovel1.setStatus("1"); // Disponível
-            imovel1.setTipo("1"); // Casa
-            imovel1.setVenda_ou_aluguel("1"); // Venda
+            imovel1.setStatus("1");
+            imovel1.setTipo("1");
+            imovel1.setVenda_ou_aluguel("1");
             imovel1.setInformacoes_extras("Imóvel de luxo com vista para o mar.");
             imovel1.setCliente_proprietario(cliente1);
-    
             imovelService.save(imovel1);
     
             Imovel imovel2 = new Imovel();
@@ -273,12 +256,11 @@ public class Startup {
             imovel2.setQuantidade_de_salas(1);
             imovel2.setQuantidade_de_garagens(1);
             imovel2.setValor(new BigDecimal("500000.00"));
-            imovel2.setStatus("2"); // Reservado
-            imovel2.setTipo("2"); // Apartamento
-            imovel2.setVenda_ou_aluguel("2"); // Aluguel
+            imovel2.setStatus("2");
+            imovel2.setTipo("2");
+            imovel2.setVenda_ou_aluguel("2");
             imovel2.setInformacoes_extras("Apartamento moderno, reformado.");
             imovel2.setCliente_proprietario(cliente2);
-    
             imovelService.save(imovel2);
 
             Imovel imovel3 = new Imovel();
@@ -298,12 +280,11 @@ public class Startup {
             imovel3.setQuantidade_de_salas(1);
             imovel3.setQuantidade_de_garagens(1);
             imovel3.setValor(new BigDecimal("500000.00"));
-            imovel3.setStatus("2"); // Reservado
-            imovel3.setTipo("2"); // Apartamento
-            imovel3.setVenda_ou_aluguel("2"); // Aluguel
+            imovel3.setStatus("2");
+            imovel3.setTipo("2"); 
+            imovel3.setVenda_ou_aluguel("2");
             imovel3.setInformacoes_extras("Apartamento moderno, reformado.");
             imovel3.setCliente_proprietario(cliente3);
-    
             imovelService.save(imovel3);
 
             Imovel imovel4 = new Imovel();
@@ -323,12 +304,11 @@ public class Startup {
             imovel4.setQuantidade_de_salas(2);
             imovel4.setQuantidade_de_garagens(2);
             imovel4.setValor(new BigDecimal("1200000.00"));
-            imovel4.setStatus("1"); // Disponível
-            imovel4.setTipo("1"); // Casa
-            imovel4.setVenda_ou_aluguel("1"); // Venda
+            imovel4.setStatus("1");
+            imovel4.setTipo("1");
+            imovel4.setVenda_ou_aluguel("1");
             imovel4.setInformacoes_extras("Casa ampla com piscina e área gourmet.");
             imovel4.setCliente_proprietario(cliente4);
-
             imovelService.save(imovel4);
 
             Imovel imovel5 = new Imovel();
@@ -348,12 +328,11 @@ public class Startup {
             imovel5.setQuantidade_de_salas(2);
             imovel5.setQuantidade_de_garagens(3);
             imovel5.setValor(new BigDecimal("3500000.00"));
-            imovel5.setStatus("1"); // Disponível
-            imovel5.setTipo("2"); // Apartamento
-            imovel5.setVenda_ou_aluguel("1"); // Venda
+            imovel5.setStatus("1");
+            imovel5.setTipo("2");
+            imovel5.setVenda_ou_aluguel("1");
             imovel5.setInformacoes_extras("Apartamento de luxo com vista panorâmica.");
             imovel5.setCliente_proprietario(cliente5);
-
             imovelService.save(imovel5);
 
             Imovel imovel6 = new Imovel();
@@ -373,15 +352,13 @@ public class Startup {
             imovel6.setQuantidade_de_salas(1);
             imovel6.setQuantidade_de_garagens(2);
             imovel6.setValor(new BigDecimal("800000.00"));
-            imovel6.setStatus("1"); // Disponível
-            imovel6.setTipo("1"); // Casa
-            imovel6.setVenda_ou_aluguel("1"); // Venda
+            imovel6.setStatus("1");
+            imovel6.setTipo("1");
+            imovel6.setVenda_ou_aluguel("1");
             imovel6.setInformacoes_extras("Chácara com grande área de terreno e piscina.");
             imovel6.setCliente_proprietario(cliente6);
-
             imovelService.save(imovel6);
 
-            // Criando os Projetos
             Projeto projeto1 = new Projeto();
             projeto1.setCodigo("#001");
             projeto1.setNome("Casa nova para fulano");
@@ -392,9 +369,9 @@ public class Startup {
             projeto1.setNumero_do_contrato("2024.206-00");
             projeto1.setStatus_do_projeto(1);
             projeto1.setStatus_do_pagamento(1);
-            projeto1.setCorretor_do_projeto(corretorService.getById(1));  // Corretor com ID 1
-            projeto1.setCliente_do_projeto(clienteService.getById(1));    // Cliente com ID 1
-            projeto1.setImovel_do_projeto(imovelService.getById(4));      // Imóvel com ID 4
+            projeto1.setCorretor_do_projeto(corretorService.getById(1));
+            projeto1.setCliente_do_projeto(clienteService.getById(1));
+            projeto1.setImovel_do_projeto(imovelService.getById(4));
             projeto1.setInformacoes_extras("Projeto seed 1");
             projetoService.save(projeto1);
             
@@ -408,9 +385,9 @@ public class Startup {
             projeto2.setNumero_do_contrato("2024.207-00");
             projeto2.setStatus_do_projeto(1);
             projeto2.setStatus_do_pagamento(1);
-            projeto2.setCorretor_do_projeto(corretorService.getById(2));  // Corretor com ID 2
-            projeto2.setCliente_do_projeto(clienteService.getById(2));    // Cliente com ID 2
-            projeto2.setImovel_do_projeto(imovelService.getById(5));      // Imóvel com ID 5
+            projeto2.setCorretor_do_projeto(corretorService.getById(2));
+            projeto2.setCliente_do_projeto(clienteService.getById(2));
+            projeto2.setImovel_do_projeto(imovelService.getById(5));
             projeto2.setInformacoes_extras("Projeto seed 2");
             projetoService.save(projeto2);
             
@@ -424,9 +401,9 @@ public class Startup {
             projeto3.setNumero_do_contrato("2025.208-00");
             projeto3.setStatus_do_projeto(1);
             projeto3.setStatus_do_pagamento(1);
-            projeto3.setCorretor_do_projeto(corretorService.getById(3));  // Corretor com ID 3
-            projeto3.setCliente_do_projeto(clienteService.getById(3));    // Cliente com ID 3
-            projeto3.setImovel_do_projeto(imovelService.getById(6));      // Imóvel com ID 6
+            projeto3.setCorretor_do_projeto(corretorService.getById(3));
+            projeto3.setCliente_do_projeto(clienteService.getById(3));
+            projeto3.setImovel_do_projeto(imovelService.getById(6)); 
             projeto3.setInformacoes_extras("Projeto seed 3");
             projetoService.save(projeto3);
             
@@ -440,9 +417,9 @@ public class Startup {
             projeto4.setNumero_do_contrato("2025.209-00");
             projeto4.setStatus_do_projeto(1);
             projeto4.setStatus_do_pagamento(1);
-            projeto4.setCorretor_do_projeto(corretorService.getById(3));  // Corretor com ID 4
-            projeto4.setCliente_do_projeto(clienteService.getById(4));    // Cliente com ID 4
-            projeto4.setImovel_do_projeto(imovelService.getById(1));      // Imóvel com ID 7
+            projeto4.setCorretor_do_projeto(corretorService.getById(3));
+            projeto4.setCliente_do_projeto(clienteService.getById(4));
+            projeto4.setImovel_do_projeto(imovelService.getById(1));
             projeto4.setInformacoes_extras("Projeto seed 4");
             projetoService.save(projeto4);
             
@@ -456,9 +433,9 @@ public class Startup {
             projeto5.setNumero_do_contrato("2025.210-00");
             projeto5.setStatus_do_projeto(1);
             projeto5.setStatus_do_pagamento(1);
-            projeto5.setCorretor_do_projeto(corretorService.getById(3));  // Corretor com ID 5
-            projeto5.setCliente_do_projeto(clienteService.getById(5));    // Cliente com ID 5
-            projeto5.setImovel_do_projeto(imovelService.getById(1));      // Imóvel com ID 8
+            projeto5.setCorretor_do_projeto(corretorService.getById(3));
+            projeto5.setCliente_do_projeto(clienteService.getById(5));
+            projeto5.setImovel_do_projeto(imovelService.getById(1));
             projeto5.setInformacoes_extras("Projeto seed 5");
             projetoService.save(projeto5);
             
@@ -472,9 +449,9 @@ public class Startup {
             projeto6.setNumero_do_contrato("2025.211-00");
             projeto6.setStatus_do_projeto(1);
             projeto6.setStatus_do_pagamento(1);
-            projeto6.setCorretor_do_projeto(corretorService.getById(3));  // Corretor com ID 6
-            projeto6.setCliente_do_projeto(clienteService.getById(6));    // Cliente com ID 6
-            projeto6.setImovel_do_projeto(imovelService.getById(4));      // Imóvel com ID 9
+            projeto6.setCorretor_do_projeto(corretorService.getById(3));
+            projeto6.setCliente_do_projeto(clienteService.getById(6));
+            projeto6.setImovel_do_projeto(imovelService.getById(4));
             projeto6.setInformacoes_extras("Projeto seed 6");
             projetoService.save(projeto6);
             
@@ -488,9 +465,9 @@ public class Startup {
             projeto7.setNumero_do_contrato("2025.212-00");
             projeto7.setStatus_do_projeto(1);
             projeto7.setStatus_do_pagamento(1);
-            projeto7.setCorretor_do_projeto(corretorService.getById(3));  // Corretor com ID 7
-            projeto7.setCliente_do_projeto(clienteService.getById(7));    // Cliente com ID 7
-            projeto7.setImovel_do_projeto(imovelService.getById(5));     // Imóvel com ID 10
+            projeto7.setCorretor_do_projeto(corretorService.getById(3));
+            projeto7.setCliente_do_projeto(clienteService.getById(7)); 
+            projeto7.setImovel_do_projeto(imovelService.getById(5));    
             projeto7.setInformacoes_extras("Projeto seed 7");
             projetoService.save(projeto7);
             
@@ -504,9 +481,9 @@ public class Startup {
             projeto8.setNumero_do_contrato("2025.213-00");
             projeto8.setStatus_do_projeto(1);
             projeto8.setStatus_do_pagamento(1);
-            projeto8.setCorretor_do_projeto(corretorService.getById(3));  // Corretor com ID 8
-            projeto8.setCliente_do_projeto(clienteService.getById(8));    // Cliente com ID 8
-            projeto8.setImovel_do_projeto(imovelService.getById(3));     // Imóvel com ID 11
+            projeto8.setCorretor_do_projeto(corretorService.getById(3));  
+            projeto8.setCliente_do_projeto(clienteService.getById(8));   
+            projeto8.setImovel_do_projeto(imovelService.getById(3));     
             projeto8.setInformacoes_extras("Projeto seed 8");
             projetoService.save(projeto8);
             
@@ -520,9 +497,9 @@ public class Startup {
             projeto9.setNumero_do_contrato("2025.214-00");
             projeto9.setStatus_do_projeto(1);
             projeto9.setStatus_do_pagamento(1);
-            projeto9.setCorretor_do_projeto(corretorService.getById(2));  // Corretor com ID 9
-            projeto9.setCliente_do_projeto(clienteService.getById(9));    // Cliente com ID 9
-            projeto9.setImovel_do_projeto(imovelService.getById(3));     // Imóvel com ID 12
+            projeto9.setCorretor_do_projeto(corretorService.getById(2)); 
+            projeto9.setCliente_do_projeto(clienteService.getById(9));    
+            projeto9.setImovel_do_projeto(imovelService.getById(3));    
             projeto9.setInformacoes_extras("Projeto seed 9");
             projetoService.save(projeto9);
 
@@ -541,12 +518,8 @@ public class Startup {
             projeto10.setImovel_do_projeto(imovelService.getById(4));
             projeto10.setInformacoes_extras("Projeto seed 1");
             projetoService.save(projeto10);
-            
-            
-            // Criando as Metas
 
             Meta meta1 = new Meta();
-
             meta1.setNome("Meta de Vendas 1");
             meta1.setData_limite(sdf.parse("30/11/2024"));
             meta1.setTipo_de_meta(1);
@@ -555,7 +528,6 @@ public class Startup {
             meta1.setRecompensa(new BigDecimal(1000.00));
             meta1.setCorretor(corretorService.getById(1));
             meta1.setInformacoes_extras("Meta seed 1");
-            
             metaService.save(meta1);
 
             Meta meta2 = new Meta();

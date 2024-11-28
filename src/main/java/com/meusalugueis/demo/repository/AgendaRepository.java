@@ -7,5 +7,4 @@ import com.meusalugueis.demo.entity.Agenda;
 
 @Repository
 public interface AgendaRepository extends JpaRepository<Agenda, Long>{
-
 }

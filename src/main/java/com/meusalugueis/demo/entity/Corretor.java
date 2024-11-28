@@ -24,26 +24,36 @@ public class Corretor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @Column(length = 1000, nullable = false)
     private String nome;
+
     @Column(length = 1000, nullable = false)
     private String sobrenome;
+
     @Column(length = 1000, nullable = false)
     private String rg;
+
     @Column(length = 1000, nullable = false)
     private String cpf;
+
     @Column(length = 1000, nullable = false)
     private String creci;
+
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date data_de_nascimento;
+
     @Column(length = 1000, nullable = false)
-    private double comissao; // inteiro para representar porcentagem
+    private double comissao;
+
     @Column(length = 1000, nullable = false)
     private String email;
+
     @CreationTimestamp
     @Column(updatable = false)
     private LocalDateTime data_de_criacao_do_registro;
+
     @UpdateTimestamp
     @Column()
     private LocalDateTime data_de_ultima_alteracao;
@@ -145,17 +155,14 @@ public class Corretor {
         this.fotoDoCorretor = fotoDoCorretor;
     }
     
-    // precisa pra salvar a foto e criar a pasta
     public void salvarFoto(MultipartFile foto) throws IOException {
-        // Obtém o diretório absoluto do projeto
+
         String pasta = System.getProperty("user.dir") + "/src/main/resources/static/corretores/";
-    
         File diretorio = new File(pasta);
         if (!diretorio.exists()) {
-            diretorio.mkdirs();  // Cria o diretório, se não existir
+            diretorio.mkdirs();
         }
-    
-        // Define o caminho do arquivo
+
         String caminho = pasta + "foto_de_corretor_" + this.id + ".jpg";
         File arquivo = new File(caminho);
         foto.transferTo(arquivo);

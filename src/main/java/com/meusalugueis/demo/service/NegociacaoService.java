@@ -21,8 +21,12 @@ public interface NegociacaoService {
 
     Negociacao getById(long id);
 
-    List<Negociacao> findByCorretor_da_negociacao(Corretor corretor); 
+    List<Negociacao> findByCorretor_da_negociacao(Corretor corretor);
+
     List<Negociacao> findByImovel_da_negociacao(Imovel imovel);
+
     List<Negociacao> findByCliente_da_negociacao(Cliente cliente);
+
     List<Negociacao> findByProjeto_da_negociacao(Projeto projeto);
+    
 }

@@ -38,7 +38,7 @@
                                     <span th:case="4">Em uma semana</span>
                                     <span th:case="5">Em duas semanas</span>
                                     <span th:case="6">Em mais de duas semanas</span>
-                                    <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                                    <span th:case="*">Indefinido</span>
                                 </span>
                             </td>
                             <td>
@@ -47,7 +47,7 @@
                                     <span th:case="2">Checkpoint Status Projeto</span>
                                     <span th:case="3">Checkpoint Status Pagamento</span>
                                     <span th:case="4">Fase Negociação</span>
-                                    <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                                    <span th:case="*">Indefinido</span>
                                 </span>
                             </td>
                         <td th:text="${#dates.format(notificacao.data_de_notificacao, 'EEE, dd')} + ' de ' + ${#dates.format(notificacao.data_de_notificacao, 'MMMM')}"></td>
@@ -56,7 +56,7 @@
                 </table>
             </div>
     </div>
-    <!-- Outra tabela -->   
+
         <div class="mini_menu_paginas_listar">
             <div class="mini_menu_paginas_listar_mini_nav">
                 <h1 class="hUm hUm-Session-Divider">Área Admin - Visualizar Notificações Geradas</h1>
@@ -64,7 +64,6 @@
         </div>
         <br>
 
-    <!-- Outra tabela -->
     <div class="caixa-de-conteudo-dupla-fundo">    
         <div class="mini_menu_paginas_listar">
             <div class="mini_menu_paginas_listar_mini_nav">
@@ -91,7 +90,7 @@
                                 <span th:case="4">Em uma semana</span>
                                 <span th:case="5">Em duas semanas</span>
                                 <span th:case="6">Em mais de duas semanas</span>
-                                <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                                <span th:case="*">Indefinido</span>
                             </span>
                         </td>
                         <td>
@@ -100,7 +99,7 @@
                                 <span th:case="2">Checkpoint Status Projeto</span>
                                 <span th:case="3">Checkpoint Status Pagamento</span>
                                 <span th:case="4">Fase Negociação</span>
-                                <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                                <span th:case="*">Indefinido</span> 
                             </span>
                         </td>
                         <td th:text="${#dates.format(notificacao.data_de_notificacao, 'EEE, dd')} + ' de ' + ${#dates.format(notificacao.data_de_notificacao, 'MMMM')}"></td>
@@ -109,7 +108,7 @@
             </table>
         </div>
     </div>
-    <!-- Outra tabela -->
+
     <div class="caixa-de-conteudo-dupla-fundo">    
         <div class="mini_menu_paginas_listar">
             <div class="mini_menu_paginas_listar_mini_nav">
@@ -136,7 +135,7 @@
                                 <span th:case="4">Em uma semana</span>
                                 <span th:case="5">Em duas semanas</span>
                                 <span th:case="6">Em mais de duas semanas</span>
-                                <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                                <span th:case="*">Indefinido</span> 
                             </span>
                         </td>
                         <td>
@@ -145,7 +144,7 @@
                                 <span th:case="2">Checkpoint Status Projeto</span>
                                 <span th:case="3">Checkpoint Status Pagamento</span>
                                 <span th:case="4">Fase Negociação</span>
-                                <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                                <span th:case="*">Indefinido</span>
                             </span>
                         </td>
                         <td th:text="${#dates.format(notificacao.data_de_notificacao, 'EEE, dd')} + ' de ' + ${#dates.format(notificacao.data_de_notificacao, 'MMMM')}"></td>
@@ -154,7 +153,7 @@
             </table>
         </div>
     </div>
-    <!-- Outra tabela -->
+
     <div class="caixa-de-conteudo-dupla-fundo">    
         <div class="mini_menu_paginas_listar">
             <div class="mini_menu_paginas_listar_mini_nav">
@@ -181,7 +180,7 @@
                                 <span th:case="4">Em uma semana</span>
                                 <span th:case="5">Em duas semanas</span>
                                 <span th:case="6">Em mais de duas semanas</span>
-                                <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                                <span th:case="*">Indefinido</span>
                             </span>
                         </td>
                         <td>
@@ -190,7 +189,7 @@
                                 <span th:case="2">Checkpoint Status Projeto</span>
                                 <span th:case="3">Checkpoint Status Pagamento</span>
                                 <span th:case="4">Fase Negociação</span>
-                                <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                                <span th:case="*">Indefinido</span> 
                             </span>
                         </td>
                         <td th:text="${#dates.format(notificacao.data_de_notificacao, 'EEE, dd')} + ' de ' + ${#dates.format(notificacao.data_de_notificacao, 'MMMM')}"></td>
@@ -199,7 +198,6 @@
             </table>
         </div>
     </div>
-    <!-- Outra tabela -->
     <div class="caixa-de-conteudo-dupla-fundo">    
         <div class="mini_menu_paginas_listar">
             <div class="mini_menu_paginas_listar_mini_nav">
@@ -226,7 +224,7 @@
                                 <span th:case="4">Em uma semana</span>
                                 <span th:case="5">Em duas semanas</span>
                                 <span th:case="6">Em mais de duas semanas</span>
-                                <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                                <span th:case="*">Indefinido</span> 
                             </span>
                         </td>
                         <td>
@@ -235,7 +233,7 @@
                                 <span th:case="2">Checkpoint Status Projeto</span>
                                 <span th:case="3">Checkpoint Status Pagamento</span>
                                 <span th:case="4">Fase Negociação</span>
-                                <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
+                                <span th:case="*">Indefinido</span>
                             </span>
                         </td>
                         <td th:text="${#dates.format(notificacao.data_de_notificacao, 'EEE, dd')} + ' de ' + ${#dates.format(notificacao.data_de_notificacao, 'MMMM')}"></td>

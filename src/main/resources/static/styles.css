@@ -84,7 +84,6 @@ a:hover {
     border-radius: 8px;
     margin: 20px 30px 30px 30px;
     min-width: calc(100vw - 60px);
-    /* min-height: 45svh; */
     max-height: 45svh;
     box-sizing: border-box;
 

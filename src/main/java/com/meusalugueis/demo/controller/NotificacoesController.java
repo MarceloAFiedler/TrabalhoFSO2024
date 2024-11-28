@@ -16,7 +16,6 @@ public class NotificacoesController {
     
     @GetMapping
     public ModelAndView index(){
-        //logica
         notificacaoService.gerarNotificacoesDeMetas();
         notificacaoService.gerarNotificacoesDeStatusDeProjeto();
         notificacaoService.gerarNotificacoesDePagamentoDeProjeto();

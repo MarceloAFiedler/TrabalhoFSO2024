@@ -25,15 +25,14 @@ public class CorretorController {
     @GetMapping
     public ModelAndView index(){
         var listaDeCorretores = corretorService.getAll();
+        
         return new ModelAndView("corretores/index", "listaDeCorretores", listaDeCorretores);
     }
 
     @GetMapping("/novo-corretor")
     public ModelAndView novo() {
         var umCorretor = new Corretor();
-
         HashMap<String, Object> dados = new HashMap<>();
-        
         dados.put("umCorretor", umCorretor);
 
         return new ModelAndView("corretores/novo-corretor", dados);
@@ -46,13 +45,6 @@ public class CorretorController {
         return new ModelAndView("redirect:/corretores");
     }
 
-    // @GetMapping("/editar-corretor/{id}")
-    // public ModelAndView alterar(@PathVariable("id") long id) {
-    //     var umCorretor = corretorService.getById(id);
-    //     ModelAndView modelAndView = new ModelAndView("corretores/editar-corretor", "umCorretor", umCorretor);
-    //     return modelAndView;
-    // }
-
     @GetMapping("/editar-corretor/{id}")
     public ModelAndView editarCorretorForm(@PathVariable("id") long id) {
         var umCorretor = corretorService.getById(id);
@@ -63,10 +55,8 @@ public class CorretorController {
     @PostMapping("/editar-corretor/{id}")
     public ModelAndView editarCorretor(@RequestParam("foto") MultipartFile foto, @PathVariable("id") long id) throws IOException {
         var umCorretor = corretorService.getById(id);
-
-        // Salvaa a nova foto
         umCorretor.salvarFoto(foto);
-        corretorService.save(umCorretor); // Salva as mudanças no banco, se necessário
+        corretorService.save(umCorretor);
 
         ModelAndView modelAndView = new ModelAndView("redirect:/corretores");
         return modelAndView;
