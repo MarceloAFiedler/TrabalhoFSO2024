@@ -18,4 +18,4 @@ Comentários nos commits mais importantes do projeto.
 
 18-11-2024: Adicionado páginas de CRUD de `Negociações`.
 
-18-11-2024: Adicionado funcionalidade de gerar notificações na versão beta na página `Notificações` (apenas notificações de hoje + sessão admin) com origem de `Negociações`.
+25-11-2024 a 28-11-2024: Adicionado páginas de CRUD de `Agenda`. Reconstrução total da lógica e interface de `Notificações`. Adicionado campo foto e CRUD para `Corretores`. Limpeza dos comentários.
