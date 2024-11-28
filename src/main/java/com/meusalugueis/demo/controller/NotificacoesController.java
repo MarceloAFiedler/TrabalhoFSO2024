@@ -17,6 +17,10 @@ public class NotificacoesController {
     @GetMapping
     public ModelAndView index(){
         //logica
+        notificacaoService.gerarNotificacoesDeMetas();
+        notificacaoService.gerarNotificacoesDeStatusDeProjeto();
+        notificacaoService.gerarNotificacoesDePagamentoDeProjeto();
+        notificacaoService.gerarNotificacoesDeNegociacoes();
         var listaDeNotificacoes = notificacaoService.listarNotificacoes();
         
         return new ModelAndView("notificacoes/index", "listaDeNotificacoes", listaDeNotificacoes);
