@@ -41,12 +41,17 @@ public class NotificacaoServiceImpl implements NotificacaoService {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String APENAS_HOJE = sdf.format(DATA_DE_HOJE);
         
+        System.out.println("var DATA_DE_HOJE = " + DATA_DE_HOJE);
+        System.out.println("type DATA_DE_HOJE = " + DATA_DE_HOJE.getClass().getName());
     
         // var listaDeMetas = metaRepository.findByData_limiteLessThanEqual(DATA_DE_HOJE);
         var listaDeMetas = metaRepository.findAll();
             for (Meta meta : listaDeMetas) {
                 // Obtém a data base
                 Date dataBase = meta.getData_limite();
+
+                System.out.println("var dataBase = " + dataBase);
+                System.out.println("type dataBase = " + dataBase.getClass().getName());
 
                 if(dataBase == null){
                     continue;
@@ -60,19 +65,11 @@ public class NotificacaoServiceImpl implements NotificacaoService {
                     
                     // Verifica se a data da meta é anterior a hoje (não igual)
                     if (dataLimite.before(dataHoje)) {
-                        System.out.println("CAIU AQUI APENAS_HOJE ============> " + APENAS_HOJE);
-                        System.out.println("CAIU AQUI  APENAS_DATA_LIMITE ============> " + APENAS_DATA_LIMITE);
-                        System.out.println("CAIU AQUI  Meta Atual ============> " + meta.getNome());
                         continue;
                     }
                     
-                    System.out.println("APENAS_HOJE ============> " + APENAS_HOJE);
-                    System.out.println("APENAS_DATA_LIMITE ============> " + APENAS_DATA_LIMITE);
-                    System.out.println("Meta Atual ============> " + meta.getNome());
-                    
                     // Notificação para o dia da data_limite
                     if (APENAS_DATA_LIMITE.equals(APENAS_HOJE)) {
-                        System.out.println("AQUI PORRAAAAAAAAAAAAAAAAAAAA");
                         Notificacao notificacaoHoje = new Notificacao();
                         notificacaoHoje.setNome_da_notificacao(meta.getNome());
                         notificacaoHoje.setTipo_de_notificacao(1);
@@ -177,19 +174,12 @@ public class NotificacaoServiceImpl implements NotificacaoService {
                         
                         // Verifica se a data da meta é anterior a hoje (não igual)
                         if (dataLimite.before(dataHoje)) {
-                            System.out.println("CAIU AQUI APENAS_HOJE ============> " + APENAS_HOJE);
-                            System.out.println("CAIU AQUI  APENAS_DATA_LIMITE ============> " + APENAS_DATA_LIMITE);
-                            System.out.println("CAIU AQUI  Meta Atual ============> " + negociacao.getNome());
                             continue;
                         }
                         
-                        System.out.println("APENAS_HOJE ============> " + APENAS_HOJE);
-                        System.out.println("APENAS_DATA_LIMITE ============> " + APENAS_DATA_LIMITE);
-                        System.out.println("Meta Atual ============> " + negociacao.getNome());
-                        
+                    
                         // Notificação para o dia da data_limite
                         if (APENAS_DATA_LIMITE.equals(APENAS_HOJE)) {
-                            System.out.println("AQUI PORRAAAAAAAAAAAAAAAAAAAA");
                             Notificacao notificacaoHoje = new Notificacao();
                             notificacaoHoje.setNome_da_notificacao(negociacao.getNome());
                             notificacaoHoje.setTipo_de_notificacao(1);
@@ -294,19 +284,11 @@ public class NotificacaoServiceImpl implements NotificacaoService {
                     
                     // Verifica se a data da meta é anterior a hoje (não igual)
                     if (dataLimite.before(dataHoje)) {
-                        System.out.println("CAIU AQUI APENAS_HOJE ============> " + APENAS_HOJE);
-                        System.out.println("CAIU AQUI  APENAS_DATA_LIMITE ============> " + APENAS_DATA_LIMITE);
-                        System.out.println("CAIU AQUI  Meta Atual ============> " + projeto.getNome());
                         continue;
                     }
                     
-                    System.out.println("APENAS_HOJE ============> " + APENAS_HOJE);
-                    System.out.println("APENAS_DATA_LIMITE ============> " + APENAS_DATA_LIMITE);
-                    System.out.println("Meta Atual ============> " + projeto.getNome());
-                    
                     // Notificação para o dia da data_limite
                     if (APENAS_DATA_LIMITE.equals(APENAS_HOJE)) {
-                        System.out.println("AQUI PORRAAAAAAAAAAAAAAAAAAAA");
                         Notificacao notificacaoHoje = new Notificacao();
                         notificacaoHoje.setNome_da_notificacao(projeto.getNome());
                         notificacaoHoje.setTipo_de_notificacao(1);
@@ -411,19 +393,11 @@ public class NotificacaoServiceImpl implements NotificacaoService {
                     
                     // Verifica se a data da meta é anterior a hoje (não igual)
                     if (dataLimite.before(dataHoje)) {
-                        System.out.println("CAIU AQUI APENAS_HOJE ============> " + APENAS_HOJE);
-                        System.out.println("CAIU AQUI  APENAS_DATA_LIMITE ============> " + APENAS_DATA_LIMITE);
-                        System.out.println("CAIU AQUI  Meta Atual ============> " + projeto.getNome());
                         continue;
                     }
                     
-                    System.out.println("APENAS_HOJE ============> " + APENAS_HOJE);
-                    System.out.println("APENAS_DATA_LIMITE ============> " + APENAS_DATA_LIMITE);
-                    System.out.println("Meta Atual ============> " + projeto.getNome());
-                    
                     // Notificação para o dia da data_limite
                     if (APENAS_DATA_LIMITE.equals(APENAS_HOJE)) {
-                        System.out.println("AQUI PORRAAAAAAAAAAAAAAAAAAAA");
                         Notificacao notificacaoHoje = new Notificacao();
                         notificacaoHoje.setNome_da_notificacao(projeto.getNome());
                         notificacaoHoje.setTipo_de_notificacao(1);

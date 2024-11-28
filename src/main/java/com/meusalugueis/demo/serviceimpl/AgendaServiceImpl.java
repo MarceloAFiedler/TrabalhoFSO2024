@@ -1,9 +1,7 @@
 package com.meusalugueis.demo.serviceimpl;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
-import java.time.Instant;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -158,8 +156,6 @@ public class AgendaServiceImpl implements AgendaService{
                     agenda.setTipo(1);
                     agenda.setDescricao(meta.getNome());
                     agendaRepository.save(agenda);
-                } else{
-                    System.out.println("DEU NENHUMA DATA SAPORRA");
                 }
             }
             
@@ -220,8 +216,6 @@ public class AgendaServiceImpl implements AgendaService{
                     agenda.setTipo(2);
                     agenda.setDescricao(negociacao.getNome());
                     agendaRepository.save(agenda);
-                } else{
-                    System.out.println("DEU NENHUMA DATA SAPORRA");
                 }
             }
             // --------------- Comparando datas para Projeto do Status Projeto e gerando suas Agendas
@@ -281,8 +275,6 @@ public class AgendaServiceImpl implements AgendaService{
                     agenda.setTipo(3);
                     agenda.setDescricao(projeto.getNome());
                     agendaRepository.save(agenda);
-                } else{
-                    System.out.println("DEU NENHUMA DATA SAPORRA");
                 }
             }
             // --------------- Comparando datas para Projeto do Status Pagamento e gerando suas Agendas
@@ -342,8 +334,6 @@ public class AgendaServiceImpl implements AgendaService{
                     agenda.setTipo(4);
                     agenda.setDescricao(projeto.getNome());
                     agendaRepository.save(agenda);
-                } else{
-                    System.out.println("DEU NENHUMA DATA SAPORRA");
                 }
             }
     return agendaRepository.findAll();
