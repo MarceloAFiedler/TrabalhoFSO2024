@@ -515,8 +515,8 @@ public class Startup {
             projeto9.setNome("Sítio para Venda");
             projeto9.setData_de_inicio(sdf.parse("20/07/2025"));
             projeto9.setData_de_termino(sdf.parse("30/07/2025"));
-            projeto9.setData_de_checkpoint_status_do_projeto(sdf.parse("25/07/2025"));
-            projeto9.setData_de_checkpoint_status_do_pagamento(sdf.parse("25/07/2025"));
+            projeto9.setData_de_checkpoint_status_do_projeto(sdf.parse("25/11/2024"));
+            projeto9.setData_de_checkpoint_status_do_pagamento(sdf.parse("25/11/2024"));
             projeto9.setNumero_do_contrato("2025.214-00");
             projeto9.setStatus_do_projeto(1);
             projeto9.setStatus_do_pagamento(1);
@@ -531,8 +531,8 @@ public class Startup {
             projeto10.setNome("Casa nova para fulano");
             projeto10.setData_de_inicio(sdf.parse("11/11/2024"));
             projeto10.setData_de_termino(sdf.parse("18/11/2024"));
-            projeto10.setData_de_checkpoint_status_do_projeto(sdf.parse("13/11/2024"));
-            projeto10.setData_de_checkpoint_status_do_pagamento(sdf.parse("13/11/2024"));
+            projeto10.setData_de_checkpoint_status_do_projeto(sdf.parse("28/11/2024"));
+            projeto10.setData_de_checkpoint_status_do_pagamento(sdf.parse("29/11/2024"));
             projeto10.setNumero_do_contrato("2024.206-00");
             projeto10.setStatus_do_projeto(1);
             projeto10.setStatus_do_pagamento(1);
@@ -609,7 +609,7 @@ public class Startup {
 
             Meta meta7 = new Meta();
             meta7.setNome("Meta de Vendas 7");
-            meta7.setData_limite(sdf.parse("31/05/2025"));
+            meta7.setData_limite(sdf.parse("26/11/2024"));
             meta7.setTipo_de_meta(1);
             meta7.setQuantidade_meta(new BigDecimal(1.0));
             meta7.setTipo_de_recompensa(1);
@@ -619,7 +619,7 @@ public class Startup {
 
             Meta meta8 = new Meta();
             meta8.setNome("Meta de Vendas 8");
-            meta8.setData_limite(sdf.parse("15/11/2025"));
+            meta8.setData_limite(sdf.parse("25/11/2024"));
             meta8.setTipo_de_meta(1);
             meta8.setQuantidade_meta(new BigDecimal(1.0));
             meta8.setTipo_de_recompensa(1);
@@ -654,7 +654,7 @@ public class Startup {
             negociacao1.setTipo_de_negociacao(1);
             negociacao1.setData_de_inicio(sdf.parse("01/12/2024"));
             negociacao1.setData_de_termino(sdf.parse("31/12/2024"));
-            negociacao1.setData_de_checkpoint_da_fase(sdf.parse("15/12/2024"));
+            negociacao1.setData_de_checkpoint_da_fase(sdf.parse("01/12/2024"));
             negociacao1.setCliente_da_negociacao(cliente1);
             negociacao1.setCorretor_da_negociacao(corretor1);
             negociacao1.setImovel_da_negociacao(imovel1);
@@ -668,7 +668,7 @@ public class Startup {
             negociacao2.setTipo_de_negociacao(1);
             negociacao2.setData_de_inicio(sdf.parse("01/12/2024"));
             negociacao2.setData_de_termino(sdf.parse("31/12/2024"));
-            negociacao2.setData_de_checkpoint_da_fase(sdf.parse("15/12/2024"));
+            negociacao2.setData_de_checkpoint_da_fase(sdf.parse("27/11/2024"));
             negociacao2.setCliente_da_negociacao(cliente2);
             negociacao2.setCorretor_da_negociacao(corretor2);
             negociacao2.setImovel_da_negociacao(imovel2);
