@@ -1,17 +1,21 @@
 package com.meusalugueis.demo.entity;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.Date;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.multipart.MultipartFile;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
@@ -43,6 +47,10 @@ public class Corretor {
     @UpdateTimestamp
     @Column()
     private LocalDateTime data_de_ultima_alteracao;
+
+    @Lob
+    @Column(name = "foto_do_corretor")
+    private byte[] fotoDoCorretor;
 
     public long getId() {
         return id;
@@ -127,5 +135,29 @@ public class Corretor {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public byte[] getFotoDoCorretor() {
+        return fotoDoCorretor;
+    }
+    
+    public void setFotoDoCorretor(byte[] fotoDoCorretor) {
+        this.fotoDoCorretor = fotoDoCorretor;
+    }
+    
+    // precisa pra salvar a foto e criar a pasta
+    public void salvarFoto(MultipartFile foto) throws IOException {
+        // Obtém o diretório absoluto do projeto
+        String pasta = System.getProperty("user.dir") + "/src/main/resources/static/corretores/";
+    
+        File diretorio = new File(pasta);
+        if (!diretorio.exists()) {
+            diretorio.mkdirs();  // Cria o diretório, se não existir
+        }
+    
+        // Define o caminho do arquivo
+        String caminho = pasta + "foto_de_corretor_" + this.id + ".jpg";
+        File arquivo = new File(caminho);
+        foto.transferTo(arquivo);
     }
 }
