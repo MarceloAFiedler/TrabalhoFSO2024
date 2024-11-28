@@ -39,7 +39,7 @@
                                     <span th:case="*">Indefinido</span>
                                 </span>
                             </td>
-                            <td th:text="${agenda.data_do_compromisso}"></td>
+                            <td th:text="${#dates.format(agenda.data_do_compromisso, 'EEE, dd')} + ' de ' + ${#dates.format(agenda.data_do_compromisso, 'MMMM')}"></td>
                             <td>
                                 <span th:switch="${agenda.dia_da_semana}">
                                     <span th:case="1">Seg</span>
@@ -85,7 +85,7 @@
                                 <span th:case="*">Indefinido</span>
                             </span>
                         </td>
-                        <td th:text="${agenda.data_do_compromisso}"></td>
+                        <td th:text="${#dates.format(agenda.data_do_compromisso, 'EEE, dd')} + ' de ' + ${#dates.format(agenda.data_do_compromisso, 'MMMM')}"></td>
                         <td>
                             <span th:switch="${agenda.dia_da_semana}">
                                 <span th:case="1">Seg</span>
@@ -131,7 +131,7 @@
                                 <span th:case="*">Indefinido</span>
                             </span>
                         </td>
-                        <td th:text="${agenda.data_do_compromisso}"></td>
+                        <td th:text="${#dates.format(agenda.data_do_compromisso, 'EEE, dd')} + ' de ' + ${#dates.format(agenda.data_do_compromisso, 'MMMM')}"></td>
                         <td>
                             <span th:switch="${agenda.dia_da_semana}">
                                 <span th:case="1">Seg</span>
@@ -177,7 +177,7 @@
                                 <span th:case="*">Indefinido</span>
                             </span>
                         </td>
-                        <td th:text="${agenda.data_do_compromisso}"></td>
+                        <td th:text="${#dates.format(agenda.data_do_compromisso, 'EEE, dd')} + ' de ' + ${#dates.format(agenda.data_do_compromisso, 'MMMM')}"></td>
                         <td>
                             <span th:switch="${agenda.dia_da_semana}">
                                 <span th:case="1">Seg</span>
@@ -223,7 +223,7 @@
                                 <span th:case="*">Indefinido</span>
                             </span>
                         </td>
-                        <td th:text="${agenda.data_do_compromisso}"></td>
+                        <td th:text="${#dates.format(agenda.data_do_compromisso, 'EEE, dd')} + ' de ' + ${#dates.format(agenda.data_do_compromisso, 'MMMM')}"></td>
                         <td>
                             <span th:switch="${agenda.dia_da_semana}">
                                 <span th:case="1">Seg</span>
@@ -269,7 +269,7 @@
                                 <span th:case="*">Indefinido</span>
                             </span>
                         </td>
-                        <td th:text="${agenda.data_do_compromisso}"></td>
+                        <td th:text="${#dates.format(agenda.data_do_compromisso, 'EEE, dd')} + ' de ' + ${#dates.format(agenda.data_do_compromisso, 'MMMM')}"></td>
                         <td>
                             <span th:switch="${agenda.dia_da_semana}">
                                 <span th:case="1">Seg</span>
@@ -315,7 +315,9 @@
                                 <span th:case="*">Indefinido</span>
                             </span>
                         </td>
-                        <td th:text="${agenda.data_do_compromisso}"></td>
+                        <!-- <td th:text="${agenda.data_do_compromisso}"></td> -->
+                        <td th:text="${#dates.format(agenda.data_do_compromisso, 'EEE, dd')} + ' de ' + ${#dates.format(agenda.data_do_compromisso, 'MMMM')}"></td>
+
                         <td>
                             <span th:switch="${agenda.dia_da_semana}">
                                 <span th:case="1">Seg</span>

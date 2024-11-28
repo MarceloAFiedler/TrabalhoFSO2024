@@ -52,4 +52,9 @@ public class MetaServiceImpl implements MetaService{
     public List<Meta> findByData_limiteLessThanEqual(Date data) {
         return metaRepository.findByData_limiteLessThanEqual(data);
     }
+
+    @Override
+    public List<Meta> findByCorretor(Corretor corretor){
+        return metaRepository.findByCorretor(corretor);
+    }
 }

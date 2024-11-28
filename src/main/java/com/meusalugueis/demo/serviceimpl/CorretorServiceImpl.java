@@ -7,10 +7,12 @@ import org.springframework.stereotype.Service;
 
 import com.meusalugueis.demo.entity.Cliente;
 import com.meusalugueis.demo.entity.Corretor;
+import com.meusalugueis.demo.entity.Meta;
 import com.meusalugueis.demo.entity.Negociacao;
 import com.meusalugueis.demo.entity.Projeto;
 import com.meusalugueis.demo.repository.ClienteRepository;
 import com.meusalugueis.demo.repository.CorretorRepository;
+import com.meusalugueis.demo.repository.MetaRepository;
 import com.meusalugueis.demo.repository.ProjetoRepository;
 import com.meusalugueis.demo.repository.NegociacaoRepository;
 import com.meusalugueis.demo.service.CorretorService;
@@ -29,6 +31,9 @@ public class CorretorServiceImpl implements CorretorService {
 
     @Autowired
     private NegociacaoRepository negociacaoRepository;
+
+    @Autowired
+    private MetaRepository metaRepository;
 
     @Override
     public List<Corretor> getAll(){
@@ -62,6 +67,12 @@ public class CorretorServiceImpl implements CorretorService {
             for(Negociacao negociacao : negociacoesDoCorretor) {
                 negociacao.setCorretor_da_negociacao(null);
                 negociacaoRepository.save(negociacao);
+            }
+
+        var metasDoCorretor = metaRepository.findByCorretor(retorno.get());
+            for(Meta meta : metasDoCorretor) {
+                meta.setCorretor(null);
+                metaRepository.save(meta);
             }
         
         // Now we can safely delete the corretor

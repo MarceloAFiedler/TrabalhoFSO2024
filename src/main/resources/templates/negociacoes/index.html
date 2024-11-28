@@ -65,7 +65,9 @@
                                 <span th:case="*">Indefinido</span> <!-- Caso o valor não seja 1, 2, 3 ou 4 -->
                             </span>
                         </td>
-                        <td th:text="${negociacao.data_de_checkpoint_da_fase}"></td>
+                        <!-- <td th:text="${negociacao.data_de_checkpoint_da_fase}"></td> -->
+                        <td th:text="${#dates.format(negociacao.data_de_checkpoint_da_fase, 'EEE, dd')} + ' de ' + ${#dates.format(negociacao.data_de_checkpoint_da_fase, 'MMMM')}"></td>
+
                         
                         <td th:text="${negociacao.cliente_da_negociacao != null ? negociacao.cliente_da_negociacao.nome : 'Não Informado'}"></td>
                         <td th:text="${negociacao.corretor_da_negociacao != null ? negociacao.corretor_da_negociacao.nome : 'Não Informado'}"></td>

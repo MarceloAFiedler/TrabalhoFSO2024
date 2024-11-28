@@ -8,11 +8,14 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
@@ -53,6 +56,10 @@ public class Meta {
     @UpdateTimestamp
     @Column()
     private LocalDateTime data_de_ultima_alteracao;
+
+    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.MERGE})
+    @JoinColumn()
+    private Corretor corretor;
 
     public long getId() {
         return id;
@@ -134,5 +141,14 @@ public class Meta {
         this.data_de_ultima_alteracao = data_de_ultima_alteracao;
     }
 
+    public Corretor getCorretor() {
+        return corretor;
+    }
+
+    public void setCorretor(Corretor corretor) {
+        this.corretor = corretor;
+    }
+
+    
     
 }

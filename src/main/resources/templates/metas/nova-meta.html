@@ -76,6 +76,18 @@
                        class="form-control entrada-campo-input">
             </div>
 
+            <div class="form-group">
+                <label class="texto-campo-input" for="txtcorretor">Corretor Responsável</label>
+                <select class="form-select entrada-campo-input" th:field="*{corretor}">
+                    <option th:each="corretor : ${listaDeCorretores}"
+                            th:text="${corretor.nome}"
+                            th:value="${corretor.id}">
+
+                    </option>
+
+                </select>
+            </div>
+
             <br>
             <a href="/" class="form-control btn btn-danger">Cancelar</a>
             <button type="submit" class="form-control btn btn-success btn_espacinho">Salvar</button>

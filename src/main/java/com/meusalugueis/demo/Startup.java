@@ -553,6 +553,7 @@ public class Startup {
             meta1.setQuantidade_meta(new BigDecimal(1.0));
             meta1.setTipo_de_recompensa(1);
             meta1.setRecompensa(new BigDecimal(1000.00));
+            meta1.setCorretor(corretorService.getById(1));
             meta1.setInformacoes_extras("Meta seed 1");
             
             metaService.save(meta1);
@@ -565,6 +566,7 @@ public class Startup {
             meta2.setTipo_de_recompensa(1);
             meta2.setRecompensa(new BigDecimal(1000.00));
             meta2.setInformacoes_extras("Meta seed 2");
+            meta2.setCorretor(corretorService.getById(2));
             metaService.save(meta2);
 
             Meta meta3 = new Meta();
@@ -575,6 +577,7 @@ public class Startup {
             meta3.setTipo_de_recompensa(1);
             meta3.setRecompensa(new BigDecimal(1000.00));
             meta3.setInformacoes_extras("Meta seed 3");
+            meta3.setCorretor(corretorService.getById(3));
             metaService.save(meta3);
 
             Meta meta4 = new Meta();
@@ -585,6 +588,7 @@ public class Startup {
             meta4.setTipo_de_recompensa(1);
             meta4.setRecompensa(new BigDecimal(1000.00));
             meta4.setInformacoes_extras("Meta seed 4");
+            meta4.setCorretor(corretorService.getById(2));
             metaService.save(meta4);
 
             Meta meta5 = new Meta();
@@ -595,6 +599,7 @@ public class Startup {
             meta5.setTipo_de_recompensa(1);
             meta5.setRecompensa(new BigDecimal(1000.00));
             meta5.setInformacoes_extras("Meta seed 5");
+            meta5.setCorretor(corretorService.getById(1));
             metaService.save(meta5);
 
             Meta meta6 = new Meta();
@@ -605,6 +610,7 @@ public class Startup {
             meta6.setTipo_de_recompensa(1);
             meta6.setRecompensa(new BigDecimal(1000.00));
             meta6.setInformacoes_extras("Meta seed 6");
+            meta6.setCorretor(corretorService.getById(3));
             metaService.save(meta6);
 
             Meta meta7 = new Meta();
@@ -615,6 +621,7 @@ public class Startup {
             meta7.setTipo_de_recompensa(1);
             meta7.setRecompensa(new BigDecimal(1000.00));
             meta7.setInformacoes_extras("Meta seed 7");
+            meta7.setCorretor(corretorService.getById(1));
             metaService.save(meta7);
 
             Meta meta8 = new Meta();
@@ -625,6 +632,7 @@ public class Startup {
             meta8.setTipo_de_recompensa(1);
             meta8.setRecompensa(new BigDecimal(1000.00));
             meta8.setInformacoes_extras("Meta seed 8");
+            meta8.setCorretor(corretorService.getById(2));
             metaService.save(meta8);
 
             Meta meta9 = new Meta();
@@ -635,6 +643,7 @@ public class Startup {
             meta9.setTipo_de_recompensa(1);
             meta9.setRecompensa(new BigDecimal(1000.00));
             meta9.setInformacoes_extras("Meta seed 9");
+            meta9.setCorretor(corretorService.getById(2));
             metaService.save(meta9);
 
             Meta meta10 = new Meta();
@@ -645,6 +654,7 @@ public class Startup {
             meta10.setTipo_de_recompensa(1);
             meta10.setRecompensa(new BigDecimal(1000.00));
             meta10.setInformacoes_extras("Meta seed 10");
+            meta10.setCorretor(corretorService.getById(4));
             metaService.save(meta10);
 
             Negociacao negociacao1 = new Negociacao();

@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import com.meusalugueis.demo.entity.Corretor;
 import com.meusalugueis.demo.entity.Meta;
 
 @Repository
@@ -15,5 +16,7 @@ public interface MetaRepository extends JpaRepository<Meta, Long> {
 
     @Query("SELECT m FROM Meta m WHERE m.data_limite <= :data")
     List<Meta> findByData_limiteLessThanEqual(@Param("data") Date data);
-    
+
+    @Query("SELECT m FROM Meta m WHERE m.corretor = :corretor")
+    List<Meta> findByCorretor(@Param("corretor") Corretor corretor);
 }
