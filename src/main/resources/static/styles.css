@@ -212,6 +212,10 @@ td, th {
     width: 450px;
 }
 
+.entrada_foto {
+    width: 410px;
+}
+
 .entrada_media{
     width: 350px;
 }
