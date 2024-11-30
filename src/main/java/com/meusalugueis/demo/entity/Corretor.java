@@ -58,9 +58,7 @@ public class Corretor {
     @Column()
     private LocalDateTime data_de_ultima_alteracao;
 
-    @Lob
-    @Column(name = "foto_do_corretor")
-    private byte[] fotoDoCorretor;
+    private String foto;
 
     public long getId() {
         return id;
@@ -147,12 +145,11 @@ public class Corretor {
         this.email = email;
     }
 
-    public byte[] getFotoDoCorretor() {
-        return fotoDoCorretor;
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
-    
-    public void setFotoDoCorretor(byte[] fotoDoCorretor) {
-        this.fotoDoCorretor = fotoDoCorretor;
+    public String getFoto() {
+        return foto;
     }
     
     public void salvarFoto(MultipartFile foto) throws IOException {
