@@ -32,22 +32,22 @@
                             <td th:text="${notificacao.nome_da_notificacao}"></td>
                             <td>
                                 <span th:switch="${notificacao.tipo_de_notificacao}">
-                                    <span th:case="1">Hoje</span>
-                                    <span th:case="2">Amanhã</span>
-                                    <span th:case="3">Em três dias</span>
-                                    <span th:case="4">Em uma semana</span>
-                                    <span th:case="5">Em duas semanas</span>
-                                    <span th:case="6">Em mais de duas semanas</span>
+                                    <span th:case="1" class="badge bg-success">No dia</span>
+                                    <span th:case="2" class="badge bg-danger">Amanhã</span>
+                                    <span th:case="3" class="badge bg-warning text-dark">Em três dias</span>
+                                    <span th:case="4" class="badge bg-info text-dark">Em uma semana</span>
+                                    <span th:case="5" class="badge bg-info text-dark">Em duas semanas</span>
+                                    <span th:case="6" class="badge bg-dark">Em mais de duas semanas</span>
                                     <span th:case="*">Indefinido</span>
                                 </span>
                             </td>
                             <td>
                                 <span th:switch="${notificacao.origem}">
-                                    <span th:case="1">Meta</span>
-                                    <span th:case="2">Checkpoint Status Projeto</span>
-                                    <span th:case="3">Checkpoint Status Pagamento</span>
-                                    <span th:case="4">Fase Negociação</span>
-                                    <span th:case="*">Indefinido</span>
+                                    <span th:case="1" class="badge bg-dark">Meta</span>
+                                <span th:case="2" class="badge bg-dark">Checkpoint Status Projeto</span>
+                                <span th:case="3" class="badge bg-dark">Checkpoint Status Pagamento</span>
+                                <span th:case="4" class="badge bg-dark">Fase Negociação</span>
+                                <span th:case="*">Indefinido</span>
                                 </span>
                             </td>
                         <td th:text="${#dates.format(notificacao.data_de_notificacao, 'EEE, dd')} + ' de ' + ${#dates.format(notificacao.data_de_notificacao, 'MMMM')}"></td>
@@ -84,22 +84,22 @@
                         <td th:text="${notificacao.nome_da_notificacao}"></td>
                         <td>
                             <span th:switch="${notificacao.tipo_de_notificacao}">
-                                <span th:case="1">Hoje</span>
-                                <span th:case="2">Amanhã</span>
-                                <span th:case="3">Em três dias</span>
-                                <span th:case="4">Em uma semana</span>
-                                <span th:case="5">Em duas semanas</span>
-                                <span th:case="6">Em mais de duas semanas</span>
+                                <span th:case="1" class="badge bg-success">No dia</span>
+                                    <span th:case="2" class="badge bg-danger">Amanhã</span>
+                                    <span th:case="3" class="badge bg-warning text-dark">Em três dias</span>
+                                    <span th:case="4" class="badge bg-info text-dark">Em uma semana</span>
+                                    <span th:case="5" class="badge bg-info text-dark">Em duas semanas</span>
+                                    <span th:case="6" class="badge bg-dark">Em mais de duas semanas</span>
                                 <span th:case="*">Indefinido</span>
                             </span>
                         </td>
                         <td>
                             <span th:switch="${notificacao.origem}">
-                                <span th:case="1">Meta</span>
-                                <span th:case="2">Checkpoint Status Projeto</span>
-                                <span th:case="3">Checkpoint Status Pagamento</span>
-                                <span th:case="4">Fase Negociação</span>
-                                <span th:case="*">Indefinido</span> 
+                                <span th:case="1" class="badge bg-dark">Meta</span>
+                                <span th:case="2" class="badge bg-dark">Checkpoint Status Projeto</span>
+                                <span th:case="3" class="badge bg-dark">Checkpoint Status Pagamento</span>
+                                <span th:case="4" class="badge bg-dark">Fase Negociação</span>
+                                <span th:case="*">Indefinido</span>
                             </span>
                         </td>
                         <td th:text="${#dates.format(notificacao.data_de_notificacao, 'EEE, dd')} + ' de ' + ${#dates.format(notificacao.data_de_notificacao, 'MMMM')}"></td>
@@ -129,21 +129,21 @@
                         <td th:text="${notificacao.nome_da_notificacao}"></td>
                         <td>
                             <span th:switch="${notificacao.tipo_de_notificacao}">
-                                <span th:case="1">Hoje</span>
-                                <span th:case="2">Amanhã</span>
-                                <span th:case="3">Em três dias</span>
-                                <span th:case="4">Em uma semana</span>
-                                <span th:case="5">Em duas semanas</span>
-                                <span th:case="6">Em mais de duas semanas</span>
+                                <span th:case="1" class="badge bg-success">No dia</span>
+                                    <span th:case="2" class="badge bg-danger">Amanhã</span>
+                                    <span th:case="3" class="badge bg-warning text-dark">Em três dias</span>
+                                    <span th:case="4" class="badge bg-info text-dark">Em uma semana</span>
+                                    <span th:case="5" class="badge bg-info text-dark">Em duas semanas</span>
+                                    <span th:case="6" class="badge bg-dark">Em mais de duas semanas</span>
                                 <span th:case="*">Indefinido</span> 
                             </span>
                         </td>
                         <td>
                             <span th:switch="${notificacao.origem}">
-                                <span th:case="1">Meta</span>
-                                <span th:case="2">Checkpoint Status Projeto</span>
-                                <span th:case="3">Checkpoint Status Pagamento</span>
-                                <span th:case="4">Fase Negociação</span>
+                                <span th:case="1" class="badge bg-dark">Meta</span>
+                                <span th:case="2" class="badge bg-dark">Checkpoint Status Projeto</span>
+                                <span th:case="3" class="badge bg-dark">Checkpoint Status Pagamento</span>
+                                <span th:case="4" class="badge bg-dark">Fase Negociação</span>
                                 <span th:case="*">Indefinido</span>
                             </span>
                         </td>
@@ -174,22 +174,22 @@
                         <td th:text="${notificacao.nome_da_notificacao}"></td>
                         <td>
                             <span th:switch="${notificacao.tipo_de_notificacao}">
-                                <span th:case="1">Hoje</span>
-                                <span th:case="2">Amanhã</span>
-                                <span th:case="3">Em três dias</span>
-                                <span th:case="4">Em uma semana</span>
-                                <span th:case="5">Em duas semanas</span>
-                                <span th:case="6">Em mais de duas semanas</span>
+                                <span th:case="1" class="badge bg-success">No dia</span>
+                                    <span th:case="2" class="badge bg-danger">Amanhã</span>
+                                    <span th:case="3" class="badge bg-warning text-dark">Em três dias</span>
+                                    <span th:case="4" class="badge bg-info text-dark">Em uma semana</span>
+                                    <span th:case="5" class="badge bg-info text-dark">Em duas semanas</span>
+                                    <span th:case="6" class="badge bg-dark">Em mais de duas semanas</span>
                                 <span th:case="*">Indefinido</span>
                             </span>
                         </td>
                         <td>
                             <span th:switch="${notificacao.origem}">
-                                <span th:case="1">Meta</span>
-                                <span th:case="2">Checkpoint Status Projeto</span>
-                                <span th:case="3">Checkpoint Status Pagamento</span>
-                                <span th:case="4">Fase Negociação</span>
-                                <span th:case="*">Indefinido</span> 
+                                <span th:case="1" class="badge bg-dark">Meta</span>
+                                <span th:case="2" class="badge bg-dark">Checkpoint Status Projeto</span>
+                                <span th:case="3" class="badge bg-dark">Checkpoint Status Pagamento</span>
+                                <span th:case="4" class="badge bg-dark">Fase Negociação</span>
+                                <span th:case="*">Indefinido</span>
                             </span>
                         </td>
                         <td th:text="${#dates.format(notificacao.data_de_notificacao, 'EEE, dd')} + ' de ' + ${#dates.format(notificacao.data_de_notificacao, 'MMMM')}"></td>
@@ -218,21 +218,21 @@
                         <td th:text="${notificacao.nome_da_notificacao}"></td>
                         <td>
                             <span th:switch="${notificacao.tipo_de_notificacao}">
-                                <span th:case="1">Hoje</span>
-                                <span th:case="2">Amanhã</span>
-                                <span th:case="3">Em três dias</span>
-                                <span th:case="4">Em uma semana</span>
-                                <span th:case="5">Em duas semanas</span>
-                                <span th:case="6">Em mais de duas semanas</span>
+                                <span th:case="1" class="badge bg-success">No dia</span>
+                                    <span th:case="2" class="badge bg-danger">Amanhã</span>
+                                    <span th:case="3" class="badge bg-warning text-dark">Em três dias</span>
+                                    <span th:case="4" class="badge bg-info text-dark">Em uma semana</span>
+                                    <span th:case="5" class="badge bg-info text-dark">Em duas semanas</span>
+                                    <span th:case="6" class="badge bg-dark">Em mais de duas semanas</span>
                                 <span th:case="*">Indefinido</span> 
                             </span>
                         </td>
                         <td>
                             <span th:switch="${notificacao.origem}">
-                                <span th:case="1">Meta</span>
-                                <span th:case="2">Checkpoint Status Projeto</span>
-                                <span th:case="3">Checkpoint Status Pagamento</span>
-                                <span th:case="4">Fase Negociação</span>
+                                <span th:case="1" class="badge bg-dark">Meta</span>
+                                <span th:case="2" class="badge bg-dark">Checkpoint Status Projeto</span>
+                                <span th:case="3" class="badge bg-dark">Checkpoint Status Pagamento</span>
+                                <span th:case="4" class="badge bg-dark">Fase Negociação</span>
                                 <span th:case="*">Indefinido</span>
                             </span>
                         </td>

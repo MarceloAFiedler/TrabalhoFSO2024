@@ -25,33 +25,21 @@
                         <th>Descrição</th>
                         <th>Tipo</th>
                         <th>Data</th>
-                        <th>Dia da Semana</th>
                     </thead>
                     <tbody>
                         <tr th:each="agenda : ${listaDeAgendas}" th:if="${agenda.dia_da_semana == 1}">
                             <td th:text="${agenda.descricao}"></td>
                             <td>
                                 <span th:switch="${agenda.tipo}">
-                                    <span th:case="1">Meta</span>
-                                    <span th:case="2">Negociação</span>
-                                    <span th:case="3">Status Projeto</span>
-                                    <span th:case="4">Status Pagamento</span>
-                                    <span th:case="*">Indefinido</span>
+                                    <span th:case="1" class="badge bg-dark">Meta</span>
+                                <span th:case="2" class="badge bg-warning text-dark">Negociação</span>
+                                <span th:case="3" class="badge bg-info text-dark">Status Projeto</span>
+                                <span th:case="4" class="badge bg-primary">Status Pagamento</span>
+                                <span th:case="*">Indefinido</span>
                                 </span>
                             </td>
                             <td th:text="${#dates.format(agenda.data_do_compromisso, 'EEE, dd')} + ' de ' + ${#dates.format(agenda.data_do_compromisso, 'MMMM')}"></td>
-                            <td>
-                                <span th:switch="${agenda.dia_da_semana}">
-                                    <span th:case="1">Seg</span>
-                                    <span th:case="2">Ter</span>
-                                    <span th:case="3">Qua</span>
-                                    <span th:case="4">Qui</span>
-                                    <span th:case="5">Sex</span>
-                                    <span th:case="6">Sáb</span>
-                                    <span th:case="7">Dom</span>
-                                    <span th:case="*">Indefinido</span>
-                                </span>
-                            </td>
+                           
                         </tr>                        
                     </tbody>
                 </table>
@@ -70,33 +58,21 @@
                     <th>Descrição</th>
                     <th>Tipo</th>
                     <th>Data</th>
-                    <th>Dia da Semana</th>
                 </thead>
                 <tbody>
                     <tr th:each="agenda : ${listaDeAgendas}" th:if="${agenda.dia_da_semana == 2}">
                         <td th:text="${agenda.descricao}"></td>
                         <td>
                             <span th:switch="${agenda.tipo}">
-                                <span th:case="1">Meta</span>
-                                <span th:case="2">Negociação</span>
-                                <span th:case="3">Status Projeto</span>
-                                <span th:case="4">Status Pagamento</span>
+                                <span th:case="1" class="badge bg-dark">Meta</span>
+                                <span th:case="2" class="badge bg-warning text-dark">Negociação</span>
+                                <span th:case="3" class="badge bg-info text-dark">Status Projeto</span>
+                                <span th:case="4" class="badge bg-primary">Status Pagamento</span>
                                 <span th:case="*">Indefinido</span>
                             </span>
                         </td>
                         <td th:text="${#dates.format(agenda.data_do_compromisso, 'EEE, dd')} + ' de ' + ${#dates.format(agenda.data_do_compromisso, 'MMMM')}"></td>
-                        <td>
-                            <span th:switch="${agenda.dia_da_semana}">
-                                <span th:case="1">Seg</span>
-                                <span th:case="2">Ter</span>
-                                <span th:case="3">Qua</span>
-                                <span th:case="4">Qui</span>
-                                <span th:case="5">Sex</span>
-                                <span th:case="6">Sáb</span>
-                                <span th:case="7">Dom</span>
-                                <span th:case="*">Indefinido</span>
-                            </span>
-                        </td>
+                        
                     </tr>                        
                 </tbody>
             </table>
@@ -115,33 +91,21 @@
                     <th>Descrição</th>
                     <th>Tipo</th>
                     <th>Data</th>
-                    <th>Dia da Semana</th>
                 </thead>
                 <tbody>
                     <tr th:each="agenda : ${listaDeAgendas}" th:if="${agenda.dia_da_semana == 3}">
                         <td th:text="${agenda.descricao}"></td>
                         <td>
                             <span th:switch="${agenda.tipo}">
-                                <span th:case="1">Meta</span>
-                                <span th:case="2">Negociação</span>
-                                <span th:case="3">Status Projeto</span>
-                                <span th:case="4">Status Pagamento</span>
+                                <span th:case="1" class="badge bg-dark">Meta</span>
+                                <span th:case="2" class="badge bg-warning text-dark">Negociação</span>
+                                <span th:case="3" class="badge bg-info text-dark">Status Projeto</span>
+                                <span th:case="4" class="badge bg-primary">Status Pagamento</span>
                                 <span th:case="*">Indefinido</span>
                             </span>
                         </td>
                         <td th:text="${#dates.format(agenda.data_do_compromisso, 'EEE, dd')} + ' de ' + ${#dates.format(agenda.data_do_compromisso, 'MMMM')}"></td>
-                        <td>
-                            <span th:switch="${agenda.dia_da_semana}">
-                                <span th:case="1">Seg</span>
-                                <span th:case="2">Ter</span>
-                                <span th:case="3">Qua</span>
-                                <span th:case="4">Qui</span>
-                                <span th:case="5">Sex</span>
-                                <span th:case="6">Sáb</span>
-                                <span th:case="7">Dom</span>
-                                <span th:case="*">Indefinido</span>
-                            </span>
-                        </td>
+                        
                     </tr>                        
                 </tbody>
             </table>
@@ -160,33 +124,21 @@
                     <th>Descrição</th>
                     <th>Tipo</th>
                     <th>Data</th>
-                    <th>Dia da Semana</th>
                 </thead>
                 <tbody>
                     <tr th:each="agenda : ${listaDeAgendas}" th:if="${agenda.dia_da_semana == 4}">
                         <td th:text="${agenda.descricao}"></td>
                         <td>
                             <span th:switch="${agenda.tipo}">
-                                <span th:case="1">Meta</span>
-                                <span th:case="2">Negociação</span>
-                                <span th:case="3">Status Projeto</span>
-                                <span th:case="4">Status Pagamento</span>
+                                <span th:case="1" class="badge bg-dark">Meta</span>
+                                <span th:case="2" class="badge bg-warning text-dark">Negociação</span>
+                                <span th:case="3" class="badge bg-info text-dark">Status Projeto</span>
+                                <span th:case="4" class="badge bg-primary">Status Pagamento</span>
                                 <span th:case="*">Indefinido</span>
                             </span>
                         </td>
                         <td th:text="${#dates.format(agenda.data_do_compromisso, 'EEE, dd')} + ' de ' + ${#dates.format(agenda.data_do_compromisso, 'MMMM')}"></td>
-                        <td>
-                            <span th:switch="${agenda.dia_da_semana}">
-                                <span th:case="1">Seg</span>
-                                <span th:case="2">Ter</span>
-                                <span th:case="3">Qua</span>
-                                <span th:case="4">Qui</span>
-                                <span th:case="5">Sex</span>
-                                <span th:case="6">Sáb</span>
-                                <span th:case="7">Dom</span>
-                                <span th:case="*">Indefinido</span>
-                            </span>
-                        </td>
+                        
                     </tr>                        
                 </tbody>
             </table>
@@ -205,33 +157,21 @@
                     <th>Descrição</th>
                     <th>Tipo</th>
                     <th>Data</th>
-                    <th>Dia da Semana</th>
                 </thead>
                 <tbody>
                     <tr th:each="agenda : ${listaDeAgendas}" th:if="${agenda.dia_da_semana == 5}">
                         <td th:text="${agenda.descricao}"></td>
                         <td>
                             <span th:switch="${agenda.tipo}">
-                                <span th:case="1">Meta</span>
-                                <span th:case="2">Negociação</span>
-                                <span th:case="3">Status Projeto</span>
-                                <span th:case="4">Status Pagamento</span>
+                                <span th:case="1" class="badge bg-dark">Meta</span>
+                                <span th:case="2" class="badge bg-warning text-dark">Negociação</span>
+                                <span th:case="3" class="badge bg-info text-dark">Status Projeto</span>
+                                <span th:case="4" class="badge bg-primary">Status Pagamento</span>
                                 <span th:case="*">Indefinido</span>
                             </span>
                         </td>
                         <td th:text="${#dates.format(agenda.data_do_compromisso, 'EEE, dd')} + ' de ' + ${#dates.format(agenda.data_do_compromisso, 'MMMM')}"></td>
-                        <td>
-                            <span th:switch="${agenda.dia_da_semana}">
-                                <span th:case="1">Seg</span>
-                                <span th:case="2">Ter</span>
-                                <span th:case="3">Qua</span>
-                                <span th:case="4">Qui</span>
-                                <span th:case="5">Sex</span>
-                                <span th:case="6">Sáb</span>
-                                <span th:case="7">Dom</span>
-                                <span th:case="*">Indefinido</span>
-                            </span>
-                        </td>
+                        
                     </tr>                        
                 </tbody>
             </table>
@@ -250,33 +190,21 @@
                     <th>Descrição</th>
                     <th>Tipo</th>
                     <th>Data</th>
-                    <th>Dia da Semana</th>
                 </thead>
                 <tbody>
                     <tr th:each="agenda : ${listaDeAgendas}" th:if="${agenda.dia_da_semana == 6}">
                         <td th:text="${agenda.descricao}"></td>
                         <td>
                             <span th:switch="${agenda.tipo}">
-                                <span th:case="1">Meta</span>
-                                <span th:case="2">Negociação</span>
-                                <span th:case="3">Status Projeto</span>
-                                <span th:case="4">Status Pagamento</span>
+                                <span th:case="1" class="badge bg-dark">Meta</span>
+                                <span th:case="2" class="badge bg-warning text-dark">Negociação</span>
+                                <span th:case="3" class="badge bg-info text-dark">Status Projeto</span>
+                                <span th:case="4" class="badge bg-primary">Status Pagamento</span>
                                 <span th:case="*">Indefinido</span>
                             </span>
                         </td>
                         <td th:text="${#dates.format(agenda.data_do_compromisso, 'EEE, dd')} + ' de ' + ${#dates.format(agenda.data_do_compromisso, 'MMMM')}"></td>
-                        <td>
-                            <span th:switch="${agenda.dia_da_semana}">
-                                <span th:case="1">Seg</span>
-                                <span th:case="2">Ter</span>
-                                <span th:case="3">Qua</span>
-                                <span th:case="4">Qui</span>
-                                <span th:case="5">Sex</span>
-                                <span th:case="6">Sáb</span>
-                                <span th:case="7">Dom</span>
-                                <span th:case="*">Indefinido</span>
-                            </span>
-                        </td>
+                        
                     </tr>                        
                 </tbody>
             </table>
@@ -295,34 +223,21 @@
                     <th>Descrição</th>
                     <th>Tipo</th>
                     <th>Data</th>
-                    <th>Dia da Semana</th>
                 </thead>
                 <tbody>
                     <tr th:each="agenda : ${listaDeAgendas}" th:if="${agenda.dia_da_semana == 7}">
                         <td th:text="${agenda.descricao}"></td>
                         <td>
                             <span th:switch="${agenda.tipo}">
-                                <span th:case="1">Meta</span>
-                                <span th:case="2">Negociação</span>
-                                <span th:case="3">Status Projeto</span>
-                                <span th:case="4">Status Pagamento</span>
+                                <span th:case="1" class="badge bg-dark">Meta</span>
+                                <span th:case="2" class="badge bg-warning text-dark">Negociação</span>
+                                <span th:case="3" class="badge bg-info text-dark">Status Projeto</span>
+                                <span th:case="4" class="badge bg-primary">Status Pagamento</span>
                                 <span th:case="*">Indefinido</span>
                             </span>
                         </td>
                         <td th:text="${#dates.format(agenda.data_do_compromisso, 'EEE, dd')} + ' de ' + ${#dates.format(agenda.data_do_compromisso, 'MMMM')}"></td>
 
-                        <td>
-                            <span th:switch="${agenda.dia_da_semana}">
-                                <span th:case="1">Seg</span>
-                                <span th:case="2">Ter</span>
-                                <span th:case="3">Qua</span>
-                                <span th:case="4">Qui</span>
-                                <span th:case="5">Sex</span>
-                                <span th:case="6">Sáb</span>
-                                <span th:case="7">Dom</span>
-                                <span th:case="*">Indefinido</span>
-                            </span>
-                        </td>
                     </tr>                        
                 </tbody>
             </table>

@@ -233,10 +233,7 @@ td, th {
         overflow: visible; 
         text-overflow: clip;
     }
-    
-    .caixa-da-tabela {
-        overflow-x: auto;
-    }
+
 }
 
 
@@ -247,3 +244,9 @@ td, th {
     margin: 2px;
 }
 
+.foto_do_imovel{
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    margin: 2px;
+}

@@ -27,8 +27,6 @@
                         <th>Comissão (%)</th>
                         <th>Data Nascimento</th>
                         <th>Email</th>
-                        <th>Data Criação Registro</th>
-                        <th>Data Última Alteração Registro</th>
                         <th></th>
                         <th></th>
                     </thead>
@@ -41,11 +39,9 @@
                             <td th:text="${corretor.nome}"></td>
                             <td th:text="${corretor.sobrenome}"></td>
                             <td th:text="${corretor.creci}"></td>
-                            <td th:text="${corretor.comissao}"></td>
+                            <td><a th:text="${corretor.comissao + '%'}" class="badge bg-success"></a></td>
                             <td th:text="${corretor.data_de_nascimento}"></td>
                             <td th:text="${corretor.email}"></td>
-                            <td th:text="${corretor.data_de_criacao_do_registro}"></td>
-                            <td th:text="${corretor.data_de_ultima_alteracao}"></td>
                             <td><a class="btn btn-warning" th:href="@{'/corretores/editar-corretor/' + ${corretor.id}}">Editar</a></td>
                             <td>
                                 <button
