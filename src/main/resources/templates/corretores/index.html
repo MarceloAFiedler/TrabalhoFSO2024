@@ -34,11 +34,10 @@
                     </thead>
                     <tbody>
                         <tr th:each="corretor : ${listaDeCorretores}">
-                            <td>
-                              <img class="foto_do_corretor" 
-                              th:src="@{'/corretores/foto_de_corretor_' + ${corretor.id} + '.jpg?timestamp=' + ${#dates.createNow().time}}" 
-                              alt="Foto do Corretor"/>
-                            </td>
+                          <td>
+                            <img th:if="${corretor.foto}" th:src="@{'/corretores/image/'+${corretor.id}}" 
+                                 class="foto_do_corretor">
+                        </td>
                             <td th:text="${corretor.nome}"></td>
                             <td th:text="${corretor.sobrenome}"></td>
                             <td th:text="${corretor.creci}"></td>

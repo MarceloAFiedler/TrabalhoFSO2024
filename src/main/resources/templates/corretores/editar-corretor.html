@@ -28,9 +28,22 @@
                 </div>
 
                 <div class="form-group">
+                    <div class="col-6">
+                        <img th:if="*{foto}" th:src="@{'/corretores/image/'+*{id}}" 
+                        class="foto_do_corretor">
+                    </div>
+
+                    <div>
+                        <label class="texto-campo-input">Foto:</label>
+                        <input type="file" name="file" 
+                        class="form-control entrada-campo-input entrada_foto">
+                    </div>
+                </div>
+
+                <!-- <div class="form-group">
                     <label class="texto-campo-input" for="foto">Foto do Corretor</label>
                     <input id="foto" type="file" name="foto" class="form-control entrada-campo-input" accept="image/*">
-                </div>
+                </div> -->
 
                 <div class="form-group">
                     <label class="texto-campo-input" for="txt_sobrenome">Sobrenome</label>
