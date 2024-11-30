@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.meusalugueis.demo.entity.Cliente;
+
 import com.meusalugueis.demo.entity.Corretor;
 import com.meusalugueis.demo.service.CorretorService;
 import com.meusalugueis.demo.service.SalvarArquivosService;
@@ -51,7 +51,7 @@ public class CorretorController {
     @PostMapping
     public ModelAndView save(Corretor corretor, @RequestParam("file") MultipartFile file){
         if(file.getSize() != 0){
-            String caminho = salvarArquivoService.save(file);
+            String caminho = salvarArquivoService.save_corretor(file);
             corretor.setFoto(caminho);
         }
         corretorService.save(corretor);

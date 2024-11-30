@@ -21,6 +21,8 @@ public class Imovel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    private String foto;
+
     @Column(length = 1000, nullable = false)
     private String codigo;
 
@@ -118,6 +120,14 @@ public class Imovel {
     @Column()
     private LocalDateTime data_de_ultima_alteracao;
 
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+    public String getFoto() {
+        return foto;
+    }
+    
     public long getId() {
         return id;
     }
