@@ -19,3 +19,5 @@ Comentários nos commits mais importantes do projeto.
 18-11-2024: Adicionado páginas de CRUD de `Negociações`.
 
 25-11-2024 a 28-11-2024: Adicionado páginas de CRUD de `Agenda`. Reconstrução total da lógica e interface de `Notificações`. Adicionado campo foto e CRUD para `Corretores`. Limpeza dos comentários.
+
+29-11-2024 a 30-11-2024: Revisão no layout das telas de listar. Adição da funcionalidade de envio de fotos para `Corretores` e para `Imóveis`.
