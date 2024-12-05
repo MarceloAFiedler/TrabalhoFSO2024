@@ -1,23 +1,25 @@
+🏘️ Meus Aluguéis
+Descrição
+Meus Aluguéis é um sistema de gestão de imóveis focado em imobiliárias e proprietários independentes. Ele oferece funcionalidades de cadastro de usuários, imóveis e locatários, além de gerenciar pagamentos, manutenção, contratos e documentos, tudo em um único local. O sistema também oferece um dashboard para acompanhamento de pendências e notificações automáticas para vencimentos de contratos e pagamentos.
 
-#  Projeto Codinome: Meus Alugueis
+✨ Funcionalidades Principais
+📝 Cadastro de usuários e locatários (CPF/CNPJ)
+🏠 Cadastro e edição de imóveis e "rentals" (entidade pai de imóveis)
+💼 Gerenciamento de contratos, pagamentos e notificações
+📞 Omnichannel: Suporte a clientes via chat, email e WhatsApp
+👨‍💼 Gestão de corretores: Definição de comissões, metas e carteiras de clientes
+📊 Dashboard com visualização de contratos e metas
+🛠️ Controle de manutenção de imóveis alugados
+📅 Sistema de notificações para vencimentos de contratos e pagamentos
+🛠️ Tecnologias Utilizadas
+Este projeto foi construído utilizando as seguintes tecnologias:
 
-Gerenciador de inventário e recursos para Imobiliária.
-
-
-##  🔁 Últimas Atualizações
-
-Comentários nos commits mais importantes do projeto.
-
-10-11-2024: Adicionado estrutura inicial com páginas de CRUD de `Corretores`, `Clientes` e a `Página Inicial`
-
-14-11-2024: Adicionado páginas de CRUD de `Imóveis`
-
-15-11-2024: Ajustes nas páginas de CRUD de `Imóveis` para tratar dados exibidos no `index.html`
-
-15-11-2024: Adicionado páginas de CRUD de `Dashboard`, `Projetos` e `Metas`. Adicionado funcionalidade de gerar notificações na versão beta na página `Notificações` (apenas notificações de hoje + sessão admin)
-
-18-11-2024: Adicionado páginas de CRUD de `Negociações`.
-
-25-11-2024 a 28-11-2024: Adicionado páginas de CRUD de `Agenda`. Reconstrução total da lógica e interface de `Notificações`. Adicionado campo foto e CRUD para `Corretores`. Limpeza dos comentários.
-
-29-11-2024 a 30-11-2024: Revisão no layout das telas de listar. Adição da funcionalidade de envio de fotos para `Corretores` e para `Imóveis`.
+Java 17 ☕
+Spring Boot 3.3.3 🚀
+Thymeleaf 🌿 (para renderização de templates)
+Spring Data JPA 🗃️ (para persistência de dados)
+MariaDB 🐬 e H2 Database 🛢️ (ambiente de desenvolvimento)
+Bootstrap 5.1.3 🎨 e jQuery 💻 (para interface do usuário)
+Maven 📦 (para gerenciamento de dependências)
+Diagrama de Classes 🗂️
+Este é o diagrama de classes representando a arquitetura do sistema. Digrama de classes
