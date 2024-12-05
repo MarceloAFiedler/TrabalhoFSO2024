@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:include="layout :: htmlhead"></head>
+<body>
+    
+    <nav th:replace="layout :: menu">(menu)</nav>
+
+    <main>
+    <div class="caixa-de-conteudo-dupla-topo">
+            <div class="mini_menu_paginas_listar">
+                <div class="mini_menu_paginas_listar_mini_nav">
+                    <a class="btn retornar" href="/"><</a>
+                    <h1 class="hUm">Notificações</h1>
+                </div>
+            </div>
+            <div class="mini_menu_paginas_listar">
+                <div class="mini_menu_paginas_listar_mini_nav">
+                    <h1 class="hUm">Dia dos Eventos</h1>
+                </div>
+            </div>
+            <br>
+            <div class="caixa-da-tabela">
+                <table id="tabeladashboard_projetos" class="table table-striped tabela_listar">
+                    <thead>
+                        <th>Nome da Notificação</th>
+                        <th>Tipo</th>
+                        <th>Origem</th>
+                        <th>Data Definida</th>
+                    </thead>
+                    <tbody>
+                        <tr th:each="notificacao : ${listaDeNotificacoes}" th:if="${notificacao.tipo_de_notificacao == 1}">
+                            <td th:text="${notificacao.nome_da_notificacao}"></td>
+                            <td>
+                                <span th:switch="${notificacao.tipo_de_notificacao}">
+                                    <span th:case="1" class="badge bg-success">No dia</span>
+                                    <span th:case="2" class="badge bg-danger">Amanhã</span>
+                                    <span th:case="3" class="badge bg-warning text-dark">Em três dias</span>
+                                    <span th:case="4" class="badge bg-info text-dark">Em uma semana</span>
+                                    <span th:case="5" class="badge bg-info text-dark">Em duas semanas</span>
+                                    <span th:case="6" class="badge bg-dark">Em mais de duas semanas</span>
+                                    <span th:case="*">Indefinido</span>
+                                </span>
+                            </td>
+                            <td>
+                                <span th:switch="${notificacao.origem}">
+                                    <span th:case="1" class="badge bg-dark">Meta</span>
+                                <span th:case="2" class="badge bg-dark">Checkpoint Status Projeto</span>
+                                <span th:case="3" class="badge bg-dark">Checkpoint Status Pagamento</span>
+                                <span th:case="4" class="badge bg-dark">Fase Negociação</span>
+                                <span th:case="*">Indefinido</span>
+                                </span>
+                            </td>
+                        <td th:text="${#dates.format(notificacao.data_de_notificacao, 'EEE, dd')} + ' de ' + ${#dates.format(notificacao.data_de_notificacao, 'MMMM')}"></td>
+                        </tr>                        
+                    </tbody>
+                </table>
+            </div>
+    </div>
+
+        <div class="mini_menu_paginas_listar">
+            <div class="mini_menu_paginas_listar_mini_nav">
+                <h1 class="hUm hUm-Session-Divider">Área Admin - Visualizar Notificações Geradas</h1>
+            </div>
+        </div>
+        <br>
+
+    <div class="caixa-de-conteudo-dupla-fundo">    
+        <div class="mini_menu_paginas_listar">
+            <div class="mini_menu_paginas_listar_mini_nav">
+                <h1 class="hUm">DIA-1 | Dia Anterior</h1>
+            </div>
+        </div>
+        <br>
+        <div class="caixa-da-tabela">
+            <table id="tabeladashboard_projetos" class="table table-striped tabela_listar">
+                <thead>
+                    <th>Nome da Notificação</th>
+                    <th>Tipo</th>
+                    <th>Origem</th>
+                    <th>Data Definida</th>
+                </thead>
+                <tbody>
+                    <tr th:each="notificacao : ${listaDeNotificacoes}" th:if="${notificacao.tipo_de_notificacao == 2}">
+                        <td th:text="${notificacao.nome_da_notificacao}"></td>
+                        <td>
+                            <span th:switch="${notificacao.tipo_de_notificacao}">
+                                <span th:case="1" class="badge bg-success">No dia</span>
+                                    <span th:case="2" class="badge bg-danger">Amanhã</span>
+                                    <span th:case="3" class="badge bg-warning text-dark">Em três dias</span>
+                                    <span th:case="4" class="badge bg-info text-dark">Em uma semana</span>
+                                    <span th:case="5" class="badge bg-info text-dark">Em duas semanas</span>
+                                    <span th:case="6" class="badge bg-dark">Em mais de duas semanas</span>
+                                <span th:case="*">Indefinido</span>
+                            </span>
+                        </td>
+                        <td>
+                            <span th:switch="${notificacao.origem}">
+                                <span th:case="1" class="badge bg-dark">Meta</span>
+                                <span th:case="2" class="badge bg-dark">Checkpoint Status Projeto</span>
+                                <span th:case="3" class="badge bg-dark">Checkpoint Status Pagamento</span>
+                                <span th:case="4" class="badge bg-dark">Fase Negociação</span>
+                                <span th:case="*">Indefinido</span>
+                            </span>
+                        </td>
+                        <td th:text="${#dates.format(notificacao.data_de_notificacao, 'EEE, dd')} + ' de ' + ${#dates.format(notificacao.data_de_notificacao, 'MMMM')}"></td>
+                    </tr>                        
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="caixa-de-conteudo-dupla-fundo">    
+        <div class="mini_menu_paginas_listar">
+            <div class="mini_menu_paginas_listar_mini_nav">
+                <h1 class="hUm">DIA-3 | 3 Dias Antes</h1>
+            </div>
+        </div>
+        <br>
+        <div class="caixa-da-tabela">
+            <table id="tabeladashboard_projetos" class="table table-striped tabela_listar">
+                <thead>
+                    <th>Nome da Notificação</th>
+                    <th>Tipo</th>
+                    <th>Origem</th>
+                    <th>Data Definida</th>
+                </thead>
+                <tbody>
+                    <tr th:each="notificacao : ${listaDeNotificacoes}" th:if="${notificacao.tipo_de_notificacao == 3}">
+                        <td th:text="${notificacao.nome_da_notificacao}"></td>
+                        <td>
+                            <span th:switch="${notificacao.tipo_de_notificacao}">
+                                <span th:case="1" class="badge bg-success">No dia</span>
+                                    <span th:case="2" class="badge bg-danger">Amanhã</span>
+                                    <span th:case="3" class="badge bg-warning text-dark">Em três dias</span>
+                                    <span th:case="4" class="badge bg-info text-dark">Em uma semana</span>
+                                    <span th:case="5" class="badge bg-info text-dark">Em duas semanas</span>
+                                    <span th:case="6" class="badge bg-dark">Em mais de duas semanas</span>
+                                <span th:case="*">Indefinido</span> 
+                            </span>
+                        </td>
+                        <td>
+                            <span th:switch="${notificacao.origem}">
+                                <span th:case="1" class="badge bg-dark">Meta</span>
+                                <span th:case="2" class="badge bg-dark">Checkpoint Status Projeto</span>
+                                <span th:case="3" class="badge bg-dark">Checkpoint Status Pagamento</span>
+                                <span th:case="4" class="badge bg-dark">Fase Negociação</span>
+                                <span th:case="*">Indefinido</span>
+                            </span>
+                        </td>
+                        <td th:text="${#dates.format(notificacao.data_de_notificacao, 'EEE, dd')} + ' de ' + ${#dates.format(notificacao.data_de_notificacao, 'MMMM')}"></td>
+                    </tr>                        
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="caixa-de-conteudo-dupla-fundo">    
+        <div class="mini_menu_paginas_listar">
+            <div class="mini_menu_paginas_listar_mini_nav">
+                <h1 class="hUm">DIA-7 | Uma Semana Antes</h1>
+            </div>
+        </div>
+        <br>
+        <div class="caixa-da-tabela">
+            <table id="tabeladashboard_projetos" class="table table-striped tabela_listar">
+                <thead>
+                    <th>Nome da Notificação</th>
+                    <th>Tipo</th>
+                    <th>Origem</th>
+                    <th>Data Definida</th>
+                </thead>
+                <tbody>
+                    <tr th:each="notificacao : ${listaDeNotificacoes}" th:if="${notificacao.tipo_de_notificacao == 4}">
+                        <td th:text="${notificacao.nome_da_notificacao}"></td>
+                        <td>
+                            <span th:switch="${notificacao.tipo_de_notificacao}">
+                                <span th:case="1" class="badge bg-success">No dia</span>
+                                    <span th:case="2" class="badge bg-danger">Amanhã</span>
+                                    <span th:case="3" class="badge bg-warning text-dark">Em três dias</span>
+                                    <span th:case="4" class="badge bg-info text-dark">Em uma semana</span>
+                                    <span th:case="5" class="badge bg-info text-dark">Em duas semanas</span>
+                                    <span th:case="6" class="badge bg-dark">Em mais de duas semanas</span>
+                                <span th:case="*">Indefinido</span>
+                            </span>
+                        </td>
+                        <td>
+                            <span th:switch="${notificacao.origem}">
+                                <span th:case="1" class="badge bg-dark">Meta</span>
+                                <span th:case="2" class="badge bg-dark">Checkpoint Status Projeto</span>
+                                <span th:case="3" class="badge bg-dark">Checkpoint Status Pagamento</span>
+                                <span th:case="4" class="badge bg-dark">Fase Negociação</span>
+                                <span th:case="*">Indefinido</span>
+                            </span>
+                        </td>
+                        <td th:text="${#dates.format(notificacao.data_de_notificacao, 'EEE, dd')} + ' de ' + ${#dates.format(notificacao.data_de_notificacao, 'MMMM')}"></td>
+                    </tr>                        
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="caixa-de-conteudo-dupla-fundo">    
+        <div class="mini_menu_paginas_listar">
+            <div class="mini_menu_paginas_listar_mini_nav">
+                <h1 class="hUm">DIA-14 | Duas Semanas Antes</h1>
+            </div>
+        </div>
+        <br>
+        <div class="caixa-da-tabela">
+            <table id="tabeladashboard_projetos" class="table table-striped tabela_listar">
+                <thead>
+                    <th>Nome da Notificação</th>
+                    <th>Tipo</th>
+                    <th>Origem</th>
+                    <th>Data Definida</th>
+                </thead>
+                <tbody>
+                    <tr th:each="notificacao : ${listaDeNotificacoes}" th:if="${notificacao.tipo_de_notificacao == 5}">
+                        <td th:text="${notificacao.nome_da_notificacao}"></td>
+                        <td>
+                            <span th:switch="${notificacao.tipo_de_notificacao}">
+                                <span th:case="1" class="badge bg-success">No dia</span>
+                                    <span th:case="2" class="badge bg-danger">Amanhã</span>
+                                    <span th:case="3" class="badge bg-warning text-dark">Em três dias</span>
+                                    <span th:case="4" class="badge bg-info text-dark">Em uma semana</span>
+                                    <span th:case="5" class="badge bg-info text-dark">Em duas semanas</span>
+                                    <span th:case="6" class="badge bg-dark">Em mais de duas semanas</span>
+                                <span th:case="*">Indefinido</span> 
+                            </span>
+                        </td>
+                        <td>
+                            <span th:switch="${notificacao.origem}">
+                                <span th:case="1" class="badge bg-dark">Meta</span>
+                                <span th:case="2" class="badge bg-dark">Checkpoint Status Projeto</span>
+                                <span th:case="3" class="badge bg-dark">Checkpoint Status Pagamento</span>
+                                <span th:case="4" class="badge bg-dark">Fase Negociação</span>
+                                <span th:case="*">Indefinido</span>
+                            </span>
+                        </td>
+                        <td th:text="${#dates.format(notificacao.data_de_notificacao, 'EEE, dd')} + ' de ' + ${#dates.format(notificacao.data_de_notificacao, 'MMMM')}"></td>
+                    </tr>                        
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </main>
+
+    
+
+    <div th:include="layout :: footer">(footer)</div>
+    <script th:src="@{/scriptnotificacoes.js}"></script>
+
+</body>
+</html>

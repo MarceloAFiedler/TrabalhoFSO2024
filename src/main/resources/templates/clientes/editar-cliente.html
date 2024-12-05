@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head th:include="layout :: htmlhead"></head>
+    <body>
+        
+        <nav th:replace="layout :: menu">(menu)</nav>
+
+        <main class="caixa-de-conteudo-solo">
+
+
+                <h1 class="hUm">Editar</h1>
+
+                <form th:action="@{/clientes}"
+                  method="POST"
+                  th:object="${umCliente}">
+                 
+                  <input type="hidden" th:field="*{id}">
+                  <input type="hidden" th:field="*{data_de_criacao_do_registro}">
+                  <input type="hidden" th:field="*{data_de_ultima_alteracao}">
+
+                <div class="form-group">
+                    <label class="texto-campo-input" for="txt_nome">Nome</label>
+                    <input id="txt_nome"
+                            th:field="*{nome}"
+                            type="text" 
+                            class="form-control entrada-campo-input entrada_nome">
+                </div>
+
+                <div class="form-group">
+                    <label class="texto-campo-input" for="txt_sobrenome">Sobrenome</label>
+                    <input id="txt_sobrenome"
+                            th:field="*{sobrenome}"
+                            type="text"
+                            class="form-control entrada-campo-input entrada_nome">
+                </div>
+
+                <div class="form-group">
+                    <label class="texto-campo-input">Tipo de Cliente</label>
+                    <div>
+                        <input type="radio" id="tipo_pessoa_fisica" th:field="*{tipo}" value="Pessoa Física" 
+                               class="form-check-input entrada-campo-input"
+                               th:checked="${umCliente.tipo == 'Pessoa Física'}">
+                        <label for="tipo_pessoa_fisica" class="form-check-label">Pessoa Física</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="tipo_pessoa_juridica" th:field="*{tipo}" value="Pessoa Jurídica" 
+                               class="form-check-input entrada-campo-input"
+                               th:checked="${umCliente.tipo == 'Pessoa Jurídica'}">
+                        <label for="tipo_pessoa_juridica" class="form-check-label">Pessoa Jurídica</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="texto-campo-input">Função de Cliente</label>
+                    <div>
+                        <input type="radio" id="tipo_pessoa_fisica" th:field="*{funcao}" value="1" 
+                               class="form-check-input entrada-campo-input"
+                               th:checked="${umCliente.funcao == '1'}">
+                        <label for="tipo_pessoa_fisica" class="form-check-label">Proprietário</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="tipo_comprador" th:field="*{funcao}" value="2" 
+                               class="form-check-input entrada-campo-input"
+                               th:checked="${umCliente.funcao == '2'}">
+                        <label for="tipo_comprador" class="form-check-label">Comprador</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="tipo_alugador" th:field="*{funcao}" value="3" 
+                               class="form-check-input entrada-campo-input"
+                               th:checked="${umCliente.funcao == '3'}">
+                        <label for="tipo_alugador" class="form-check-label">Alugador</label>
+                    </div>
+                </div>
+                
+                
+                <div class="form-group">
+                    <label class="texto-campo-input" for="txt_rg">RG</label>
+                    <input id="txt_rg"
+                            th:field="*{rg}"
+                            type="text"
+                            class="form-control entrada-campo-input">
+                </div>
+
+                <div class="form-group">
+                    <label class="texto-campo-input" for="txt_cpf">CPF</label>
+                    <input id="txt_cpf"
+                            th:field="*{cpf}"
+                            type="text"
+                            class="form-control entrada-campo-input">
+                </div>
+                <div class="form-group">
+                    <label class="texto-campo-input" for="txt_email">Email</label>
+                    <input id="txt_email"
+                            th:field="*{email}"
+                            type="email"
+                            class="form-control entrada-campo-input">
+                </div>
+                <div class="form-group">
+                    <label class="texto-campo-input" for="txt_telefone">Telefone</label>
+                    <input id="txt_telefone"
+                            th:field="*{telefone}"
+                            type="text"
+                            class="form-control entrada-campo-input">
+                </div>
+
+                <div class="form-group">
+                    <label class="texto-campo-input" for="txt_data_de_nascimento">Data de Nascimento</label>
+                    <input id="txt_data_de_nascimento"
+                           th:field="*{data_de_nascimento}"
+                           type="date"
+                           class="form-control entrada-campo-input entrada_data_de_nascimento">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="txtcidade">Corretor Responsável</label>
+                    <select class="form-select entrada-campo-input" th:field="*{corretor_responsavel}">
+                        <option value="" th:selected="*{corretor_responsavel == null}">Nenhum Corretor</option>
+                        <option th:each="corretor : ${listaDeCorretores}"
+                                th:text="${corretor.nome}"
+                                th:value="${corretor.id}">
+                        </option>
+                    </select>
+                </div>
+                <br>
+                    <a href="/corretores" class="form-control btn btn-danger">Cancelar</a>
+                    <button type="submit" class="form-control btn btn-success btn_espacinho" >Salvar</button>    
+            </form>
+
+
+            
+        </main>
+
+        <div th:include="layout :: footer">(footer)</div>
+        <script th:src="@{/scriptcliente.js}"></script>
+    </body>
+</html>

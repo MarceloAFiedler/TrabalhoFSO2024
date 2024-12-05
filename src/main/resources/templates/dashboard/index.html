@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:include="layout :: htmlhead"></head>
+<body>
+    
+    <nav th:replace="layout :: menu">(menu)</nav>
+
+    <main>
+    <div class="caixa-de-conteudo-dupla-topo">
+        <div class="mini_menu_paginas_listar">
+            <div class="mini_menu_paginas_listar_mini_nav">
+                <a class="btn retornar" href="/"><</a>
+                <h1 class="hUm">Dashboard</h1>
+            </div>
+        </div>
+        <div class="mini_menu_paginas_listar">
+            <div class="mini_menu_paginas_listar_mini_nav">
+                <h1 class="hUm">Projetos</h1>
+            </div>
+            <a class="btn btn-success" href="/projetos/novo-projeto">Novo</a>
+        </div>
+        <br>
+        <div class="caixa-da-tabela">
+            <table id="tabeladashboard_projetos" class="table table-striped tabela_listar">
+                <thead>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Corretor do Projeto</th>
+                    <th>Status Geral</th>
+                    <th>Checar Status Geral</th>
+                    <th>Status Financeiro</th>
+                    <th>Checar Status Financeiro</th>
+                    <th></th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <tr th:each="projeto : ${listaDeProjetos}">
+                        <td th:text="${projeto.codigo}"></td>
+                        <td th:text="${projeto.nome}"></td>
+                        <td th:text="${projeto.corretor_do_projeto != null ? projeto.corretor_do_projeto.nome : 'Não Informado'}"></td>
+                        <td>
+                            <span th:switch="${projeto.status_do_projeto}">
+                                <span th:case="1" class="badge bg-danger">Não Iniciado</span>
+                                <span th:case="2" class="badge bg-warning text-dark">Em andamento</span>
+                                <span th:case="3" class="badge bg-success">Concluído</span>
+                                <span th:case="*" class="badge bg-secondary">Indefinido</span>
+                            </span>
+                        </td>
+                        <td th:text="${#dates.format(projeto.data_de_checkpoint_status_do_projeto, 'EEE, dd')} + ' de ' + ${#dates.format(projeto.data_de_checkpoint_status_do_projeto, 'MMMM')}"></td>
+                        <td>
+                            <span th:switch="${projeto.status_do_pagamento}">
+                                <span th:case="1" class="badge bg-danger">Nenhum pagamento</span>
+                                <span th:case="2" class="badge bg-warning text-dark">Sinal pago</span>
+                                <span th:case="3" class="badge bg-success">Pagamento completo</span>
+                                <span th:case="*" class="badge bg-secondary">Indefinido</span>
+                            </span>
+                        </td>
+                        <td th:text="${#dates.format(projeto.data_de_checkpoint_status_do_pagamento, 'EEE, dd')} + ' de ' + ${#dates.format(projeto.data_de_checkpoint_status_do_pagamento, 'MMMM')}"></td>
+
+                        <td><a class="btn btn-warning" th:href="@{'/projetos/editar-projeto/' + ${projeto.id}}">Editar</a></td>
+                        <td>
+                            <button
+                                class="btn btn-danger js-delete"
+                                th:data-id="${projeto.id}">Excluir</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="caixa-de-conteudo-dupla-fundo">    
+        <div class="mini_menu_paginas_listar">
+            <div class="mini_menu_paginas_listar_mini_nav">
+                <h1 class="hUm">Metas</h1>
+            </div>
+            <a class="btn btn-success" href="/metas/nova-meta">Novo</a>
+        </div>
+        <br>
+        <div class="caixa-da-tabela">
+            <table id="tabeladashboard_metas" class="table table-striped tabela_listar">
+                <thead>
+       
+                    <th>Título</th>
+                    <th>Data Limite</th>
+                    <th>Corretor</th>
+                    <th>Tipo de Meta</th>
+                    <th>Quantidade Meta</th>
+                    <th>Tipo de Recompensa</th>
+                    <th>Valor Recompensa</th>
+                    <th></th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <tr th:each="meta : ${listaDeMetas}">
+                        <td th:text="${meta.nome}"></td>
+                        <td th:text="${#dates.format(meta.data_limite, 'EEE, dd')} + ' de ' + ${#dates.format(meta.data_limite, 'MMMM')}"></td>
+
+                        <td th:text="${meta.corretor != null ? meta.corretor.nome : 'Não Informado'}"></td>
+                        <td>
+                            <span th:switch="${meta.tipo_de_meta}">
+                                <span th:case="1" class="badge bg-dark">Valor Total</span>
+                                <span th:case="2" class="badge bg-dark">Quantidade Total</span>
+                                <span th:case="*" class="badge bg-dark">Indefinido</span>
+                            </span>
+                        </td>
+                        <td th:text="${meta.quantidade_meta}"></td>
+                        <td>
+                            <span th:switch="${meta.tipo_de_recompensa}">
+                                <span th:case="1" class="badge bg-success">Valor em R$</span>
+                                <span th:case="2" class="badge bg-success">Valor em %</span>
+                                <span th:case="*" class="badge bg-dark">Indefinido</span>
+                            </span>
+                        </td>
+                        <td>
+                            <span th:text="${meta.tipo_de_recompensa == 1 ? 'R$ ' + meta.recompensa : 
+                                            meta.tipo_de_recompensa == 2 ? meta.recompensa + ' %' : 
+                                            meta.recompensa}"></span>
+                        </td>
+                        <td><a class="btn btn-warning" th:href="@{'/metas/editar-meta/' + ${meta.id}}">Editar</a></td>
+                        <td>
+                            <button
+                                class="btn btn-danger js-delete"
+                                th:data-id="${meta.id}">Excluir</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </main>
+
+    
+
+    <div th:include="layout :: footer">(footer)</div>
+    <script th:src="@{/scriptdashboard.js}"></script>
+
+    <div class="modal" tabindex="-1" id="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Excluir Item?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Confirma a exclusão?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+                    <button type="button" class="btn btn-primary" id="btnsim">Sim</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

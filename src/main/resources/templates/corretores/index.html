@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head th:include="layout :: htmlhead"></head>
+    <body>
+        
+        <nav th:replace="layout :: menu">(menu)</nav>
+
+        <main class="caixa-de-conteudo-solo">
+
+        <div class="mini_menu_paginas_listar">
+            <div class="mini_menu_paginas_listar_mini_nav">
+              <a class="btn retornar" href="/"><</a>
+                <h1 class="hUm">Corretores</h1>
+            </div>
+            
+            <a class="btn btn-success" href="/corretores/novo-corretor">Novo</a>
+        </div>
+
+        <br>
+                <div class="caixa-da-tabela">
+                <table id="tabelacorretores" class="table table-striped tabela_listar">
+                    <thead>
+                        <th>Foto</th>
+                        <th>Nome</th>
+                        <th>Sobrenome</th>
+                        <th>CRECI-SC</th>
+                        <th>Comissão (%)</th>
+                        <th>Data Nascimento</th>
+                        <th>Email</th>
+                        <th></th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        <tr th:each="corretor : ${listaDeCorretores}">
+                          <td>
+                            <img th:if="${corretor.foto}" th:src="@{'/corretores/image/'+${corretor.id}}" 
+                                 class="foto_do_corretor">
+                        </td>
+                            <td th:text="${corretor.nome}"></td>
+                            <td th:text="${corretor.sobrenome}"></td>
+                            <td th:text="${corretor.creci}"></td>
+                            <td><a th:text="${corretor.comissao + '%'}" class="badge bg-success"></a></td>
+                            <td th:text="${corretor.data_de_nascimento}"></td>
+                            <td th:text="${corretor.email}"></td>
+                            <td><a class="btn btn-warning" th:href="@{'/corretores/editar-corretor/' + ${corretor.id}}">Editar</a></td>
+                            <td>
+                                <button
+                                class="btn btn-danger js-delete"
+                                th:data-id="${corretor.id}">Excluir</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+            
+        </main>
+
+        <div th:include="layout :: footer">(footer)</div>
+        <script th:src="@{/scriptcorretor.js}"></script>
+
+        <div class="modal" tabindex="-1" id="modal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title hUm">Excluir Corretor</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Confirma a exclusão do corretor?</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+                  <button type="button" class="btn btn-danger" id="btnsim">Sim</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+    </body>
+</html>

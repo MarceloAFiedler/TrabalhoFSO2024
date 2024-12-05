@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:include="layout :: htmlhead"></head>
+<body>
+
+    <nav th:replace="layout :: menu">(menu)</nav>
+
+    <main class="caixa-de-conteudo-solo">
+
+        <h1 class="hUm">Cadastrar</h1>
+
+        <form th:action="@{/negociacoes}"
+              method="POST"
+              th:object="${umaNegociacao}">
+
+              <input type="hidden" th:field="*{id}">
+              <input type="hidden" th:field="*{data_de_criacao_do_registro}">
+              <input type="hidden" th:field="*{data_de_ultima_alteracao}">
+
+            <div class="form-group">
+                <label class="texto-campo-input" for="txtnome">Nome</label>
+                <input id="txt_nome"
+                       th:field="*{nome}"
+                       type="text"
+                       class="form-control entrada-campo-input entrada_nome">
+            </div>
+
+            <div class="form-group">
+                <label class="texto-campo-input" for="txt_data_inicio">Data de Início</label>
+                <input id="txtdata_inicio"
+                       th:field="*{data_de_inicio}"
+                       type="date"
+                       class="form-control entrada-campo-input">
+            </div>
+
+            <div class="form-group">
+                <label class="texto-campo-input" for="txtdata_de_termino">Data de Término</label>
+                <input id="txtdata_de_termino"
+                       th:field="*{data_de_termino}"
+                       type="date"
+                       class="form-control entrada-campo-input">
+            </div>
+            
+            <div class="form-group">
+                <label class="texto-campo-input" for="txtorigem_da_negociacao">Origem da Negociação</label>
+                <select class="form-select entrada-campo-input" th:field="*{origem_da_negociacao}">
+                    <option value="1" th:selected="${umaNegociacao.origem_da_negociacao == '1'}">Indicação</option>
+                    <option value="2" th:selected="${umaNegociacao.origem_da_negociacao == '2'}">Inbound</option>
+                    <option value="3" th:selected="${umaNegociacao.origem_da_negociacao == '3'}">Outbound</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="texto-campo-input" for="txttipo_de_negociacao">Tipo de Negociação</label>
+                <select class="form-select entrada-campo-input" th:field="*{tipo_de_negociacao}">
+                    <option value="1" th:selected="${umaNegociacao.tipo_de_negociacao == '1'}">Compra</option>
+                    <option value="2" th:selected="${umaNegociacao.tipo_de_negociacao == '2'}">Venda</option>
+                    <option value="3" th:selected="${umaNegociacao.tipo_de_negociacao == '3'}">Indefinido</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="texto-campo-input" for="txtfase_de_negociacao">Fase da Negociação</label>
+                <select class="form-select entrada-campo-input" th:field="*{fase_de_negociacao}">
+                    <option value="1" th:selected="${umaNegociacao.fase_de_negociacao == '1'}">Lead</option>
+                    <option value="2" th:selected="${umaNegociacao.fase_de_negociacao == '2'}">Não efetivada</option>
+                    <option value="2" th:selected="${umaNegociacao.fase_de_negociacao == '2'}">Retornar contato</option>
+                    <option value="2" th:selected="${umaNegociacao.fase_de_negociacao == '2'}">Efetivada</option>
+                    <option value="3" th:selected="${umaNegociacao.fase_de_negociacao == '3'}">Indefinido</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="texto-campo-input" for="txtdata_de_checkpoint_da_fase">Data de Checkpoint da Fase</label>
+                <input id="txtdata_de_checkpoint_da_fase"
+                       th:field="*{data_de_checkpoint_da_fase}"
+                       type="date"
+                       class="form-control entrada-campo-input">
+            </div>
+
+            <div class="form-group">
+                <label class="texto-campo-input" for="txtcorretor_da_negociacao">Corretor da Negociação</label>
+                <select class="form-select entrada-campo-input" th:field="*{corretor_da_negociacao}">
+                    <option th:each="corretor : ${listaDeCorretores}"
+                            th:text="${corretor.nome}"
+                            th:value="${corretor.id}">
+
+                    </option>
+
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="texto-campo-input" for="txtcliente_da_negociacao">Cliente da Negociação</label>
+                <select class="form-select entrada-campo-input" th:field="*{cliente_da_negociacao}">
+                    <option th:each="cliente : ${listaDeClientes}"
+                            th:text="${cliente.nome}"
+                            th:value="${cliente.id}">
+
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="texto-campo-input" for="txtimovel_da_negociacao">Imóvel da Negociação</label>
+                <select class="form-select entrada-campo-input" th:field="*{imovel_da_negociacao}">
+                    <option th:each="imovel : ${listaDeImoveis}"
+                            th:text="${imovel.nome}"
+                            th:value="${imovel.id}">
+
+                    </option>
+
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="texto-campo-input" for="txtprojeto_da_negociacao">Projeto da Negociação</label>
+                <select class="form-select entrada-campo-input" th:field="*{projeto_da_negociacao}">
+                    <option th:each="imovel : ${listaDeImoveis}"
+                            th:text="${imovel.nome}"
+                            th:value="${imovel.id}">
+
+                    </option>
+
+                </select>
+            </div>
+
+
+            <br>
+            <a href="/negociacoes" class="form-control btn btn-danger">Cancelar</a>
+            <button type="submit" class="form-control btn btn-success btn_espacinho">Salvar</button>
+        </form>
+    </main>
+
+    <div th:include="layout :: footer">(footer)</div>
+    <script th:src="@{/scriptnegociacao.js}"></script>
+</body>
+</html>

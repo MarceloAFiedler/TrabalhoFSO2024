@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:include="layout :: htmlhead"></head>
+<body>
+    
+    <nav th:replace="layout :: menu">(menu)</nav>
+
+    <main>
+    <div class="caixa-de-conteudo-dupla-topo">
+            <div class="mini_menu_paginas_listar">
+                <div class="mini_menu_paginas_listar_mini_nav">
+                    <a class="btn retornar" href="/"><</a>
+                    <h1 class="hUm">Agenda desta semana</h1>
+                </div>
+            </div>
+            <div class="mini_menu_paginas_listar">
+                <div class="mini_menu_paginas_listar_mini_nav">
+                    <h1 class="hUm">Segunda-feira</h1>
+                </div>
+            </div>
+            <br>
+            <div class="caixa-da-tabela">
+                <table id="tabeladashboard_agenda" class="table table-striped tabela_listar">
+                    <thead>
+                        <th>Descrição</th>
+                        <th>Tipo</th>
+                        <th>Data</th>
+                    </thead>
+                    <tbody>
+                        <tr th:each="agenda : ${listaDeAgendas}" th:if="${agenda.dia_da_semana == 1}">
+                            <td th:text="${agenda.descricao}"></td>
+                            <td>
+                                <span th:switch="${agenda.tipo}">
+                                    <span th:case="1" class="badge bg-dark">Meta</span>
+                                <span th:case="2" class="badge bg-warning text-dark">Negociação</span>
+                                <span th:case="3" class="badge bg-info text-dark">Status Projeto</span>
+                                <span th:case="4" class="badge bg-primary">Status Pagamento</span>
+                                <span th:case="*">Indefinido</span>
+                                </span>
+                            </td>
+                            <td th:text="${#dates.format(agenda.data_do_compromisso, 'EEE, dd')} + ' de ' + ${#dates.format(agenda.data_do_compromisso, 'MMMM')}"></td>
+                           
+                        </tr>                        
+                    </tbody>
+                </table>
+            </div>
+    </div>
+    <div class="caixa-de-conteudo-dupla-fundo">    
+        <div class="mini_menu_paginas_listar">
+            <div class="mini_menu_paginas_listar_mini_nav">
+                <h1 class="hUm">Terça-feira</h1>
+            </div>
+        </div>
+        <br>
+        <div class="caixa-da-tabela">
+            <table id="tabeladashboard_agenda" class="table table-striped tabela_listar">
+                <thead>
+                    <th>Descrição</th>
+                    <th>Tipo</th>
+                    <th>Data</th>
+                </thead>
+                <tbody>
+                    <tr th:each="agenda : ${listaDeAgendas}" th:if="${agenda.dia_da_semana == 2}">
+                        <td th:text="${agenda.descricao}"></td>
+                        <td>
+                            <span th:switch="${agenda.tipo}">
+                                <span th:case="1" class="badge bg-dark">Meta</span>
+                                <span th:case="2" class="badge bg-warning text-dark">Negociação</span>
+                                <span th:case="3" class="badge bg-info text-dark">Status Projeto</span>
+                                <span th:case="4" class="badge bg-primary">Status Pagamento</span>
+                                <span th:case="*">Indefinido</span>
+                            </span>
+                        </td>
+                        <td th:text="${#dates.format(agenda.data_do_compromisso, 'EEE, dd')} + ' de ' + ${#dates.format(agenda.data_do_compromisso, 'MMMM')}"></td>
+                        
+                    </tr>                        
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="caixa-de-conteudo-dupla-fundo">    
+        <div class="mini_menu_paginas_listar">
+            <div class="mini_menu_paginas_listar_mini_nav">
+                <h1 class="hUm">Quarta-feira</h1>
+            </div>
+        </div>
+        <br>
+        <div class="caixa-da-tabela">
+            <table id="tabeladashboard_agenda" class="table table-striped tabela_listar">
+                <thead>
+                    <th>Descrição</th>
+                    <th>Tipo</th>
+                    <th>Data</th>
+                </thead>
+                <tbody>
+                    <tr th:each="agenda : ${listaDeAgendas}" th:if="${agenda.dia_da_semana == 3}">
+                        <td th:text="${agenda.descricao}"></td>
+                        <td>
+                            <span th:switch="${agenda.tipo}">
+                                <span th:case="1" class="badge bg-dark">Meta</span>
+                                <span th:case="2" class="badge bg-warning text-dark">Negociação</span>
+                                <span th:case="3" class="badge bg-info text-dark">Status Projeto</span>
+                                <span th:case="4" class="badge bg-primary">Status Pagamento</span>
+                                <span th:case="*">Indefinido</span>
+                            </span>
+                        </td>
+                        <td th:text="${#dates.format(agenda.data_do_compromisso, 'EEE, dd')} + ' de ' + ${#dates.format(agenda.data_do_compromisso, 'MMMM')}"></td>
+                        
+                    </tr>                        
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="caixa-de-conteudo-dupla-fundo">    
+        <div class="mini_menu_paginas_listar">
+            <div class="mini_menu_paginas_listar_mini_nav">
+                <h1 class="hUm">Quinta-feira</h1>
+            </div>
+        </div>
+        <br>
+        <div class="caixa-da-tabela">
+            <table id="tabeladashboard_agenda" class="table table-striped tabela_listar">
+                <thead>
+                    <th>Descrição</th>
+                    <th>Tipo</th>
+                    <th>Data</th>
+                </thead>
+                <tbody>
+                    <tr th:each="agenda : ${listaDeAgendas}" th:if="${agenda.dia_da_semana == 4}">
+                        <td th:text="${agenda.descricao}"></td>
+                        <td>
+                            <span th:switch="${agenda.tipo}">
+                                <span th:case="1" class="badge bg-dark">Meta</span>
+                                <span th:case="2" class="badge bg-warning text-dark">Negociação</span>
+                                <span th:case="3" class="badge bg-info text-dark">Status Projeto</span>
+                                <span th:case="4" class="badge bg-primary">Status Pagamento</span>
+                                <span th:case="*">Indefinido</span>
+                            </span>
+                        </td>
+                        <td th:text="${#dates.format(agenda.data_do_compromisso, 'EEE, dd')} + ' de ' + ${#dates.format(agenda.data_do_compromisso, 'MMMM')}"></td>
+                        
+                    </tr>                        
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="caixa-de-conteudo-dupla-fundo">    
+        <div class="mini_menu_paginas_listar">
+            <div class="mini_menu_paginas_listar_mini_nav">
+                <h1 class="hUm">Sexta-feira</h1>
+            </div>
+        </div>
+        <br>
+        <div class="caixa-da-tabela">
+            <table id="tabeladashboard_agenda" class="table table-striped tabela_listar">
+                <thead>
+                    <th>Descrição</th>
+                    <th>Tipo</th>
+                    <th>Data</th>
+                </thead>
+                <tbody>
+                    <tr th:each="agenda : ${listaDeAgendas}" th:if="${agenda.dia_da_semana == 5}">
+                        <td th:text="${agenda.descricao}"></td>
+                        <td>
+                            <span th:switch="${agenda.tipo}">
+                                <span th:case="1" class="badge bg-dark">Meta</span>
+                                <span th:case="2" class="badge bg-warning text-dark">Negociação</span>
+                                <span th:case="3" class="badge bg-info text-dark">Status Projeto</span>
+                                <span th:case="4" class="badge bg-primary">Status Pagamento</span>
+                                <span th:case="*">Indefinido</span>
+                            </span>
+                        </td>
+                        <td th:text="${#dates.format(agenda.data_do_compromisso, 'EEE, dd')} + ' de ' + ${#dates.format(agenda.data_do_compromisso, 'MMMM')}"></td>
+                        
+                    </tr>                        
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="caixa-de-conteudo-dupla-fundo">    
+        <div class="mini_menu_paginas_listar">
+            <div class="mini_menu_paginas_listar_mini_nav">
+                <h1 class="hUm">Sábado</h1>
+            </div>
+        </div>
+        <br>
+        <div class="caixa-da-tabela">
+            <table id="tabeladashboard_agenda" class="table table-striped tabela_listar">
+                <thead>
+                    <th>Descrição</th>
+                    <th>Tipo</th>
+                    <th>Data</th>
+                </thead>
+                <tbody>
+                    <tr th:each="agenda : ${listaDeAgendas}" th:if="${agenda.dia_da_semana == 6}">
+                        <td th:text="${agenda.descricao}"></td>
+                        <td>
+                            <span th:switch="${agenda.tipo}">
+                                <span th:case="1" class="badge bg-dark">Meta</span>
+                                <span th:case="2" class="badge bg-warning text-dark">Negociação</span>
+                                <span th:case="3" class="badge bg-info text-dark">Status Projeto</span>
+                                <span th:case="4" class="badge bg-primary">Status Pagamento</span>
+                                <span th:case="*">Indefinido</span>
+                            </span>
+                        </td>
+                        <td th:text="${#dates.format(agenda.data_do_compromisso, 'EEE, dd')} + ' de ' + ${#dates.format(agenda.data_do_compromisso, 'MMMM')}"></td>
+                        
+                    </tr>                        
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="caixa-de-conteudo-dupla-fundo">    
+        <div class="mini_menu_paginas_listar">
+            <div class="mini_menu_paginas_listar_mini_nav">
+                <h1 class="hUm">Domingo</h1>
+            </div>
+        </div>
+        <br>
+        <div class="caixa-da-tabela">
+            <table id="tabeladashboard_agenda" class="table table-striped tabela_listar">
+                <thead>
+                    <th>Descrição</th>
+                    <th>Tipo</th>
+                    <th>Data</th>
+                </thead>
+                <tbody>
+                    <tr th:each="agenda : ${listaDeAgendas}" th:if="${agenda.dia_da_semana == 7}">
+                        <td th:text="${agenda.descricao}"></td>
+                        <td>
+                            <span th:switch="${agenda.tipo}">
+                                <span th:case="1" class="badge bg-dark">Meta</span>
+                                <span th:case="2" class="badge bg-warning text-dark">Negociação</span>
+                                <span th:case="3" class="badge bg-info text-dark">Status Projeto</span>
+                                <span th:case="4" class="badge bg-primary">Status Pagamento</span>
+                                <span th:case="*">Indefinido</span>
+                            </span>
+                        </td>
+                        <td th:text="${#dates.format(agenda.data_do_compromisso, 'EEE, dd')} + ' de ' + ${#dates.format(agenda.data_do_compromisso, 'MMMM')}"></td>
+
+                    </tr>                        
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    
+    </main>
+
+    
+
+    <div th:include="layout :: footer">(footer)</div>
+    <script th:src="@{/scriptnotificacoes.js}"></script>
+
+</body>
+</html>
